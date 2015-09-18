@@ -1,0 +1,37 @@
+<body id="signin">
+	<div class="bg clear">
+
+		<a href="<%= root_url %>" class="logo">
+			<%= image_tag "logo.png" %>
+		</a>
+
+		<h3>Insurance Pricing Room</h3>
+
+		<div class="content">
+			<form>
+				<div class="fields">
+					<strong>Email Address</strong>
+					<input class="form-control" type="text" placeholder="Your email" />
+				</div>
+				<div class="fields">
+					<strong>Password</strong>
+					<input class="form-control" type="password" placeholder="Password" />
+				</div>
+				<div class="info">
+					<label>
+						<input type="checkbox" name="remember" checked />
+						Remember me
+					</label>
+				</div>
+				<div class="actions">
+					<a href="<%= root_url %>" class="btn btn-primary btn-lg">Sign in to your account</a>
+				</div>
+			</form>
+		</div>
+
+		<div class="bottom-wrapper">
+			<!-- Leave blank -->
+		</div>
+	</div>
+
+</body>
