@@ -9,11 +9,55 @@ height: 100%;
 background-color: red !important;
 }
 
+nav {
+    width: 100%;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-right: none;
+}
+
+nav ul {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    list-style: none;
+    float: left;
+    text-align: center;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #ccc;
+    width: 16.6667%; /* fallback for non-calc() browsers */
+    width: calc(100% / 6);
+    box-sizing: border-box;
+}
+
+nav ul li:first-child {
+    border-left: none;
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: #616161;
+    padding: 10px 0;
+}
+
 div#content {
 background-color: #F2F5F8 !important;
 width: 940px;
 height: 304px;
 margin: 10% auto;
+
+h1.logo{
+width: 715px;
+padding-left: 125px;
+margin: 0 auto;
+height: 10px;
+margin-bottom: 20px;
+background: asset-data-url("divider.png") bottom left no-repeat;
+}
 
 .logo {
 
@@ -24,6 +68,67 @@ margin: 10% auto;
 		height:200px;
 		display: block;
 		margin: 75px auto
+}
+
+a.li{
+width: 60px;
+color: #fff;
+font-size: 10px;
+text-transform: uppercase;
+font-weight: bold;
+line-height: 22px;
+height: 22px;
+text-decoration: none;
+background: asset-data-url("social.png")left top no-repeat;
+float: left;
+margin-right: 10px;
+padding: 0 0 0 25px;
+}
+
+a.li:hover{
+background: asset-data-url("social.png") left bottom no-repeat;
+color: #4875b4;
+}
+
+
+a.tw{
+width: 54px;
+color: #ffffff;
+font-size: 10px;
+text-transform: uppercase;
+font-weight: bold;
+line-height: 22px;
+height: 22px;
+text-decoration: none;
+background: asset-data-url("social.png") -85px top no-repeat;
+float: left;
+margin-right: 10px;
+padding: 0 0 0 25px;
+}
+
+a.tw:hover{
+background: asset-data-url("social.png") -85px bottom no-repeat;
+color: #33ccff;
+}
+
+
+a.fb{
+width: 65px;
+color: #fff;
+font-size: 10px;
+text-transform: uppercase;
+font-weight: bold;
+line-height: 22px;
+height: 22px;
+text-decoration: none;
+background: asset-data-url("social.png") -164px top no-repeat;
+float: left;
+padding: 0 0 0 25px;
+}
+
+a.fb:hover{
+background: asset-data-url("social.png") -164px bottom no-repeat;
+color: #3b5998;
 }
 
 /* IE4ever Hack: Hide from IE4 **/
