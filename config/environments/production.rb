@@ -57,7 +57,14 @@ Rails.application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"
 
-
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET'], # insurance-pricing-room
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'], # AKIAJLIQ5LEKAAF3CR2Q
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'] # b1mGHd4EaLyHckJgBnv/HKb8+OvhVBd+dBv2Qwll
+    }
+  }
 
   # Delivery settings example using gmail, normally you'd want to use
   # something like SendGrid, Mandrill, Mailgun, etc.
@@ -66,11 +73,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'my_app.com',
+    domain:               'insurance-pricing-room.herokuapp.com',
     user_name:            ENV['GMAIL_USERNAME'],
     password:             ENV['GMAIL_PASSWORD'],
     authentication:       'plain',
-    enable_starttls_auto: true  
+    enable_starttls_auto: true
   }
 
   # Precompile additional assets.

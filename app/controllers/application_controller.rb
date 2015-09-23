@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   	before_filter :detect_pjax
 
+    include SessionsHelper
+
 private
 	def detect_pjax
 		if request.headers['X-PJAX']

@@ -1,0 +1,15 @@
+<%= form_for(@user, multipart: true) do |f| %>
+  <div class="form-group avatar-field clearfix">
+    <div class="col-sm-3">
+      <%= image_tag @user.avatar.url, class: "img-responsive img-circle" %>
+    </div>
+    <div class="col-sm-9">
+      <label>Set up your avatar picture</label>
+        <%= f.file_field :avatar %>
+        <br/>
+        <%= f.submit 'Upload' %>
+        <br/><br/>
+        <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+<% end %>

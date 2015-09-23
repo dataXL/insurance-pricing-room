@@ -32,6 +32,15 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :bucket => ENV['AWS_BUCKET'], # insurance-pricing-room
+    :s3_credentials => {
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'], # AKIAJLIQ5LEKAAF3CR2Q
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'] # 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
+    }
+  }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
