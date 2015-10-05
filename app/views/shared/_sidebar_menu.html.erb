@@ -163,7 +163,11 @@
           <!-- <li><a href="#">3 features added</a></li> -->
         </ul>
       </li>
-      <li><a href="<%= signin_features_path %>"><i class="ion-log-out"></i></a></li>
+      <li>
+        <%= link_to logout_path, method: :delete do %>
+          <i class="ion-log-out"></i>
+        <% end %>
+      </li>
     </ul>
   </div>
 </div>

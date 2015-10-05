@@ -1,3 +1,4 @@
+<% provide(:title, "Dashboard") %>
 <%= content_for :body_id, "dashboard" %>
 
 <div class="menubar">
@@ -8,4 +9,6 @@
   <div class="page-title">
     Dashboard
   </div>
+
+  <%= current_user.email %>
 </div>
