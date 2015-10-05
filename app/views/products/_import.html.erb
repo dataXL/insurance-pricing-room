@@ -1,0 +1,50 @@
+<script>
+var $plans = $(".plans .plan");
+$plans.click(function () {
+  if ( $plans.hasClass( "selected" ) ) {
+    $(this).removeClass("selected");
+  } else {
+    $(this).addClass("selected");
+  }
+});
+</script>
+
+<div class="step-panel active choose-plan">
+  <div class="instructions">
+    <strong>Please choose below</strong> which properties do you want to include:
+  </div>
+
+  <div class="plans">
+  <% unless @header.blank? %>
+    <% @header.each do |hash| %>
+      <div class="plan clearfix selected">
+        <div class="info">
+          <div class="name">
+            <%= hash %>
+          </div>
+          <div class="details" style="margin-top:10px">
+            <%= radio_button_tag(hash, "string", { :checked => "checked" }) %>
+            <%= label_tag(hash, "Text", :style => "margin: 0px 10px 0px 5px;") %>
+            <%= radio_button_tag(hash, "int") %>
+            <%= label_tag(hash, "Integer", :style => "margin: 0px 10px 0px 5px;") %>
+            <%= radio_button_tag(hash, "double") %>
+            <%= label_tag(hash, "Decimal", :style => "margin-left:5px;") %>
+          </div>
+          <div class="select">
+            <i class="fa fa-check"></i>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+
+<div class="step">
+  <a class="button" href="#" data-step="1">
+    <span><i class="fa fa-angle-double-left"></i> Back</span>
+  </a>
+  <button type="submit" class="button" data-step="3">
+    <span>Next Step <i class="fa fa-angle-double-right"></i></span>
+  </button>
+</div>

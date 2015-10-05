@@ -1,15 +1,60 @@
-<%= form_for(@user, multipart: true) do |f| %>
-  <div class="form-group avatar-field clearfix">
-    <div class="col-sm-3">
-      <%= image_tag @user.avatar.url, class: "img-responsive img-circle" %>
-    </div>
-    <div class="col-sm-9">
-      <label>Set up your avatar picture</label>
-        <%= f.file_field :avatar %>
-        <br/>
-        <%= f.submit 'Upload' %>
-        <br/><br/>
-        <%= f.text_field :name, class: 'form-control' %>
-    </div>
+<%= content_for :body_id, "account" %>
+
+<div id="sidebar">
+  <div class="sidebar-toggler visible-xs">
+    <i class="ion-navicon"></i>
   </div>
-<% end %>
+
+  <h3>My account</h3>
+  <ul class="menu">
+    <li>
+      <a href="<%= settings_account_index_path %>" class="active">
+        <i class="ion-ios7-person-outline"></i>
+        Profile
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div id="panel" class="profile">
+  <h3>
+    Profile settings
+  </h3>
+
+  <p class="intro">
+    Change your account information, avatar, login credentials, etc.
+  </p>
+
+  <%= form_for(@user, multipart: true) do |f| %>
+    <div class="form-group avatar-field clearfix">
+      <div class="col-sm-3">
+        <%= image_tag "avatars/18.jpg", class: "img-responsive img-circle" %>
+        <%# gravatar_for @user %>
+        <!--<img src="<%# (@user.avatar.url(:medium)).gsub(/^./, "") %>" class="img-responsive img-circle"></img>-->
+      </div>
+      <div class="col-sm-9">
+        <label>Set up your avatar picture</label>
+          <%= f.file_field :avatar %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+    </div>
+    <div class="form-group action">
+      <%= f.submit "Save changes", class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>

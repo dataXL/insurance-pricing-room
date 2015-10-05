@@ -1,0 +1,59 @@
+<%= content_for :body_id, "wizard" %>
+<%= render :partial => "shared/wizard_steps" %>
+
+<script>
+$(document).ready ( function () {
+  $(".header .steps .step").removeClass("active").filter(":lt(2)").addClass("active");
+
+  var $plans = $(".form-wizard .plans .plan");
+
+  $plans.click(function () {
+    if ( $(this).hasClass( "selected" ) ) {
+      $(this).find("input:hidden").val("false");
+      $(this).removeClass("selected");
+    } else {
+      $(this).find("input:hidden").val("true");
+      $(this).addClass("selected");
+    }
+  });
+});
+</script>
+
+<section class="form-wizard">
+
+  <div class="instructions" style="width:715px !important; margin: 0 auto !important; text-align: center !important; margin-bottom: 20px !important">
+    <strong>Please choose below</strong> which properties do you want to include:
+  </div>
+
+  <div class="step active animated fadeInRightStep">
+  <%= form_tag filter_products_path do %>
+    <div class="plans">
+      <% unless @header.blank? %>
+        <% for i in 0..(@header.size - 1) %>
+          <div class="plan clearfix selected">
+            <div class="info">
+              <div class="name">
+                <%= I18n.transliterate(@header[i]).gsub(/\s/, '_').gsub(/[^0-9A-Za-z](_)/, '').downcase %>
+              </div>
+              <div class="details" style="margin-top:10px">
+                <%= radio_button_tag("radio#{i}", "string", { :checked => "checked" }) %>
+                <%= label_tag(hash, "Text", :style => "margin: 0px 10px 0px 5px;") %>
+                <%# radio_button_tag(hash, "int") %>
+                <%# label_tag(hash, "Integer", :style => "margin: 0px 10px 0px 5px;") %>
+                <%# radio_button_tag(hash, "double") %>
+                <%# label_tag(hash, "Decimal", :style => "margin-left:5px;") %>
+              </div>
+              <div class="select">
+                <%= hidden_field "option#{i}", "", value: "true" %>
+                <i class="fa fa-check"></i>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      </div>
+    <%= render :partial => "shared/buttons_footer" %>
+  <% end %>
+  </div>
+</section>
+

@@ -10,6 +10,8 @@ gem 'rails' , '4.2.2'
 gem 'thin'
 gem 'pg'
 
+gem 'roo', :git => 'https://github.com/roo-rb/roo.git'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -20,6 +22,12 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
+gem "iconv", "~> 1.0.3"
+gem 'remotipart'
+gem 'responders', '~> 2.0'
+gem 'fog'
+# Falta aqui a gema do I18n
+gem 'virtus', '~> 1.0.5'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

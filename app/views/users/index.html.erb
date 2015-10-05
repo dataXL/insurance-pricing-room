@@ -1,0 +1,140 @@
+<%= content_for :body_id, "users" %>
+
+<div class="menubar fixed">
+  <div class="sidebar-toggler visible-xs">
+    <i class="ion-navicon"></i>
+  </div>
+
+  <div class="page-title">
+    Users
+  </div>
+  <form class="search hidden-xs">
+    <i class="fa fa-search"></i>
+    <input type="text" name="q" placeholder="Search users..." />
+    <input type="submit" />
+  </form>
+  <!--<a href="<%= new_customer_forms_path %>" class="new-user btn btn-success pull-right">
+    <span>New user</span>
+  </a>-->
+</div>
+
+<div class="content-wrapper">
+  <!--<div class="row page-controls">
+    <div class="col-md-12 filters">
+      <div class="links">
+        <label>Filter users:</label>
+        <a href="#">All users (1)</a>
+        <a href="#" class="active">Active (1)</a>
+        <a href="#">Suspended (0)</a>
+        <a href="#">Prospects</a>
+      </div>
+
+      <div class="show-options">
+        <div class="dropdown">
+            <a class="button" data-toggle="dropdown" href="#">
+              <span>
+                Sort by
+                <i class="fa fa-unsorted"></i>
+              </span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li><a href="#">Name</a></li>
+            <li><a href="#">Signed up</a></li>
+            <li><a href="#">Last seen</a></li>
+            <li><a href="#">Browser</a></li>
+            <li><a href="#">Country</a></li>
+            </ul>
+        </div>
+        <a href="#" data-grid=".users-list" class="grid-view active"><i class="fa fa-th-list"></i></a>
+        <a href="#" data-grid=".users-grid" class="grid-view"><i class="fa fa-th"></i></a>
+      </div>
+    </div>
+  </div>-->
+
+  <div class="row users-list">
+    <div class="col-md-12">
+      <div class="row headers">
+        <div class="col-sm-2 header select-users">
+          <input type="checkbox" />
+          <div class="dropdown bulk-actions">
+            <a data-toggle="dropdown" href="#">
+                Bulk actions
+                <span class="total-checked"></span>
+
+                <i class="fa fa-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="#">Add tags</a></li>
+                <li><a href="#">Delete users</a></li>
+                <li><a href="#">Manage roles</a></li>
+              </ul>
+          </div>
+        </div>
+        <div class="col-sm-3 header hidden-xs">
+          <label><a href="#">Name</a></label>
+        </div>
+        <div class="col-sm-3 header hidden-xs">
+          <label><a href="#">Email</a></label>
+        </div>
+        <div class="col-sm-2 header hidden-xs">
+          <label><a href="#">Role</a></label>
+        </div>
+        <div class="col-sm-2 header hidden-xs">
+          <label class="text-right"><a href="#">Signed up</a></label>
+        </div>
+      </div>
+      <% @users.each do |user| %>
+      <div class="row user">
+        <div class="col-sm-2 avatar">
+          <input type="checkbox" name="select-user" />
+          <%= image_tag "avatars/18.jpg" %>
+        </div>
+        <div class="col-sm-3">
+          <a href="<%= user_path(user) %>" class="name"><%= user.name %></a>
+        </div>
+        <div class="col-sm-3">
+          <div class="email"><%=user.email %></div>
+        </div>
+        <div class="col-sm-2">
+          <div class="total-spent">
+            <%# user.role %>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="created-at">
+            <%= user.created_at.strftime("%m/%d/%Y") %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+      <div class="row pager-wrapper">
+        <div class="col-sm-12">
+          <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row users-grid">
+    <div class="user col-sm-3 col-xs-6">
+      <a href="#">
+        <%= image_tag "avatars/18.jpg" %>
+      </a>
+      <div class="name">Jorge André Pereira</div>
+      <div class="email">jahpereira@gmail.com</div>
+    </div>
+
+    <div class="pager-wrapper">
+      <div class="col-sm-12">
+        <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

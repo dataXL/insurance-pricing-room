@@ -51,9 +51,12 @@
 				    <textarea class="form-control" rows="4" name="customer[notes]"></textarea>
 			  	</div>
 			  	<div class="form-group form-actions">
-		      		<button type="submit" class="button" data-step="2">
+			  			<%= button_tag(type: 'submit', class: "button", data: {"step": "2"}) do %>
+			  				<span>Next Step <i class="fa fa-angle-double-right"></i></span>
+			  			<% end %>
+		      		<!--<button type="submit" class="button" data-step="2">
 		      			<span>Next Step <i class="fa fa-angle-double-right"></i></span>
-		      		</button>
+		      		</button>-->
 			  	</div>
 			</div>
 			<div class="step">

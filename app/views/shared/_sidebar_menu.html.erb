@@ -1,15 +1,15 @@
 <div id="sidebar-default" class="main-sidebar fix-scroll">
   <div class="current-user">
       <a href="#" class="name">
-        <%= image_tag "avatars/1.jpg", class: "avatar" %>
+        <%= image_tag "avatars/18.jpg", class: "avatar" %>
         <span>
-          John Smith
+          Jorge Pereira
           <i class="fa fa-chevron-down"></i>
         </span>
       </a>
       <ul class="menu">
         <li>
-          <a href="<%= settings_account_index_path %>">Account settings</a>
+          <a href="<%= edit_user_path(1) %>">Account settings</a>
         </li>
         <li>
           <a href="<%= signin_features_path %>">Sign out</a>
@@ -20,12 +20,37 @@
     <h3>General</h3>
     <ul>
       <li class="option">
-        <a href="<%= root_url %>" class="active">
+        <a href="<%= dashboard_path %>">
           <i class="ion-android-earth"></i>
           <span>Dashboard</span>
         </a>
       </li>
       <li class="option">
+        <a href="#" data-toggle="sidebar">
+          <i class="ion-alert-circled"></i> <span>Risk Analysis</span>
+          <i class="fa fa-chevron-down"></i>
+        </a>
+        <ul class="submenu">
+          <li><a href="#">Upload risk table</a></li>
+        </ul>
+      </li>
+      <li class="option">
+        <a href="#" data-toggle="sidebar">
+          <i class="ion-pie-graph"></i> <span>Market Analysis</span>
+          <i class="fa fa-chevron-down"></i>
+        </a>
+        <ul class="submenu">
+          <li><a href="<%= products_path %>">View competitive set</a></li>
+          <li><a href="<%= new_product_path %>">Upload competitive set</a></li>
+        </ul>
+      </li>
+      <li class="option">
+        <a href="#" data-toggle="sidebar">
+          <i class="ion-shuffle"></i> <span>Conjoint Analysis</span>
+          <!--<i class="fa fa-chevron-down"></i>-->
+        </a>
+      </li>
+      <!--<li class="option">
         <a href="#" data-toggle="sidebar">
           <i class="ion-person-stalker"></i> <span>Lists & Tables</span>
           <i class="fa fa-chevron-down"></i>
@@ -56,13 +81,13 @@
           <li><a href="<%= new_product_forms_path %>">New Product (add-ons)</a></li>
           <li><a href="<%= wizard_forms_path %>">Wizard</a></li>
         </ul>
-      </li>
+      </li>-->
     </ul>
   </div>
   <div class="menu-section">
     <h3>Application</h3>
     <ul>
-      <li class="option">
+      <!--<li class="option">
         <a href="#" data-toggle="sidebar">
           <i class="ion-earth"></i> <span>App Pages</span>
           <i class="fa fa-chevron-down"></i>
@@ -75,20 +100,19 @@
           <li><a href="<%= steps_pages_path %>">Steps to launch</a></li>
           <li><a href="<%= calendar_pages_path %>">Calendar</a></li>
         </ul>
-      </li>
+      </li>-->
       <li class="option">
         <a href="#" data-toggle="sidebar">
           <i class="ion-card"></i> <span>Pricing</span>
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="<%= plans_pricing_index_path %>">Pricing (Plans)</a></li>
           <li><a href="<%= charts_pricing_index_path %>">Pricing charts</a></li>
           <li><a href="<%= form_pricing_index_path %>">Billing form</a></li>
           <li><a href="<%= invoice_pricing_index_path %>">Invoice</a></li>
         </ul>
       </li>
-      <li class="option">
+      <!--<li class="option">
         <a href="#" data-toggle="sidebar">
           <i class="ion-flash"></i> <span>Features</span>
           <i class="fa fa-chevron-down"></i>
@@ -102,7 +126,7 @@
           <li><a href="<%= signin_features_path %>">Sign in</a></li>
           <li><a href="<%= status_features_path %>">App Status</a></li>
         </ul>
-      </li>
+      </li>-->
     </ul>
   </div>
   <div class="menu-section">
@@ -110,12 +134,18 @@
     <ul>
       <li class="option">
         <a href="#" data-toggle="sidebar">
-          <i class="ion-person"></i> <span>My account</span>
+          <i class="ion-person"></i> <span>Account</span>
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="<%= settings_account_index_path %>">Profile</a></li>
+          <li><a href="<%= edit_user_path(1) %>">Profile</a></li>
         </ul>
+      </li>
+      <li class="option">
+        <a href="<%= users_path %>">
+          <i class="ion-person-stalker"></i>
+          <span>Users & Roles</span>
+        </a>
       </li>
     </ul>
   </div>

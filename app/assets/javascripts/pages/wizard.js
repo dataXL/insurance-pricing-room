@@ -1,6 +1,6 @@
 (function () {
 	var page_scripts = function () {
-		if (!$("#wizard").length) return;
+		if (!$("#wizard2").length) return;
 
 		var $steps = $(".form-wizard .step"),
 			$buttons = $steps.find("[data-step]"),

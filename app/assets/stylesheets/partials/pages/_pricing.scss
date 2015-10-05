@@ -2,6 +2,7 @@
 
 	#content {
 		min-height: 850px;
+		overflow-y: scroll;
 	}
 
 	.pricing-wizard {
@@ -67,7 +68,7 @@
 					display: block;
 				}
 			}
-			
+
 			&.active {
 				opacity: 1;
 				z-index: 2;
@@ -121,7 +122,7 @@
 						}
 					}
 
-					&.selected, 
+					&.selected,
 					&:hover {
 						background: #ebf2fb;
 
@@ -202,7 +203,7 @@
 
 					.btn {
 						font-size: 17px;
-						
+
 						i {
 							font-size: 13px;
 							margin-left: 7px;
@@ -260,7 +261,7 @@
 					.btn {
 						font-size: 16px;
 						@include transition(all .2s linear);
-						
+
 						i.fa-chevron-right {
 							font-size: 13px;
 							margin-left: 7px;

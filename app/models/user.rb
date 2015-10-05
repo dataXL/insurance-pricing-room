@@ -1,25 +1,20 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
+
   validates :name,  presence: true, length: { maximum: 50 }
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false },
                     allow_nil: true
-  has_attached_file :avatar,
-                    :storage => :s3,
-                    :bucket => 'insurance-pricing-room',
-                    :s3_credentials => {bucket: 'insurance-pricing-room',
-                                        access_key_id: 'AKIAJLIQ5LEKAAF3CR2Q',
-                                        secret_access_key: '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'},
-                    :s3_protocol    => "https",
-                    :s3_host_name   => "s3-eu-west-1.amazonaws.com"
+
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/, allow_nil: true
+
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-
-  # Validate the attached image is image/jpg, image/png, etc
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   # Returns the hash digest of the given string.
   def User.digest(string)

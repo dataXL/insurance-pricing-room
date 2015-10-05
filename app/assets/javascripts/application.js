@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require turbolinks
 //= require bootstrap/bootstrap.min
 //= require ../../../vendor/assets/javascripts/jquery.flot/jquery.flot

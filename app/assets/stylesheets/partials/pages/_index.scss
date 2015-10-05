@@ -52,7 +52,7 @@ margin: 10% auto;
 
 h1.logo{
 width: 715px;
-padding-left: 125px;
+padding-left: 0 !important;
 margin: 0 auto;
 height: 10px;
 margin-bottom: 20px;
@@ -71,7 +71,7 @@ background: asset-data-url("divider.png") bottom left no-repeat;
 }
 
 a.li{
-width: 60px;
+width: 80px;
 color: #fff;
 font-size: 10px;
 text-transform: uppercase;
@@ -92,7 +92,7 @@ color: #4875b4;
 
 
 a.tw{
-width: 54px;
+width: 74px;
 color: #ffffff;
 font-size: 10px;
 text-transform: uppercase;
@@ -187,12 +187,12 @@ font-size: 18px;
 }
 
 p.links{
-width: 274px;
+width: 174px;
 margin: 0 auto;
 }
 
 a.li{
-width: 100px;
+width: 100%;
 color: #000;
 font-size: 14px;
 text-transform: uppercase;
@@ -213,7 +213,7 @@ color: #4875b4;
 
 
 a.tw{
-width: 70px;
+width: 100%;
 color: #000;
 font-size: 14px;
 text-transform: uppercase;

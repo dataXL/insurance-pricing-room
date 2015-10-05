@@ -3,9 +3,12 @@
 	#content {
 		padding: 0 0 40px;
 
+
 		.content-wrapper {
 			margin-top: 0;
+			overflow-y: scroll;
 		}
+
 	}
 
 	.header {
@@ -114,6 +117,111 @@
 		width: 65%;
 		position: relative;
 
+		.choose-plan {
+			max-width: 640px;
+			margin: 0 auto;
+			margin-top: 40px;
+
+			.instructions {
+				color: #444;
+				padding-bottom: 20px;
+				padding-left: 10px;
+
+				strong {
+					font-size: 15px;
+					color: #555;
+				}
+
+				span {
+					font-weight: 600;
+					display: block;
+					margin-top: 30px;
+					color: #929191;
+					border-bottom: 1px solid #E6E6E6;
+					padding-bottom: 15px;
+				}
+			}
+			}
+
+		.plans {
+			max-width: 600px !important;
+			margin: 0 auto;
+
+			.plan {
+					margin-top: 5px;
+					position: relative;
+					padding: 12px 0;
+					border-radius: 5px;
+					cursor: pointer;
+
+					@include transition(all .15s linear);
+
+					@media (max-width: $maxSmall) {
+						padding: 12px 8px;
+					}
+
+					&.selected {
+						.select {
+							.fa-check {
+								display: inline-block;
+							}
+						}
+					}
+
+					&.selected,
+					&:hover {
+						background: #ebf2fb;
+
+						.price {
+							color: #458EDB;
+						}
+
+						.info {
+							.details {
+								color: #73ACE9;
+							}
+						}
+
+						.select {
+							border: 2px solid #8FC4FD;
+						}
+					}
+
+					.info {
+						float: left;
+						width: 260px;
+
+						.name {
+							font-size: 17px;
+							font-weight: 600;
+							color: #3e95f1;
+						}
+
+						.details {
+							color: #888;
+						}
+					}
+
+					.select {
+						position: absolute;
+						right: 10px;
+						top: 18px;
+						width: 27px;
+						height: 27px;
+						border-radius: 25px;
+						border: 2px solid #ccc;
+
+						.fa-check {
+							position: relative;
+							top: 2px;
+							left: 4px;
+							color: #057DFF;
+							display: none;
+						}
+					}
+				}
+		}
+
 		@media (max-width: $maxSmall) {
 			width: 84%;
 		}
@@ -122,14 +230,14 @@
 			opacity: 0;
 			position: absolute;
 			width: 100%;
-			
+
 			&.active {
 				opacity: 1;
 				z-index: 3;
 			}
 
 			.form-group {
-				margin-bottom: 21px;
+				padding: 20px;
 
 				.column {
 					width: 30%;
@@ -153,7 +261,7 @@
 					height: 100px;
 					display: table;
 					text-align: center;
-					
+
 					span {
 						color: #9B9B9B;
 						font-weight: bold;
@@ -193,7 +301,7 @@
 					font-size: 47px;
 					color: #3DA838;
 				}
-				
+
 				h3 {
 					margin-top: 25px;
 					font-size: 21px;

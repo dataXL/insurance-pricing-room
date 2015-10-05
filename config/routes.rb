@@ -7,7 +7,21 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  get 'test' => 'products#test'
+  get 'dashboard' => 'home#dashboard'
   resources :users
+
+  resources :products do
+    collection do
+      get 'select'
+      post 'select'
+      get 'filter'
+      post 'filter'
+      get 'import'
+      post 'import'
+      put  'complete'
+    end
+  end
 
   resources :lists do
     collection do
