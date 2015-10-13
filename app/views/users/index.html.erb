@@ -10,23 +10,22 @@
   </div>
   <form class="search hidden-xs">
     <i class="fa fa-search"></i>
-    <input type="text" name="q" placeholder="Search users..." />
-    <input type="submit" />
+    <input type="text" name="q" placeholder="Search users..."  aria-controls="row users-list"/>
   </form>
-  <!--<a href="<%= new_customer_forms_path %>" class="new-user btn btn-success pull-right">
-    <span>New user</span>
-  </a>-->
+  <a href="#" data-toggle="modal" data-target="#form-validation-modal" class="new-user btn btn-success pull-right">
+  	New user
+  </a>
 </div>
 
 <div class="content-wrapper">
-  <!--<div class="row page-controls">
+  <div class="row page-controls">
     <div class="col-md-12 filters">
       <div class="links">
         <label>Filter users:</label>
         <a href="#">All users (1)</a>
         <a href="#" class="active">Active (1)</a>
+        <a href="#">Pending (0)</a>
         <a href="#">Suspended (0)</a>
-        <a href="#">Prospects</a>
       </div>
 
       <div class="show-options">
@@ -37,19 +36,19 @@
                 <i class="fa fa-unsorted"></i>
               </span>
             </a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="margin-right:0px! important">
               <li><a href="#">Name</a></li>
-            <li><a href="#">Signed up</a></li>
-            <li><a href="#">Last seen</a></li>
-            <li><a href="#">Browser</a></li>
-            <li><a href="#">Country</a></li>
+              <li><a href="#">Email</a></li>
+              <li><a href="#">Role</a></li>
+              <li><a href="#">Status</a></li>
+              <li><a href="#">Signed up</a></li>
             </ul>
         </div>
-        <a href="#" data-grid=".users-list" class="grid-view active"><i class="fa fa-th-list"></i></a>
-        <a href="#" data-grid=".users-grid" class="grid-view"><i class="fa fa-th"></i></a>
+        <!--<a href="#" data-grid=".users-list" class="grid-view active"><i class="fa fa-th-list"></i></a>
+        <a href="#" data-grid=".users-grid" class="grid-view"><i class="fa fa-th"></i></a>-->
       </div>
     </div>
-  </div>-->
+  </div>
 
   <div class="row users-list">
     <div class="col-md-12">
@@ -64,20 +63,23 @@
                 <i class="fa fa-chevron-down"></i>
               </a>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                <li><a href="#">Add tags</a></li>
+                <li><a href="#">Reset password</a></li>
+                <li><a href="#">Suspend users</a></li>
                 <li><a href="#">Delete users</a></li>
-                <li><a href="#">Manage roles</a></li>
               </ul>
           </div>
         </div>
-        <div class="col-sm-3 header hidden-xs">
+        <div class="col-sm-2 header hidden-xs">
           <label><a href="#">Name</a></label>
         </div>
-        <div class="col-sm-3 header hidden-xs">
+        <div class="col-sm-2 header hidden-xs">
           <label><a href="#">Email</a></label>
         </div>
         <div class="col-sm-2 header hidden-xs">
           <label><a href="#">Role</a></label>
+        </div>
+        <div class="col-sm-2 header hidden-xs">
+          <label><a href="#">Status</a></label>
         </div>
         <div class="col-sm-2 header hidden-xs">
           <label class="text-right"><a href="#">Signed up</a></label>
@@ -87,18 +89,30 @@
       <div class="row user">
         <div class="col-sm-2 avatar">
           <input type="checkbox" name="select-user" />
-          <%= image_tag "avatars/18.jpg" %>
+          <%= image_tag "avatars/missing.jpg" %>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <a href="<%= user_path(user) %>" class="name"><%= user.name %></a>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <div class="email"><%=user.email %></div>
         </div>
         <div class="col-sm-2">
-          <div class="total-spent">
-            <%# user.role %>
-          </div>
+          <span class="name"><%=user.role %></span>
+        </div>
+        <div class="col-sm-2">
+        <span class="name">
+          <% puts case user.status %>
+            <% when "Active" %>
+              <span class="label label-success"><%=user.status %></span>
+            <% when "Pending" %>
+              <span class="label label-warning"><%=user.status %></span>
+            <% when "Suspended" %>
+              <span class="label label-danger"><%=user.status %></span>
+            <% else %>
+              <span><%= user.status %></span>
+          <% end %>
+        </span>
         </div>
         <div class="col-sm-2">
           <div class="created-at">
@@ -138,3 +152,39 @@
     </div>
   </div>
 </div>
+
+<%= content_for :bottom_content do %>
+  <!-- Form with Validation Modal -->
+  <div class="modal fade" id="form-validation-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="new-user-form" method="post" action="#" role="form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">
+              Create a new user
+            </h4>
+          </div>
+          <div class="modal-body">
+		        <div class="form-group">
+		            <label>Full name:</label>
+		            <input type="text" name="user[name]" class="form-control" />
+		          </div>
+		          <div class="form-group">
+		            <label>Email:</label>
+		            <input type="email" name="user[email]" class="form-control" />
+		          </div>
+		          <div class="form-group">
+		            <label>Notes:</label>
+		            <textarea class="form-control" name="user[notes]" rows="3"></textarea>
+		          </div>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	          <button type="submit" class="btn btn-success">Save user</button>
+	        </div>
+      	</form>
+    	</div>
+    </div>
+  </div>
+<% end %>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Wolf - Bootstrap Admin Theme</title>
+	<title><%= yield(:title) %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -22,12 +22,13 @@
 
         <div id="content">
           <%= yield %>
-          <%= debug(params) if Rails.env.development? %>
+          <%# debug(params) if Rails.env.development? %>
         </div>
     </div>
 
     <%# render "shared/skin_switcher" %>
 
     <%= yield :bottom_content %>
+    <%= include_rails_script %>
 </body>
 </html>

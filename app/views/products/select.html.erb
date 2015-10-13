@@ -38,10 +38,10 @@ $(document).ready ( function () {
               <div class="details" style="margin-top:10px">
                 <%= radio_button_tag("radio#{i}", "string", { :checked => "checked" }) %>
                 <%= label_tag(hash, "Text", :style => "margin: 0px 10px 0px 5px;") %>
-                <%# radio_button_tag(hash, "int") %>
-                <%# label_tag(hash, "Integer", :style => "margin: 0px 10px 0px 5px;") %>
-                <%# radio_button_tag(hash, "double") %>
-                <%# label_tag(hash, "Decimal", :style => "margin-left:5px;") %>
+                <%= radio_button_tag("radio#{i}", "int") %>
+                <%= label_tag(hash, "Integer", :style => "margin: 0px 10px 0px 5px;") %>
+                <%= radio_button_tag("radio#{i}", "double") %>
+                <%= label_tag(hash, "Float", :style => "margin-left:5px;") %>
               </div>
               <div class="select">
                 <%= hidden_field "option#{i}", "", value: "true" %>

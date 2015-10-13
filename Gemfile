@@ -26,8 +26,15 @@ gem "iconv", "~> 1.0.3"
 gem 'remotipart'
 gem 'responders', '~> 2.0'
 gem 'fog'
-# Falta aqui a gema do I18n
+gem 'i18n', '~> 0.7.0'
 gem 'virtus', '~> 1.0.5'
+gem 'active_model_serializers', '~> 0.9.3'
+# Colliding attributes
+gem 'safe_attributes'
+# RailsScript
+gem 'rails_script', '~> 0.6.1'
+# CoffeeRoutes
+gem 'coffee_routes'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

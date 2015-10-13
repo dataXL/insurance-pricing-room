@@ -26,3 +26,8 @@
 
 //= require theme
 //= require_directory ./pages/.
+
+//= require base
+//= require_tree ./utilities
+//= require_tree ./elements
+//= require_tree .

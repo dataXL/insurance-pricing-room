@@ -2,7 +2,7 @@
 	#content {
 
 		.sidebar-toggler {
-			z-index: 9;	
+			z-index: 9;
 		}
 
 		.page-title {
@@ -68,7 +68,7 @@
 						@media(max-width: $maxMedium) {
 							float: none;
 						}
-						
+
 						label {
 							font-size: 15px;
 							margin-right: 20px;
@@ -100,7 +100,7 @@
 							float: none;
 							margin-top: 23px;
 						}
-						
+
 						.dropdown {
 							display: inline-block;
 							position: relative;
@@ -126,7 +126,7 @@
 							.dropdown-menu {
 								left: -40%;
 								top: 115%;
-								
+
 								&:before {
 									content: "";
 									position: absolute;
@@ -231,7 +231,7 @@
 								color: #333;
 								text-decoration: none;
 								background: #fff;
-								
+
 								@include transition(all .14s linear);
 
 								&:hover {
@@ -331,7 +331,7 @@
 				.pager-wrapper {
 					margin-top: 30px;
 
-					.pager li > a, 
+					.pager li > a,
 					.pager li > span {
 						margin: 0 5px;
 					}
@@ -370,7 +370,7 @@
 				.pager-wrapper {
 					margin-top: 30px;
 
-					.pager li > a, 
+					.pager li > a,
 					.pager li > span {
 						margin: 0 5px;
 					}

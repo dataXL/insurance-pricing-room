@@ -5,6 +5,13 @@ class ProductsController < ApplicationController
 
   require 'roo'
 
+  # GET /products
+  # GET /products.json
+  def index
+    @header = Product.column_names
+    @products = Product.all
+  end
+
   # GET /products/1
   # GET /products/1.json
   def show

@@ -28,8 +28,8 @@
   <%= form_for(@user, multipart: true) do |f| %>
     <div class="form-group avatar-field clearfix">
       <div class="col-sm-3">
-        <%= image_tag "avatars/18.jpg", class: "img-responsive img-circle" %>
-        <%# gravatar_for @user %>
+        <%# image_tag "avatars/18.jpg", class: "img-responsive img-circle" %>
+        <% gravatar_for @user %>
         <!--<img src="<%# (@user.avatar.url(:medium)).gsub(/^./, "") %>" class="img-responsive img-circle"></img>-->
       </div>
       <div class="col-sm-9">

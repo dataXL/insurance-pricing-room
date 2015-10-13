@@ -1,0 +1,113 @@
+
+  <div class="filters" id="search">
+    <h3 class="hidden-xs">Filters</h3>
+    <form>
+      <div class="filter">
+        <label>
+          <input type="checkbox" checked />
+          Created date
+        </label>
+        <div class="filter-option" style="display:block;">
+          <select class="field-switch">
+            <option data-field="days">is in the last</option>
+            <option data-field="calendar">is equal to</option>
+            <option data-field="calendar">is before</option>
+            <option data-field="calendar">is after</option>
+          </select>
+          <div class="field days">
+            <input type="text" class="form-control small" value="9" />
+            days
+          </div>
+          <div class="field calendar" style="display:none;">
+            <i class="fa fa-calendar"></i>
+            <input type="text" class="form-control datepicker" />
+          </div>
+        </div>
+      </div>
+      <div class="filter">
+        <label>
+          <input type="checkbox">
+          City
+        </label>
+        <div class="filter-option">
+          <select>
+            <option>equals</option>
+            <option>contains</option>
+            <option>starts with</option>
+            <option>ends with</option>
+            <option>does not contain</option>
+          </select>
+          <div class="field">
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+      </div>
+      <div class="filter">
+        <label>
+          <input type="checkbox">
+          Last seen
+        </label>
+        <div class="filter-option">
+          <select class="field-switch">
+            <option data-field="calendar">is equal to</option>
+            <option data-field="calendar">is before</option>
+            <option data-field="calendar">is after</option>
+          </select>
+          <div class="field calendar">
+            <i class="fa fa-calendar"></i>
+            <input type="text" class="form-control datepicker" />
+          </div>
+        </div>
+      </div>
+      <div class="filter">
+        <label>
+          <input type="checkbox">
+          Payment status
+        </label>
+        <div class="filter-option">
+          <select>
+            <option>Available</option>
+            <option>Abandoned</option>
+            <option>Pending</option>
+            <option>Fulfilled</option>
+            <option>Suspicious</option>
+          </select>
+        </div>
+      </div>
+      <div class="filter">
+        <label>
+          <input type="checkbox" />
+          Number of orders
+        </label>
+        <div class="filter-option">
+          <select>
+            <option>equal to</option>
+            <option>not equal to</option>
+            <option>less than</option>
+            <option>greater than</option>
+          </select>
+          <div class="field">
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+      </div>
+      <div class="filter">
+        <label>
+          <input type="checkbox">
+          Price
+        </label>
+        <div class="filter-option">
+          <select>
+            <option>equal to</option>
+            <option>not equal to</option>
+            <option>less than</option>
+            <option>greater than</option>
+          </select>
+          <div class="field">
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+

@@ -11,18 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003132821) do
+ActiveRecord::Schema.define(version: 20151203131262) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "tablefunc"
 
   create_table "products", force: :cascade do |t|
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.jsonb    "properties", default: {}, null: false
+    t.string "company"
+    t.jsonb  "properties", default: {}, null: false
+    t.float  "premium"
   end
 
   add_index "products", ["properties"], name: "index_products_on_properties", using: :gin
+
+  create_table "profiles", force: :cascade do |t|
+  end
+
+  create_table "risks", force: :cascade do |t|
+    t.jsonb   "covariates", default: {}, null: false
+    t.integer "exposition"
+    t.integer "frequency"
+    t.integer "risk"
+    t.float   "cost"
+  end
+
+  add_index "risks", ["covariates"], name: "index_risks_on_covariates", using: :gin
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -36,6 +50,8 @@ ActiveRecord::Schema.define(version: 20151003132821) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "role"
+    t.string   "status"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

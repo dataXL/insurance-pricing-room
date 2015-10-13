@@ -1,7 +1,7 @@
 <div id="sidebar-default" class="main-sidebar fix-scroll">
   <div class="current-user">
       <a href="#" class="name">
-        <%= image_tag "avatars/18.jpg", class: "avatar" %>
+        <%= image_tag "avatars/missing.jpg", class: "avatar" %>
         <span>
           Jorge Pereira
           <i class="fa fa-chevron-down"></i>
@@ -20,10 +20,15 @@
     <h3>General</h3>
     <ul>
       <li class="option">
-        <a href="<%= dashboard_path %>">
-          <i class="ion-android-earth"></i>
-          <span>Dashboard</span>
+        <a href="#" data-toggle="sidebar">
+          <i class="ion-navicon-round"></i> <span>General Profile</span>
+          <i class="fa fa-chevron-down"></i>
         </a>
+        <ul class="submenu">
+          <li><a href="<%= risks_path %>">View full profile</a></li>
+          <li><a href="<%= new_risk_path %>">Set attributes and levels</a></li>
+          <li><a href="<%= new_risk_path %>">Upload full profile</a></li>
+        </ul>
       </li>
       <li class="option">
         <a href="#" data-toggle="sidebar">
@@ -31,7 +36,8 @@
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="#">Upload risk table</a></li>
+          <li><a href="<%= risks_path %>">View risk table</a></li>
+          <li><a href="<%= new_risk_path %>">Upload risk table</a></li>
         </ul>
       </li>
       <li class="option">
@@ -47,8 +53,12 @@
       <li class="option">
         <a href="#" data-toggle="sidebar">
           <i class="ion-shuffle"></i> <span>Conjoint Analysis</span>
-          <!--<i class="fa fa-chevron-down"></i>-->
+          <i class="fa fa-chevron-down"></i>
         </a>
+        <ul class="submenu">
+          <li><a href="<%= profiles_path %>">Compare utilities</a></li>
+          <li><a href="<%= new_profile_path %>">Upload beta coefficients</a></li>
+        </ul>
       </li>
       <!--<li class="option">
         <a href="#" data-toggle="sidebar">
@@ -85,7 +95,7 @@
     </ul>
   </div>
   <div class="menu-section">
-    <h3>Application</h3>
+    <h3>Mediation</h3>
     <ul>
       <!--<li class="option">
         <a href="#" data-toggle="sidebar">
@@ -102,15 +112,16 @@
         </ul>
       </li>-->
       <li class="option">
-        <a href="#" data-toggle="sidebar">
-          <i class="ion-card"></i> <span>Pricing</span>
-          <i class="fa fa-chevron-down"></i>
+        <a href="<%= dashboard_path %>">
+          <i class="ion-stats-bars"></i>
+          <span>Progress Report</span>
         </a>
-        <ul class="submenu">
-          <li><a href="<%= charts_pricing_index_path %>">Pricing charts</a></li>
-          <li><a href="<%= form_pricing_index_path %>">Billing form</a></li>
-          <li><a href="<%= invoice_pricing_index_path %>">Invoice</a></li>
-        </ul>
+      </li>
+      <li class="option">
+        <a href="<%= dashboard_path %>">
+          <i class="ion-chatboxes"></i>
+          <span>Manage Quotes</span>
+        </a>
       </li>
       <!--<li class="option">
         <a href="#" data-toggle="sidebar">
@@ -155,13 +166,13 @@
       <li>
         <a href="#">
           <i class="ion-archive"></i>
-          <span class="flag"></span>
+          <!--<span class="flag"></span>-->
         </a>
-        <ul class="menu">
+        <!--<ul class="menu">
           <li><a href="#">5 unread messages</a></li>
           <li><a href="#">12 tasks completed</a></li>
-          <!-- <li><a href="#">3 features added</a></li> -->
-        </ul>
+          <li><a href="#">3 features added</a></li>
+        </ul>-->
       </li>
       <li>
         <%= link_to logout_path, method: :delete do %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :profiles
+  resources :risks
   get 'sessions/new'
 
   root to: 'home#index'
@@ -10,6 +12,18 @@ Rails.application.routes.draw do
   get 'test' => 'products#test'
   get 'dashboard' => 'home#dashboard'
   resources :users
+
+  resources :risks do
+    collection do
+      get 'select'
+      post 'select'
+      get 'filter'
+      post 'filter'
+      get 'import'
+      post 'import'
+      put  'complete'
+    end
+  end
 
   resources :products do
     collection do

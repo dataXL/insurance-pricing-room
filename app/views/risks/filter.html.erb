@@ -1,0 +1,29 @@
+<%= content_for :body_id, "wizard" %>
+<%= render :partial => "shared/wizard_steps" %>
+
+<script>
+$(document).ready ( function () {
+  $(".header .steps .step").removeClass("active").filter(":lt(3)").addClass("active");
+
+  $('input[type=file]').change(function(e){
+
+  });
+});
+</script>
+
+<section class="form-wizard">
+
+  <div class="step active animated fadeInRightStep" style="text-align:center; margin-top: 10% !important">
+  <%= label_tag :file do %>
+    <%= image_tag "add-filter.png", :style => "cursor: pointer" %>
+  <% end %>
+  <%= form_tag import_risks_path do %>
+    <div class="form-group">
+          <%# label "file", nil, class: "form-control", style:"width:500px; margin: 25px auto !important" %>
+
+    </div>
+    <br/><br/>
+    <%= render :partial => "shared/buttons_footer" %>
+  <% end %>
+  </div>
+</section>
