@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @user = User.new
     @users = User.all
   end
 
@@ -13,7 +14,18 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create( user_params )
+    @user = User.new(user_params)
+
+    # Generate random base64 password
+    @user.password = @user.password_confirmation =  SecureRandom.base64(8)
+
+    if @user.save
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to login_path
+    else
+      render 'index'
+    end
   end
 
   def edit
@@ -37,7 +49,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                     :password_confirmation, :avatar)
+                                   :password_confirmation, :avatar)
     end
 
     # Before filters

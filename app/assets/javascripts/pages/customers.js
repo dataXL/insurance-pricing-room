@@ -1,6 +1,6 @@
 (function () {
 	var page_scripts = function () {
-		if (!$("#users").length) return;
+		if (!$("#customers").length) return;
 
 		// User list checkboxes
 		var $allUsers = $(".select-users input:checkbox");
@@ -41,9 +41,9 @@
 			e.preventDefault();
 			$btns.removeClass("active");
 			$(this).addClass("active");
-			
+
 			$views.removeClass("active");
-			
+
 			$(".users-grid").hide();
 			$(".users-list").hide();
 

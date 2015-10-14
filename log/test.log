@@ -1,889 +1,192 @@
-  [1m[36m (5089.4ms)[0m  [1mDROP DATABASE IF EXISTS "wolfadmin_test"[0m
-PG::ObjectInUse: ERROR:  database "wolfadmin_test" is being accessed by other users
-DETAIL:  There is 1 other session using the database.
-: DROP DATABASE IF EXISTS "wolfadmin_test"
-  [1m[36m (124.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
-  [1m[35m (10.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
-  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20150922115605)
-  [1m[35m (0.4ms)[0m  BEGIN
-  [1m[36m (79.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150922115605"]]
-  [1m[36m (15.6ms)[0m  [1mCOMMIT[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "profiles" DISABLE TRIGGER ALL;ALTER TABLE "risks" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "profiles"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "profiles" ("id") VALUES (980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "profiles" ("id") VALUES (298486374)
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "risks"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "risks" ("id") VALUES (980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "risks" ("id") VALUES (298486374)[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "tariffs"
+PG::UndefinedTable: ERROR:  relation "tariffs" does not exist
+LINE 1: DELETE FROM "tariffs"
+                    ^
+: DELETE FROM "tariffs"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "profiles" ENABLE TRIGGER ALL;ALTER TABLE "risks" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "profiles" DISABLE TRIGGER ALL;ALTER TABLE "risks" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "profiles" ("id") VALUES (980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "profiles" ("id") VALUES (298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "risks"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "risks" ("id") VALUES (980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "risks" ("id") VALUES (298486374)
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "tariffs"[0m
+PG::UndefinedTable: ERROR:  relation "tariffs" does not exist
+LINE 1: DELETE FROM "tariffs"
+                    ^
+: DELETE FROM "tariffs"
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "profiles" ENABLE TRIGGER ALL;ALTER TABLE "risks" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (57.4ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
-  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
-  [1m[35mFixture Delete (0.8ms)[0m  DELETE FROM "users"
-  [1m[36mFixture Insert (1.1ms)[0m  [1mINSERT INTO "users" ("name", "email", "password", "avatar", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, '2015-09-22 14:30:46', '2015-09-22 14:30:46', 980190962)[0m
-  [1m[35mFixture Insert (0.9ms)[0m  INSERT INTO "users" ("name", "email", "password", "avatar", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, '2015-09-22 14:30:46', '2015-09-22 14:30:46', 298486374)
-  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
---------------------------------------
-UserTest: test_email_should_be_present
---------------------------------------
-  [1m[35m (0.3ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
--------------------------------------
-UserTest: test_name_should_be_present
--------------------------------------
-  [1m[35m (0.3ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-------------------------------
-UserTest: test_should_be_valid
-------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "users"
-  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "users" ("name", "email", "password", "avatar", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, '2015-09-22 14:32:07', '2015-09-22 14:32:07', 980190962)[0m
-  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password", "avatar", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, '2015-09-22 14:32:07', '2015-09-22 14:32:07', 298486374)
-  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
-  [1m[35m (0.4ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
---------------------------------------
-UserTest: test_email_should_be_present
---------------------------------------
-  [1m[35m (0.3ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
--------------------------------------------
-UserTest: test_email_should_not_be_too_long
--------------------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
--------------------------------------
-UserTest: test_name_should_be_present
--------------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-------------------------------------------
-UserTest: test_name_should_not_be_too_long
-------------------------------------------
-  [1m[35m (2.2ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-------------------------------
-UserTest: test_should_be_valid
-------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "users"
-  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "password", "avatar", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, '2015-09-22 14:32:59', '2015-09-22 14:32:59', 980190962)[0m
-  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password", "avatar", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, '2015-09-22 14:32:59', '2015-09-22 14:32:59', 298486374)
-  [1m[36m (469.5ms)[0m  [1mCOMMIT[0m
-  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
-  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
---------------------------------------
-UserTest: test_email_should_be_present
---------------------------------------
-  [1m[35m (0.5ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
--------------------------------------------
-UserTest: test_email_should_not_be_too_long
--------------------------------------------
-  [1m[35m (0.4ms)[0m  ROLLBACK
-  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
--------------------------------------
-UserTest: test_name_should_be_present
--------------------------------------
-  [1m[35m (0.3ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-------------------------------------------
-UserTest: test_name_should_not_be_too_long
-------------------------------------------
-  [1m[35m (0.3ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-------------------------------
-UserTest: test_should_be_valid
-------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "users"
-  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "password", "avatar", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, '2015-09-22 14:35:42', '2015-09-22 14:35:42', 980190962)[0m
-  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password", "avatar", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, '2015-09-22 14:35:42', '2015-09-22 14:35:42', 298486374)
-  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
---------------------------------------
-UserTest: test_email_should_be_present
---------------------------------------
-  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[35m (0.8ms)[0m  ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "profiles" DISABLE TRIGGER ALL;ALTER TABLE "risks" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
   [1m[36m (0.4ms)[0m  [1mBEGIN[0m
--------------------------------------------
-UserTest: test_email_should_not_be_too_long
--------------------------------------------
-  [1m[35m (0.3ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
--------------------------------------------------------------
-UserTest: test_email_validation_should_accept_valid_addresses
--------------------------------------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
----------------------------------------------------------------
-UserTest: test_email_validation_should_reject_invalid_addresses
----------------------------------------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
--------------------------------------
-UserTest: test_name_should_be_present
--------------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-------------------------------------------
-UserTest: test_name_should_not_be_too_long
-------------------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-------------------------------
-UserTest: test_should_be_valid
-------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "users"
-  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "users" ("name", "email", "password", "avatar", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, '2015-09-22 14:37:29', '2015-09-22 14:37:29', 980190962)[0m
-  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password", "avatar", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, '2015-09-22 14:37:29', '2015-09-22 14:37:29', 298486374)
-  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
---------------------------------------
-UserTest: test_email_should_be_present
---------------------------------------
-  [1m[35m (0.4ms)[0m  ROLLBACK
-  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
--------------------------------------------
-UserTest: test_email_should_not_be_too_long
--------------------------------------------
-  [1m[35m (0.6ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
--------------------------------------------------------------
-UserTest: test_email_validation_should_accept_valid_addresses
--------------------------------------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
----------------------------------------------------------------
-UserTest: test_email_validation_should_reject_invalid_addresses
----------------------------------------------------------------
-  [1m[35m (0.5ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
--------------------------------------
-UserTest: test_name_should_be_present
--------------------------------------
-  [1m[35m (1.1ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-------------------------------------------
-UserTest: test_name_should_not_be_too_long
-------------------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-------------------------------
-UserTest: test_should_be_valid
-------------------------------
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
-  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
-  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "users"
-  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "users" ("name", "email", "password", "avatar", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, '2015-09-22 14:39:34', '2015-09-22 14:39:34', 980190962)[0m
-  [1m[35mFixture Insert (0.7ms)[0m  INSERT INTO "users" ("name", "email", "password", "avatar", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, '2015-09-22 14:39:34', '2015-09-22 14:39:34', 298486374)
-  [1m[36m (92.7ms)[0m  [1mCOMMIT[0m
-  [1m[35m (0.4ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
------------------------------------------------
-UserTest: test_email_addresses_should_be_unique
------------------------------------------------
-  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
-  [1m[36mUser Exists (17.0ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2015-09-22 14:39:36.450514"], ["email", "user@example.com"], ["name", "Example User"], ["updated_at", "2015-09-22 14:39:36.450514"]]
-  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
-  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1
-  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  BEGIN
---------------------------------------
-UserTest: test_email_should_be_present
---------------------------------------
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('     ') LIMIT 1[0m
-  [1m[35m (0.3ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
--------------------------------------------
-UserTest: test_email_should_not_be_too_long
--------------------------------------------
-  [1m[35mUser Exists (1.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co') LIMIT 1
-  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.6ms)[0m  BEGIN
--------------------------------------------------------------
-UserTest: test_email_validation_should_accept_valid_addresses
--------------------------------------------------------------
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('USER@foo.COM') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('A_US-ER@foo.bar.org') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('first.last@foo.jp') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('alice+bob@baz.cn') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
----------------------------------------------------------------
-UserTest: test_email_validation_should_reject_invalid_addresses
----------------------------------------------------------------
-  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example,com') LIMIT 1
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user_at_foo.org') LIMIT 1[0m
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user.name@example.') LIMIT 1
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar_baz.com') LIMIT 1[0m
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "profiles"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "profiles" ("id") VALUES (980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "profiles" ("id") VALUES (298486374)
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "risks"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "risks" ("id") VALUES (980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "risks" ("id") VALUES (298486374)[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "tariffs"
+PG::UndefinedTable: ERROR:  relation "tariffs" does not exist
+LINE 1: DELETE FROM "tariffs"
+                    ^
+: DELETE FROM "tariffs"
   [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
--------------------------------------
-UserTest: test_name_should_be_present
--------------------------------------
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-------------------------------------------
-UserTest: test_name_should_not_be_too_long
-------------------------------------------
-  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  BEGIN
-------------------------------
-UserTest: test_should_be_valid
-------------------------------
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36m (5046.8ms)[0m  [1mDROP DATABASE IF EXISTS "wolfadmin_test"[0m
-PG::ObjectInUse: ERROR:  database "wolfadmin_test" is being accessed by other users
-DETAIL:  There is 1 other session using the database.
-: DROP DATABASE IF EXISTS "wolfadmin_test"
-  [1m[35mActiveRecord::SchemaMigration Load (0.9ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to AddIndexToUsersEmail (20150922144059)
+  [1m[35m (0.4ms)[0m  ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "profiles" ENABLE TRIGGER ALL;ALTER TABLE "risks" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "profiles" DISABLE TRIGGER ALL;ALTER TABLE "risks" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
   [1m[35m (0.3ms)[0m  BEGIN
-  [1m[36m (3.9ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-PG::UniqueViolation: ERROR:  could not create unique index "index_users_on_email"
-DETAIL:  Key (email)=(MyString) is duplicated.
-: CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
-  [1m[35m (0.4ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to AddIndexToUsersEmail (20150922144059)
-  [1m[35m (0.3ms)[0m  BEGIN
-  [1m[36m (3.2ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-PG::UniqueViolation: ERROR:  could not create unique index "index_users_on_email"
-DETAIL:  Key (email)=(MyString) is duplicated.
-: CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "profiles" ("id") VALUES (980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "profiles" ("id") VALUES (298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "risks"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "risks" ("id") VALUES (980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "risks" ("id") VALUES (298486374)
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "tariffs"[0m
+PG::UndefinedTable: ERROR:  relation "tariffs" does not exist
+LINE 1: DELETE FROM "tariffs"
+                    ^
+: DELETE FROM "tariffs"
   [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to AddIndexToUsersEmail (20150922144059)
-  [1m[35m (0.4ms)[0m  BEGIN
-  [1m[36m (3.5ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-PG::UniqueViolation: ERROR:  could not create unique index "index_users_on_email"
-DETAIL:  Key (email)=(MyString) is duplicated.
-: CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
-  [1m[35m (0.3ms)[0m  ROLLBACK
-  [1m[36m (5045.9ms)[0m  [1mDROP DATABASE IF EXISTS "wolfadmin_test"[0m
-PG::ObjectInUse: ERROR:  database "wolfadmin_test" is being accessed by other users
-DETAIL:  There is 1 other session using the database.
-: DROP DATABASE IF EXISTS "wolfadmin_test"
-  [1m[35m (0.5ms)[0m  CREATE DATABASE "wolfadmin_test" ENCODING = 'utf8'
-PG::DuplicateDatabase: ERROR:  database "wolfadmin_test" already exists
-: CREATE DATABASE "wolfadmin_test" ENCODING = 'utf8'
-  [1m[36mSQL (13.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (42.5ms)[0m  DROP TABLE "users"
-  [1m[36m (8.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-  [1m[35m (2.5ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")
-  [1m[36m (0.7ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
-  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150922144059')
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "users"
-  [1m[36m (447.9ms)[0m  [1mCOMMIT[0m
-  [1m[35m (0.4ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
------------------------------------------------
-UserTest: test_email_addresses_should_be_unique
------------------------------------------------
-  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
-  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2015-09-22 14:46:14.442299"], ["email", "user@example.com"], ["name", "Example User"], ["updated_at", "2015-09-22 14:46:14.442299"]]
-  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
-  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1
-  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  BEGIN
---------------------------------------
-UserTest: test_email_should_be_present
---------------------------------------
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('     ') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
--------------------------------------------
-UserTest: test_email_should_not_be_too_long
--------------------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
--------------------------------------------------------------
-UserTest: test_email_validation_should_accept_valid_addresses
--------------------------------------------------------------
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('USER@foo.COM') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('A_US-ER@foo.bar.org') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('first.last@foo.jp') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('alice+bob@baz.cn') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
----------------------------------------------------------------
-UserTest: test_email_validation_should_reject_invalid_addresses
----------------------------------------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example,com') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user_at_foo.org') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user.name@example.') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar_baz.com') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
--------------------------------------
-UserTest: test_name_should_be_present
--------------------------------------
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-------------------------------------------
-UserTest: test_name_should_not_be_too_long
-------------------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
-------------------------------
-UserTest: test_should_be_valid
-------------------------------
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36m (5091.9ms)[0m  [1mDROP DATABASE IF EXISTS "wolfadmin_test"[0m
-PG::ObjectInUse: ERROR:  database "wolfadmin_test" is being accessed by other users
-DETAIL:  There is 1 other session using the database.
-: DROP DATABASE IF EXISTS "wolfadmin_test"
-  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20150922145615)
-  [1m[35m (0.3ms)[0m  BEGIN
-  [1m[36m (13.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-PG::DuplicateTable: ERROR:  relation "users" already exists
-: CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) 
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (5038.2ms)[0m  [1mDROP DATABASE IF EXISTS "wolfadmin_test"[0m
-PG::ObjectInUse: ERROR:  database "wolfadmin_test" is being accessed by other users
-DETAIL:  There is 1 other session using the database.
-: DROP DATABASE IF EXISTS "wolfadmin_test"
-  [1m[35m (0.7ms)[0m  CREATE DATABASE "wolfadmin_test" ENCODING = 'utf8'
-PG::DuplicateDatabase: ERROR:  database "wolfadmin_test" already exists
-: CREATE DATABASE "wolfadmin_test" ENCODING = 'utf8'
-  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (5.0ms)[0m  DROP TABLE "users"
-  [1m[36m (8.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-  [1m[35m (10.4ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")
-  [1m[36m (1.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20150922145615)
-  [1m[35m (0.3ms)[0m  BEGIN
-  [1m[36m (11.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-PG::DuplicateTable: ERROR:  relation "users" already exists
-: CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) 
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20150922145615)
-  [1m[35m (0.3ms)[0m  BEGIN
-  [1m[36m (524.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-PG::DuplicateTable: ERROR:  relation "users" already exists
-: CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) 
-  [1m[35m (0.3ms)[0m  ROLLBACK
-  [1m[36m (5043.9ms)[0m  [1mDROP DATABASE IF EXISTS "wolfadmin_test"[0m
-PG::ObjectInUse: ERROR:  database "wolfadmin_test" is being accessed by other users
-DETAIL:  There is 1 other session using the database.
-: DROP DATABASE IF EXISTS "wolfadmin_test"
-  [1m[35m (0.5ms)[0m  CREATE DATABASE "wolfadmin_test" ENCODING = 'utf8'
-PG::DuplicateDatabase: ERROR:  database "wolfadmin_test" already exists
-: CREATE DATABASE "wolfadmin_test" ENCODING = 'utf8'
-  [1m[36mSQL (0.8ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (25.1ms)[0m  DROP TABLE "users"
-  [1m[36m (61.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-  [1m[35m (2.7ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")
-  [1m[36m (0.9ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36m (0.3ms)[0m  [1mDROP DATABASE IF EXISTS "wolfadmin_test"[0m
-  [1m[35m (1218.1ms)[0m  CREATE DATABASE "wolfadmin_test" ENCODING = 'utf8'
-  [1m[36mSQL (0.6ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (12.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) 
-  [1m[36m (3.9ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
-  [1m[35m (2.0ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
-  [1m[36m (2.4ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
-  [1m[35m (0.6ms)[0m  SELECT version FROM "schema_migrations"
-  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150922144059')[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20150922145615)
-  [1m[35m (0.3ms)[0m  BEGIN
-  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-PG::DuplicateTable: ERROR:  relation "users" already exists
-: CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) 
-  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "profiles" ENABLE TRIGGER ALL;ALTER TABLE "risks" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20150922145615)
-  [1m[35m (0.3ms)[0m  BEGIN
-  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-PG::DuplicateTable: ERROR:  relation "users" already exists
-: CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) 
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36m (5042.3ms)[0m  [1mDROP DATABASE IF EXISTS "wolfadmin_test"[0m
-PG::ObjectInUse: ERROR:  database "wolfadmin_test" is being accessed by other users
-DETAIL:  There is 1 other session using the database.
-: DROP DATABASE IF EXISTS "wolfadmin_test"
-  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
-  [1m[35m (2.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
-  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to AddIndexToUsersEmail (20150922144059)
-  [1m[35m (0.3ms)[0m  BEGIN
-  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-PG::UndefinedTable: ERROR:  relation "users" does not exist
-: CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36m (122.1ms)[0m  [1mDROP DATABASE IF EXISTS "wolfadmin_test"[0m
-  [1m[35m (357.5ms)[0m  CREATE DATABASE "wolfadmin_test" ENCODING = 'utf8'
-  [1m[36mSQL (0.6ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (11.5ms)[0m  CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) 
-  [1m[36m (2.5ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
-  [1m[35m (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
-  [1m[36m (2.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
-  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
-  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150922144059')[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.9ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20150922145615)
-  [1m[35m (0.3ms)[0m  BEGIN
-  [1m[36m (21.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-PG::DuplicateTable: ERROR:  relation "users" already exists
-: CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) 
-  [1m[35m (0.5ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20150922145615)
-  [1m[35m (0.3ms)[0m  BEGIN
-  [1m[36m (66.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-PG::DuplicateTable: ERROR:  relation "users" already exists
-: CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) 
-  [1m[35m (0.3ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20150922145615)
-  [1m[35m (0.3ms)[0m  BEGIN
-  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150922145615"]]
-  [1m[36m (15.9ms)[0m  [1mCOMMIT[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
-  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
-  [1m[35mFixture Delete (0.8ms)[0m  DELETE FROM "users"
-  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
-  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
-  [1m[36m (1.2ms)[0m  [1mBEGIN[0m
------------------------------------------------
-UserTest: test_email_addresses_should_be_unique
------------------------------------------------
-  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
-  [1m[36mUser Exists (19.8ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.4ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
-  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
-  [1m[35m (0.9ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
---------------------------------------
-UserTest: test_email_should_be_present
---------------------------------------
-  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('     ') LIMIT 1
-  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "profiles" DISABLE TRIGGER ALL;ALTER TABLE "risks" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.9ms)[0m  DELETE FROM "products"
+  [1m[36mFixture Insert (0.8ms)[0m  [1mINSERT INTO "products" ("id") VALUES (980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "products" ("id") VALUES (298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "profiles" ("id") VALUES (980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "profiles" ("id") VALUES (298486374)[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "risks"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "risks" ("id") VALUES (980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "risks" ("id") VALUES (298486374)
+  [1m[36mFixture Delete (0.7ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "admin", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('Michael Example', 'michael@example.com', '$2a$04$GNo77.p7EGI6DHdNSQYXoOaD1tyBy2/ayd7tNFn84woNav39A7hiC', 't', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 762146111)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('Sterling Archer', 'duchess@example.gov', '$2a$04$FfeFxKiCr0SLtr2GU2YwPuCbEH./WL5339F8FdUgTxH2ry.X9mfA.', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 950961012)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('Lana Kane', 'hands@example.gov', '$2a$04$4RyBBOZVQkpG725j2vdPvugwkUc4uUrBon93GrUuIeGAfYXCAOuda', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 409608538)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('Mallory Archer', 'boss@example.gov', '$2a$04$KDRayL5Xmh9nhOATUgoTJuEYwllllXEzv8VRspa8Vcp18TG7ayYpO', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 785162917)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 0', 'user-0@example.com', '$2a$04$ohoIlitLhq13u3aUajCUb.4wCXKa7flUdhfxBNr.8VV.pPEf7EJNG', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 338193910)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 1', 'user-1@example.com', '$2a$04$ySkmP12nsQIF/.wTtRO2zO/s8ZIu66E1rjCCZgmh8qkj1iN52Kfne', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 590306657)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 2', 'user-2@example.com', '$2a$04$WDX1BxPU0gOJYq3SO7P7fuTJ8avLW3W3G3w696I675.7oAGaaMeVG', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 975572189)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 3', 'user-3@example.com', '$2a$04$Jg3iHDbqRaV1mU5V7242nu45QyZho.bCAP0KMpx/G7q55A8YF1xPe', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 220281934)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 4', 'user-4@example.com', '$2a$04$ltk/hgGI/pSqdJC6RYXSqesaCQVlNyWmpaMKLMAVgTQQn7q4Qi/Pu', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 323332591)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 5', 'user-5@example.com', '$2a$04$r3n4hWZBI9iXpwlm33Aq1Ok1Y61d.DPFMkuKvOr7.C.GiTo9DN38y', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 608344442)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 6', 'user-6@example.com', '$2a$04$NCyE7cTA/EBSuCoes5gDouMacuC1zto6MWc3lSujUwkMnZFwYfyse', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 1028376774)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 7', 'user-7@example.com', '$2a$04$qStwslyqnnIbyZRoe/0koOSHMo.9JwBQ8RgGS3jYQxtvF4LtkaFDq', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 172816471)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 8', 'user-8@example.com', '$2a$04$Fqg0sGBP5ia/7ZzgNtq1KOqgw8FK4YddnA4A8G15mVHLMc9Whed3W', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 452191684)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 9', 'user-9@example.com', '$2a$04$hbU2WuME1Titlf4kJzxSs.4SvBquaJwXYHgdF57l6WOEKDoZx0/A2', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 771020115)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 10', 'user-10@example.com', '$2a$04$9Ba4VHfRWK6sj5kroroA6ead38IMOT0yL6uln.crrb5FS8YjaTJV.', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 956993830)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 11', 'user-11@example.com', '$2a$04$SglgX76jnqNwsg1jXRTGvOPpsGwQ0/2QYaPaqpLiSQ0ewvb0V3bM6', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 235774389)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 12', 'user-12@example.com', '$2a$04$SNfaQ9Nke.IhzV9hJwDFvOKCghSlTVy5lN5p74a9Pvk7jZ3shGRfa', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 386199561)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 13', 'user-13@example.com', '$2a$04$5MYAiuxZt8SPlq53GqfEeO64MqoXhacj2EFgEfJOOchdqL2OynmKe', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 537116830)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 14', 'user-14@example.com', '$2a$04$Bs9HWRdv7uc56Et5wnZbZOiSgQ4dbQ1l72x0FXDKS5nu7nLz8pQ8S', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 1046959423)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 15', 'user-15@example.com', '$2a$04$JJkM.k6.WY5xIpFUqowiiOUVb3T51GG.ur4WAbREbO.KiQrg9lSsG', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 157312430)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 16', 'user-16@example.com', '$2a$04$lv3418X4c/qEoz3yHtDwp.0GBUoPOzAeief75KLdyC8l27yI0Jpvi', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 275330066)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 17', 'user-17@example.com', '$2a$04$GMHODzJ/u/C3rOecTKjv3uycO6fBPUGo0FTxgp1zV.CzPtye8cEnW', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 661521543)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 18', 'user-18@example.com', '$2a$04$e4SCzfuYwh2s9UUW6Ar7auMSFKupO8qFFUqTz7C2rVH6vpSZjtiSK', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 936450328)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 19', 'user-19@example.com', '$2a$04$gOvB4T7dVz7SAcvriQtDtu80dOlz8MUNLeI8gijO5xTHBjWG0E2qm', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 14035331)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 20', 'user-20@example.com', '$2a$04$Mb2RgBYRFmXg8STpvwp8EOenk/pfobk50t5BRjV8SrT2ksLBdXRq2', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 304595689)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 21', 'user-21@example.com', '$2a$04$Lfs2M9ruZZMeNtTCNkLcL.XPqknCkyaac7OqWXIXC.e3kj9Nu5XfK', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 622916212)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 22', 'user-22@example.com', '$2a$04$cJPIKfES1CI6tWxn.6U/8eTy5n6JLHzvOaLKfObJ8nMbvIEMTfxb.', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 1009361868)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 23', 'user-23@example.com', '$2a$04$u2UqD1xfaARYWvUPI2FSDuNnIwsL26LjMcJ7zLQjGxto4UapZBSRS', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 187601757)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 24', 'user-24@example.com', '$2a$04$LgGb8t4WlEuhXIK0geEsSuNaLp7k9DWO0sme0qITaCYn/BzjeSCMa', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 357172992)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 25', 'user-25@example.com', '$2a$04$ALxjx/.Be2PxQoZKN7bE3OH5nCrnerVCYpN8cE14Aci4ob7Avq3Mq', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 575485547)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 26', 'user-26@example.com', '$2a$04$GqFKwxAWv4LCXAhwgTJ4uOGPoWlcWS.tgzUdus1HtS0cT138LoJJ.', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 994338771)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 27', 'user-27@example.com', '$2a$04$1Ft11WRbBlLas1N6ab6Z0unvEI/yVT6h7.WQfxaVbBV/UsKfbDxP2', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 205739844)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 28', 'user-28@example.com', '$2a$04$Z3cWTz04FupgjoAymCMEseA3lggC5A3tejf/yRdVq8NXomPd12HEm', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 486296279)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 29', 'user-29@example.com', '$2a$04$I6Eg4TI82hsL0MOlWLKaDOoO2yyj1eUWuMAMw0142a/l4muGNPuUO', 't', '2015-10-13 16:24:48.000000', '2015-10-13 16:24:48', '2015-10-13 16:24:48', 737901126)[0m
+  [1m[35m (180.5ms)[0m  COMMIT
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "profiles" ENABLE TRIGGER ALL;ALTER TABLE "risks" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
   [1m[35m (0.2ms)[0m  BEGIN
--------------------------------------------
-UserTest: test_email_should_not_be_too_long
--------------------------------------------
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co') LIMIT 1[0m
-  [1m[35m (0.4ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
--------------------------------------------------------------
-UserTest: test_email_validation_should_accept_valid_addresses
--------------------------------------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
----------------------------------------------------------------
-UserTest: test_email_validation_should_reject_invalid_addresses
----------------------------------------------------------------
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example,com') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user_at_foo.org') LIMIT 1
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user.name@example.') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar_baz.com') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
--------------------------------------
-UserTest: test_name_should_be_present
--------------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
-------------------------------------------
-UserTest: test_name_should_not_be_too_long
-------------------------------------------
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.3ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-------------------------------
-UserTest: test_should_be_valid
-------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "users"
-  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
------------------------------------------------
-UserTest: test_email_addresses_should_be_unique
------------------------------------------------
-  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
-  [1m[36mUser Exists (1.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35mSQL (1.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-09-22 15:23:08.211261"], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", "$2a$04$4lz/nmYomfifQ52/SWrHOeAv.ljeOp.oMPk6.JKfV.R2mPZr1xn12"], ["updated_at", "2015-09-22 15:23:08.211261"]]
-  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
-  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1
-  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  BEGIN
---------------------------------------
-UserTest: test_email_should_be_present
---------------------------------------
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('     ') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
--------------------------------------------
-UserTest: test_email_should_not_be_too_long
--------------------------------------------
-  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
--------------------------------------------------------------
-UserTest: test_email_validation_should_accept_valid_addresses
--------------------------------------------------------------
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('USER@foo.COM') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('A_US-ER@foo.bar.org') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('first.last@foo.jp') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('alice+bob@baz.cn') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
----------------------------------------------------------------
-UserTest: test_email_validation_should_reject_invalid_addresses
----------------------------------------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example,com') LIMIT 1
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user_at_foo.org') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user.name@example.') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar_baz.com') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
--------------------------------------
-UserTest: test_name_should_be_present
--------------------------------------
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-------------------------------------------
-UserTest: test_name_should_not_be_too_long
-------------------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
-------------------------------
-UserTest: test_should_be_valid
-------------------------------
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "users"
-  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
------------------------------------------------
-UserTest: test_email_addresses_should_be_unique
------------------------------------------------
-  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
-  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-09-22 15:24:35.449547"], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", "$2a$04$CB435WNnOYKgQ6BY.zIGp.8sHgJvVnP6gYFadN7Wq5ey1ma4i27v6"], ["updated_at", "2015-09-22 15:24:35.449547"]]
-  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1
-  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  BEGIN
---------------------------------------
-UserTest: test_email_should_be_present
---------------------------------------
-  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('     ') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
--------------------------------------------
-UserTest: test_email_should_not_be_too_long
--------------------------------------------
-  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co') LIMIT 1
-  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  BEGIN
--------------------------------------------------------------
-UserTest: test_email_validation_should_accept_valid_addresses
--------------------------------------------------------------
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('USER@foo.COM') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('A_US-ER@foo.bar.org') LIMIT 1[0m
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('first.last@foo.jp') LIMIT 1
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('alice+bob@baz.cn') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
----------------------------------------------------------------
-UserTest: test_email_validation_should_reject_invalid_addresses
----------------------------------------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example,com') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user_at_foo.org') LIMIT 1[0m
-  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user.name@example.') LIMIT 1
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar_baz.com') LIMIT 1[0m
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  BEGIN
--------------------------------------
-UserTest: test_name_should_be_present
--------------------------------------
-  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-------------------------------------------
-UserTest: test_name_should_not_be_too_long
-------------------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  BEGIN
-----------------------------------------------------
-UserTest: test_password_should_be_present_(nonblank)
-----------------------------------------------------
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-----------------------------------------------------
-UserTest: test_password_should_have_a_minimum_length
-----------------------------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  BEGIN
-------------------------------
-UserTest: test_should_be_valid
-------------------------------
-  [1m[36mUser Exists (1.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (1.1ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
-  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
-  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "users"
-  [1m[36m (466.1ms)[0m  [1mCOMMIT[0m
-  [1m[35m (0.4ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
------------------------------------------------
-UserTest: test_email_addresses_should_be_unique
------------------------------------------------
-  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
-  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-09-22 15:29:54.528344"], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", "$2a$04$jIUpDgT3Zje4vqKe.Km6R.Vl0GLldhaGq78ziffxuXGr/5mN1MQ7u"], ["updated_at", "2015-09-22 15:29:54.528344"]]
-  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1
-  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  BEGIN
---------------------------------------
-UserTest: test_email_should_be_present
---------------------------------------
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('     ') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
--------------------------------------------
-UserTest: test_email_should_not_be_too_long
--------------------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
--------------------------------------------------------------
-UserTest: test_email_validation_should_accept_valid_addresses
--------------------------------------------------------------
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('USER@foo.COM') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('A_US-ER@foo.bar.org') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('first.last@foo.jp') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('alice+bob@baz.cn') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
----------------------------------------------------------------
-UserTest: test_email_validation_should_reject_invalid_addresses
----------------------------------------------------------------
-  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example,com') LIMIT 1
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user_at_foo.org') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user.name@example.') LIMIT 1
-  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar_baz.com') LIMIT 1[0m
-  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
--------------------------------------
-UserTest: test_name_should_be_present
--------------------------------------
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-------------------------------------------
-UserTest: test_name_should_not_be_too_long
-------------------------------------------
-  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
-  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.1ms)[0m  BEGIN
-----------------------------------------------------
-UserTest: test_password_should_be_present_(nonblank)
-----------------------------------------------------
-  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  ROLLBACK
-  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-----------------------------------------------------
-UserTest: test_password_should_have_a_minimum_length
-----------------------------------------------------
-  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
-  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  BEGIN
-------------------------------
-UserTest: test_should_be_valid
-------------------------------
-  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
-  [1m[35m (0.4ms)[0m  ROLLBACK
-  [1m[36m (5048.5ms)[0m  [1mDROP DATABASE IF EXISTS "wolfadmin_test"[0m
-PG::ObjectInUse: ERROR:  database "wolfadmin_test" is being accessed by other users
-DETAIL:  There is 1 other session using the database.
-: DROP DATABASE IF EXISTS "wolfadmin_test"
-  [1m[36m (15.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
-  [1m[35m (8.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20150922144058)
-  [1m[35m (0.3ms)[0m  BEGIN
-  [1m[36m (13.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "timezone" character varying, "avatar" bytea, "created_at" timestamp, "updated_at" timestamp) [0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150922144058"]]
-  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
-Migrating to AddIndexToUsersEmail (20150922144059)
-  [1m[35m (0.4ms)[0m  BEGIN
-  [1m[36m (1.5ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150922144059"]]
-  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36m (4.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'users'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
-  [1m[35mUser Exists (1.2ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('jahpereira@gmail.com') LIMIT 1
-  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jorge Pereira"], ["email", "jahpereira@gmail.com"], ["password_digest", "$2a$04$AElDoCy9VXmjWv.kpu.hT.mdR9tR7HtiIoNDUTNj.H19JsgRE0mMO"], ["created_at", "2015-09-23 15:31:37.161069"], ["updated_at", "2015-09-23 15:31:37.161069"]]
-  [1m[35m (0.9ms)[0m  COMMIT
-  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.4ms)[0m  BEGIN
-  [1m[36m (2.1ms)[0m  [1mALTER TABLE "users" ADD "avatar_file_name" character varying[0m
-  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "avatar_content_type" character varying
-  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "avatar_file_size" integer[0m
-  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "avatar_updated_at" timestamp
-  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150923182410"]]
-  [1m[35m (1.1ms)[0m  COMMIT
-  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (4.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'users'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
+---------------------------------------
+UserMailerTest: test_account_activation
+---------------------------------------
 
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36m (5042.1ms)[0m  [1mDROP DATABASE IF EXISTS "wolfadmin_test"[0m
-PG::ObjectInUse: ERROR:  database "wolfadmin_test" is being accessed by other users
-DETAIL:  There is 1 other session using the database.
-: DROP DATABASE IF EXISTS "wolfadmin_test"
-  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to AddRememberDigestToUsers (20150923172346)
-  [1m[35m (0.4ms)[0m  BEGIN
-  [1m[36m (1.2ms)[0m  [1mALTER TABLE "users" ADD "remember_digest" character varying[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150923172346"]]
-  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36m (4.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'users'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-  [1m[36mActiveRecord::SchemaMigration Load (22.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36m (5.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'users'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
+UserMailer#account_activation: processed outbound mail in 3.4ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-----------------------------------
+UserMailerTest: test_password_reset
+-----------------------------------
+  Rendered user_mailer/password_reset.html.erb within layouts/mailer (3.6ms)
+  Rendered user_mailer/password_reset.text.erb within layouts/mailer (0.4ms)
+
+UserMailer#password_reset: processed outbound mail in 1533.7ms
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36m (4.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'users'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "profiles" DISABLE TRIGGER ALL;ALTER TABLE "risks" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "products"
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "products" ("id") VALUES (980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "products" ("id") VALUES (298486374)
+  [1m[36mFixture Delete (0.7ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "profiles" ("id") VALUES (980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "profiles" ("id") VALUES (298486374)[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "risks"
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "risks" ("id") VALUES (980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "risks" ("id") VALUES (298486374)
+  [1m[36mFixture Delete (0.8ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "admin", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('Michael Example', 'michael@example.com', '$2a$04$8uQMdwDjdXJwwq8ilFzfAeoRPvytbVay6ZJcBnNKbRwY9sriAXcQq', 't', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 762146111)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('Sterling Archer', 'duchess@example.gov', '$2a$04$3yBcqQ.mfuarPJgA2qrssunH61m1sTdhDB4FJGOWtLMRyQQwOKyWO', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 950961012)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('Lana Kane', 'hands@example.gov', '$2a$04$EPuYwenQXVWg4adTPLBz6.cSEiRkQcW8D866Q7ON7dMeL0vVouV.2', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 409608538)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('Mallory Archer', 'boss@example.gov', '$2a$04$Lvy8/7ji4XUTJqVpzxBc6.qIxmrUBbZCPu/J4UFe27trlsi2C5vxa', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 785162917)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 0', 'user-0@example.com', '$2a$04$Wk74G5PW1d9X2FRdCvFtIO/jFFdLxHiPY8BoNW4e82doTmonXnDSO', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 338193910)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 1', 'user-1@example.com', '$2a$04$cVqKIfhA9U8HxMLuwkSiXO2Lmi1uhaKKQ2RZqPSntGKD.O5j4.Zd.', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 590306657)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 2', 'user-2@example.com', '$2a$04$xnROij4r3zvFs34mxyPBYecwdRypPEsa9c9N5mjEEGVboR3kEt/N2', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 975572189)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 3', 'user-3@example.com', '$2a$04$.0lJ/toiu6EJMCpkiGf6POOe.OMCiQ1SG2Lal51Uj2g5slfdN23uS', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 220281934)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 4', 'user-4@example.com', '$2a$04$7..V9RSkEJZQeqTH6JPqm.lTp6/eDAZfkaO.eG3sZv/ZeKSXcuWf2', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 323332591)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 5', 'user-5@example.com', '$2a$04$.pXacq68fqjw9kyOjB11Yu4rsi/OQPiF2JQmcRrfh8Kx8Uh1GyXq2', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 608344442)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 6', 'user-6@example.com', '$2a$04$wHobLT0/qfD7DR7IaXGy0uuIVIy0Q3c9cYGvfoaDYPRndGVhb14hu', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 1028376774)
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 7', 'user-7@example.com', '$2a$04$o1/nkkizUiEiJYsW8EwrOOv4ZA0llbr0zYk7LSEgIBFirvv4fhDkO', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 172816471)[0m
+  [1m[35mFixture Insert (0.7ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 8', 'user-8@example.com', '$2a$04$uFds6QnHycyoh9F1vtErOuQUcM2OE3K4DTuGTDh6GPbHIFX32xVHq', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 452191684)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 9', 'user-9@example.com', '$2a$04$wAMYMMU.ZNgZCo0dxM0hx.m3BBX5BV7jUfEF5m9P9EgZn8Emv9Q5.', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 771020115)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 10', 'user-10@example.com', '$2a$04$HPO.M.XGg6pdAeX0.Fw9N.xk10SfQTSEC3Rl2OS/7RIbs6ZKbKdgO', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 956993830)
+  [1m[36mFixture Insert (0.9ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 11', 'user-11@example.com', '$2a$04$kQPL3.BOtrQHphmEBNYRqe4TxjDnwTJ2HaN98ylHiGomo.tDetRca', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 235774389)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 12', 'user-12@example.com', '$2a$04$fzEgLpoFGOV0sUgBtJ3g2uKihkJKLm1o9elgo/6mFW.xn1qR/Mj1C', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 386199561)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 13', 'user-13@example.com', '$2a$04$Oqk2eicqC6VLC3GEfqz00OeDHyODIwWW.j1bCtSvnZulYgDAGvtG6', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 537116830)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 14', 'user-14@example.com', '$2a$04$KqVbzM06UUWmrdBpAXwOOO.jeSgrUNAhUGlUm7C8LrXBqk2zBQe/.', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 1046959423)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 15', 'user-15@example.com', '$2a$04$M/kjr5R.Zpf3CAHVtHt/vurVgx2ay/sXEVkeoAfI3GATrIL5WbKDC', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 157312430)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 16', 'user-16@example.com', '$2a$04$lmzMlLWzVV9A8ilAz5vR6O/IQ9.HTCFFwS0FWhOzs4eW5VigVwCMq', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 275330066)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 17', 'user-17@example.com', '$2a$04$f73/ApDrpxMA4LKsQI6oT.VgHn/.qnqRH601ebqOaklxAQ/flSFCe', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 661521543)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 18', 'user-18@example.com', '$2a$04$1bLOT1DmrXktsKwLxYzlGu4wBF0NO91Dh/9UthNlSJGIHeKizLy.C', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 936450328)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 19', 'user-19@example.com', '$2a$04$X1bKN2ug7YXfMPV5osG4QeTkPWS.QlPB5j9EWF2Lewxh/8AZeu0gK', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 14035331)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 20', 'user-20@example.com', '$2a$04$9ZBo47osZSFUGXDKO.ojSuCmbSnUeQjpt5mTWIq/byw.joVtbZ4ji', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 304595689)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 21', 'user-21@example.com', '$2a$04$rRfWMKYZ1TQfadoqpRm5JekmjnOgbspaFGVy9F1QhfwxJUrcht64m', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 622916212)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 22', 'user-22@example.com', '$2a$04$k3eur0TCJx6HqvHM9ajtE.glaVKBrN82jWzH1IA/99fyOlaTCIoPO', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 1009361868)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 23', 'user-23@example.com', '$2a$04$hBZW.pZjBKpkFZ8LdOFPbOfllHgf1LSV9Ltm7Ag2kcYNHTIV7fIJS', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 187601757)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 24', 'user-24@example.com', '$2a$04$.bL2PrDAmY74ahjIbXougunFu1PoDSMlIjdjBmgPHJFthrP0RJvT6', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 357172992)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 25', 'user-25@example.com', '$2a$04$cJIfBByaY3gGiluwTLa4Lee4rTWCUcab2eD/HYBFEvAQCWM.ezLd2', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 575485547)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 26', 'user-26@example.com', '$2a$04$ajYqUx.GKcfo03i1dXWAOOsAJDCVEq/t4zeTF006ZXPlJ2BEQIiam', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 994338771)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 27', 'user-27@example.com', '$2a$04$wOGg2FKsqt9EZlsNIIPn.ei3ROmEg1FWG9zEKi8CIPPX.s03a/nz.', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 205739844)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 28', 'user-28@example.com', '$2a$04$UguAZA44ySCG0H.Wr0z6quW2w7ATUEWIBbow.OEs0Ncp9SJzwN6ta', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 486296279)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "activated", "activated_at", "created_at", "updated_at", "id") VALUES ('User 29', 'user-29@example.com', '$2a$04$pHYvU4JSgokTjI2L7w2r4eC/0UUQusaaOa3WEpF3yRwm.9Yno2E56', 't', '2015-10-13 16:26:49.000000', '2015-10-13 16:26:49', '2015-10-13 16:26:49', 737901126)[0m
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "profiles" ENABLE TRIGGER ALL;ALTER TABLE "risks" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+---------------------------------------
+UserMailerTest: test_account_activation
+---------------------------------------
+
+UserMailer#account_activation: processed outbound mail in 1.9ms
+  [1m[36m (0.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-----------------------------------
+UserMailerTest: test_password_reset
+-----------------------------------
+  Rendered user_mailer/password_reset.html.erb within layouts/mailer (3.2ms)
+  Rendered user_mailer/password_reset.text.erb within layouts/mailer (0.4ms)
+
+UserMailer#password_reset: processed outbound mail in 645.2ms
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
