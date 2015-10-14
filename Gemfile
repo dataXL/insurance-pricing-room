@@ -31,10 +31,11 @@ gem 'virtus', '~> 1.0.5'
 gem 'active_model_serializers', '~> 0.9.3'
 # Colliding attributes
 gem 'safe_attributes'
+gem 'jquery-turbolinks'
 # RailsScript
-gem 'rails_script', '~> 0.6.1'
+# gem 'rails_script', '~> 0.6.1'
 # CoffeeRoutes
-gem 'coffee_routes'
+# gem 'coffee_routes'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

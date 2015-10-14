@@ -28,12 +28,12 @@ var ready = function() {
 	}
 
 	Number.prototype.formatMoney = function(c, d, t){
-		var n = this, 
-		    c = isNaN(c = Math.abs(c)) ? 2 : c, 
-		    d = d == undefined ? "." : d, 
-		    t = t == undefined ? "," : t, 
-		    s = n < 0 ? "-" : "", 
-		    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", 
+		var n = this,
+		    c = isNaN(c = Math.abs(c)) ? 2 : c,
+		    d = d == undefined ? "." : d,
+		    t = t == undefined ? "," : t,
+		    s = n < 0 ? "-" : "",
+		    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
 		    j = (j = i.length) > 3 ? j % 3 : 0;
 		   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 	};
@@ -134,7 +134,7 @@ var Skins = {
 var Sidebar = {
 	initialize: function () {
 		var $sidebar_menu = $(".main-sidebar");
-		
+
 		// my account dropdown menu
 		var $account_menu = $sidebar_menu.find(".current-user .menu");
 		$(".current-user .name").click(function (e) {
@@ -163,7 +163,7 @@ var Sidebar = {
 				var $dropdown = $(this).siblings(".submenu");
 
 				$trigger.toggleClass("toggled");
-				
+
 				if ($trigger.hasClass("toggled")) {
 					$dropdown.slideDown(300, check_height);
 				} else {
