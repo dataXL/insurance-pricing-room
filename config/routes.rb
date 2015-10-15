@@ -11,7 +11,13 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get 'test' => 'products#test'
   get 'dashboard' => 'home#dashboard'
-  resources :users
+
+  resources :users do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
 

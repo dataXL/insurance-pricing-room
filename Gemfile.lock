@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/roo-rb/roo.git
-  revision: 1586ef279162f55a4e3b3e692d57b2b4ae4c8b34
+  revision: 6d8e0b0e247b17d4544ce41f2cf688375608c81b
   specs:
     roo (2.1.1)
       nokogiri (~> 1)
@@ -325,10 +325,6 @@ DEPENDENCIES
   aws-sdk (< 2.0)
   bcrypt (~> 3.1.7)
   coffee-rails (~> 4.0.0)
-<<<<<<< Updated upstream
-=======
-  coffee_routes
->>>>>>> Stashed changes
   faker (~> 1.5.0)
   fog
   i18n (~> 0.7.0)

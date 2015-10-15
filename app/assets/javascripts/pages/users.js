@@ -2,9 +2,149 @@
   var page_scripts = function () {
     if (!$("#users").length) return;
 
+    // Bulk actions
+    $( "a#reset" ).click(function() {
+      // TODO
+    });
+
+    $("a#delete").click(function() {
+       var serializedArray = $("input:checked").serializeArray();
+       var itemIdsArray = [];
+
+       for (var i = 0, length = serializedArray.length; i < length; i++) {
+          itemIdsArray.push(serializedArray[i]['value']);
+       }
+
+       $.ajax({
+         type: "DELETE",
+         url: "users/destroy_multiple",
+         data: {
+           users_ids: itemIdsArray
+         },
+         dataType: "script"
+       });
+    });
+
+    // Search box
+    $( "#search" ).on('input', function() {
+
+      var noRecords = "<div id='no-records' class='row user' style='text-align: center !important; background: #FAFAFC !important'>"
+                        + "<span>No matching records were found</span>"
+                        + "</div>";
+
+      if($(".row.user:contains('" + $(this).val() + "')").length > 0) {
+        $('#no-records').remove();
+        $(".row.user:contains('" + $(this).val() + "')").show();
+        $(".row.user:not(:contains('" + $(this).val() + "'))").hide();
+      }
+      else {
+        $(".row.user:not(:contains('" + $(this).val() + "'))").hide();
+        $( noRecords ).insertBefore( ".row.pager-wrapper" );
+      }
+
+
+    });
+
+
+    // Sort columns
+    var $sortButton = $(".a [data-toggle='dropdown']");
+
+    /*$( "a[data-toggle='dropdown']" ).bind( "click", function() {
+      alert( "User clicked on 'foo.'" );
+    });*/
+
+    var $rows = $('.row.user');
+
+    $( "ul.dropdown-menu > li" ).bind( "click", function() {
+      switch($(this).text()) {
+        case "Name":
+          $rows.sort(function(a,b){
+            var an = $(a).find("a[data-type='name']").text(),
+              bn = $(b).find("a[data-type='name']").text();
+
+            if(an > bn) {
+              return 1;
+            }
+            if(an < bn) {
+              return -1;
+            }
+            return 0;
+          });
+
+          $rows.detach().insertBefore( ".row.pager-wrapper" );
+          break;
+        case "Email":
+          $rows.sort(function(a,b){
+          var an = $(a).find("div[data-type='email']").text(),
+            bn = $(b).find("div[data-type='email']").text();
+
+            if(an > bn) {
+              return 1;
+            }
+            if(an < bn) {
+              return -1;
+            }
+            return 0;
+          });
+
+          $rows.detach().insertBefore( ".row.pager-wrapper" );
+          break;
+        case "Role":
+          $rows.sort(function(a,b){
+          var an = $(a).find("span[data-type='role']").text(),
+            bn = $(b).find("span[data-type='role']").text();
+
+            if(an > bn) {
+              return 1;
+            }
+            if(an < bn) {
+              return -1;
+            }
+            return 0;
+          });
+
+          $rows.detach().insertBefore( ".row.pager-wrapper" );
+          break;
+        case "Status":
+          $rows.sort(function(a,b){
+          var an = $(a).find("span[data-type='status']").text(),
+            bn = $(b).find("span[data-type='status']").text();
+
+            if(an > bn) {
+              return 1;
+            }
+            if(an < bn) {
+              return -1;
+            }
+            return 0;
+          });
+
+          $rows.detach().insertBefore( ".row.pager-wrapper" );
+          break;
+        case "Signed up":
+          $rows.sort(function(a,b){
+          var an = $(a).find("div[data-type='signed-up']").text(),
+            bn = $(b).find("div[data-type='signed-up']").text();
+
+            if(an > bn) {
+              return 1;
+            }
+            if(an < bn) {
+              return -1;
+            }
+            return 0;
+          });
+
+          $rows.detach().insertBefore( ".row.pager-wrapper" );
+          break;
+        default:
+            break;
+      }
+    });
+
     // User list checkboxes
     var $allUsers = $(".select-users input:checkbox");
-    var $checkboxes = $("[name='select-user']");
+    var $checkboxes = $("[name^='delete']");
 
     $allUsers.change(function () {
       var checked = $allUsers.is(":checked");
@@ -18,7 +158,7 @@
     });
 
     $checkboxes.change(function () {
-      var anyChecked = $(".user [name='select-user']:checked");
+      var anyChecked = $(".user [name^='delete']:checked");
       toggleBulkActions(anyChecked.length, anyChecked.length);
     });
 
@@ -52,7 +192,7 @@
       $links.removeClass("active");
       var str = $(this).text();
 
-      var no_records = "<div id='no-records' class='row user' style='text-align: center !important; background: #FAFAFC !important'>"
+      var noRecords = "<div id='no-records' class='row user' style='text-align: center !important; background: #FAFAFC !important'>"
                         + "<span>No matching records were found</span>"
                         + "</div>";
 
@@ -61,7 +201,7 @@
           $('.row.user').has(".label.label-warning").hide();
 
           if($('.row.user').has(".label.label-success").length == 0)
-            $( no_records ).insertBefore( ".row.pager-wrapper" );
+            $( noRecords ).insertBefore( ".row.pager-wrapper" );
 
       } else if (str.match("^Pending")) { // List only users who didn't activate their accounts yet
 
@@ -69,7 +209,7 @@
           $('.row.user').has(".label.label-success").hide();
 
           if($('.row.user').has(".label.label-warning").length == 0)
-            $( no_records ).insertBefore( ".row.pager-wrapper" );
+            $( noRecords ).insertBefore( ".row.pager-wrapper" );
 
       } else { // List all users
           $('.row.user').has(".label.label-success").show();

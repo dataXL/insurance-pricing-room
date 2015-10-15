@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  #before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  #before_action :correct_user,   only: [:edit, :update]
+  #before_action :admin_user,     only: :destroy
 
   def index
     @user = User.new
@@ -21,8 +24,8 @@ class UsersController < ApplicationController
 
     if @user.save
       UserMailer.account_activation(@user).deliver_now
-      flash[:info] = "Please check your email to activate your account."
-      redirect_to login_path
+      #flash[:info] = "Please check your email to activate your account."
+      redirect_to :action => :index
     else
       render 'index'
     end
@@ -36,9 +39,30 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     if @user.update_attributes(user_params)
       # Handle a successful update.
-      render :action => :edit
+      render :action => :show
     else
       render 'edit'
+    end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url
+  end
+
+  def destroy_multiple
+
+    params[:users_ids].each do |id|
+      User.find(id.to_i).destroy
+    end
+
+    if request.xhr?
+      render :js => "window.location = '/users'"
+    else
+      respond_to do |format|
+        format.html { redirect_to :action => "index" }
+      end
     end
   end
 

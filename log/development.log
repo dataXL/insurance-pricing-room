@@ -2538,3 +2538,1939 @@ Processing by UsersController#index as HTML
   Rendered users/index.html.erb within layouts/application (20.0ms)
   Rendered shared/_sidebar_menu.html.erb (4.8ms)
 Completed 200 OK in 750ms (Views: 746.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 16:35:59 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (9.8ms)
+  Rendered users/_new_user.html.erb (92.4ms)
+  Rendered users/index.html.erb within layouts/application (149.0ms)
+  Rendered shared/_sidebar_menu.html.erb (4.1ms)
+Completed 200 OK in 2529ms (Views: 2464.4ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 16:56:32 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.0ms)
+  Rendered users/index.html.erb within layouts/application (17.0ms)
+  Rendered shared/_sidebar_menu.html.erb (2.4ms)
+Completed 200 OK in 850ms (Views: 846.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 16:57:06 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.7ms)
+  Rendered users/index.html.erb within layouts/application (13.7ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 809ms (Views: 806.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 16:58:18 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.5ms)
+  Rendered users/index.html.erb within layouts/application (14.5ms)
+  Rendered shared/_sidebar_menu.html.erb (2.0ms)
+Completed 200 OK in 783ms (Views: 780.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:00:00 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.6ms)
+  Rendered users/index.html.erb within layouts/application (15.1ms)
+  Rendered shared/_sidebar_menu.html.erb (2.7ms)
+Completed 200 OK in 772ms (Views: 769.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:01:59 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.2ms)
+  Rendered users/index.html.erb within layouts/application (15.6ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 824ms (Views: 821.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:03:26 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.0ms)
+  Rendered users/index.html.erb within layouts/application (14.3ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 831ms (Views: 828.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:03:43 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.3ms)
+  Rendered users/_new_user.html.erb (4.1ms)
+  Rendered users/index.html.erb within layouts/application (17.1ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 793ms (Views: 790.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:05:52 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered users/_new_user.html.erb (3.5ms)
+  Rendered users/index.html.erb within layouts/application (16.2ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 811ms (Views: 807.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:06:18 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.2ms)
+  Rendered users/_new_user.html.erb (4.2ms)
+  Rendered users/index.html.erb within layouts/application (14.9ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 797ms (Views: 794.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:08:36 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.8ms)
+  Rendered users/index.html.erb within layouts/application (19.3ms)
+  Rendered shared/_sidebar_menu.html.erb (2.6ms)
+Completed 200 OK in 815ms (Views: 811.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:08:59 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.8ms)
+  Rendered users/index.html.erb within layouts/application (16.1ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 813ms (Views: 810.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:09:22 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.6ms)
+  Rendered users/index.html.erb within layouts/application (14.5ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 828ms (Views: 825.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:10:13 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.6ms)
+  Rendered users/index.html.erb within layouts/application (14.9ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 789ms (Views: 786.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:10:25 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered users/_new_user.html.erb (3.6ms)
+  Rendered users/index.html.erb within layouts/application (14.3ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 798ms (Views: 795.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:18:35 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (5.2ms)
+  Rendered users/index.html.erb within layouts/application (20.8ms)
+  Rendered shared/_sidebar_menu.html.erb (2.1ms)
+Completed 200 OK in 812ms (Views: 809.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:18:52 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.0ms)
+  Rendered users/index.html.erb within layouts/application (15.4ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 844ms (Views: 842.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:20:28 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.9ms)
+  Rendered users/index.html.erb within layouts/application (15.8ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 798ms (Views: 796.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:21:39 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.9ms)
+  Rendered users/index.html.erb within layouts/application (17.0ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 783ms (Views: 780.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:21:50 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered users/_new_user.html.erb (3.5ms)
+  Rendered users/index.html.erb within layouts/application (14.2ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 787ms (Views: 785.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:22:05 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.1ms)
+  Rendered users/index.html.erb within layouts/application (17.4ms)
+  Rendered shared/_sidebar_menu.html.erb (2.3ms)
+Completed 200 OK in 791ms (Views: 788.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:22:24 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (5.2ms)
+  Rendered users/index.html.erb within layouts/application (16.9ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 850ms (Views: 847.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:23:01 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (5.3ms)
+  Rendered users/index.html.erb within layouts/application (25.9ms)
+  Rendered shared/_sidebar_menu.html.erb (2.1ms)
+Completed 200 OK in 864ms (Views: 861.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:23:02 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.4ms)
+  Rendered users/index.html.erb within layouts/application (17.6ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 780ms (Views: 777.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:23:58 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.7ms)
+  Rendered users/index.html.erb within layouts/application (14.2ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 830ms (Views: 827.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:24:10 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.8ms)
+  Rendered users/index.html.erb within layouts/application (15.2ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 809ms (Views: 807.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:26:22 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.8ms)
+  Rendered users/index.html.erb within layouts/application (15.7ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 778ms (Views: 775.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:28:50 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered users/_new_user.html.erb (3.5ms)
+  Rendered users/index.html.erb within layouts/application (16.2ms)
+  Rendered shared/_sidebar_menu.html.erb (3.0ms)
+Completed 200 OK in 853ms (Views: 850.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:30:09 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (6.7ms)
+  Rendered users/index.html.erb within layouts/application (18.1ms)
+  Rendered shared/_sidebar_menu.html.erb (2.0ms)
+Completed 200 OK in 842ms (Views: 839.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:39:35 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.5ms)
+  Rendered users/index.html.erb within layouts/application (15.7ms)
+  Rendered shared/_sidebar_menu.html.erb (3.3ms)
+Completed 200 OK in 1436ms (Views: 1432.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:40:26 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.1ms)
+  Rendered users/index.html.erb within layouts/application (16.4ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 915ms (Views: 911.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:43:42 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.7ms)
+  Rendered users/index.html.erb within layouts/application (17.8ms)
+  Rendered shared/_sidebar_menu.html.erb (3.5ms)
+Completed 200 OK in 1356ms (Views: 1353.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:45:33 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.4ms)
+  Rendered users/index.html.erb within layouts/application (16.2ms)
+  Rendered shared/_sidebar_menu.html.erb (2.1ms)
+Completed 200 OK in 855ms (Views: 852.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:51:27 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.1ms)
+  Rendered users/index.html.erb within layouts/application (17.1ms)
+  Rendered shared/_sidebar_menu.html.erb (3.6ms)
+Completed 200 OK in 1347ms (Views: 1344.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-14 17:53:34 +0100
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/empty (17.2ms)
+Completed 200 OK in 721ms (Views: 719.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:53:39 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (1.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.0ms)
+  Rendered users/index.html.erb within layouts/application (15.9ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 668ms (Views: 665.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 17:53:40 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.9ms)
+  Rendered users/index.html.erb within layouts/application (19.5ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 706ms (Views: 703.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:00:52 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.1ms)
+  Rendered users/index.html.erb within layouts/application (16.7ms)
+  Rendered shared/_sidebar_menu.html.erb (3.0ms)
+Completed 200 OK in 1939ms (Views: 1935.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:01:07 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.5ms)
+  Rendered users/index.html.erb within layouts/application (17.0ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 818ms (Views: 815.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:02:39 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (5.0ms)
+  Rendered users/index.html.erb within layouts/application (22.5ms)
+  Rendered shared/_sidebar_menu.html.erb (3.4ms)
+Completed 200 OK in 2182ms (Views: 2178.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:02:55 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.8ms)
+  Rendered users/index.html.erb within layouts/application (17.5ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 944ms (Views: 942.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:03:28 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.3ms)
+  Rendered users/index.html.erb within layouts/application (18.1ms)
+  Rendered shared/_sidebar_menu.html.erb (3.3ms)
+Completed 200 OK in 1345ms (Views: 1342.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:05:38 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (5.0ms)
+  Rendered users/index.html.erb within layouts/application (22.3ms)
+  Rendered shared/_sidebar_menu.html.erb (4.1ms)
+Completed 200 OK in 1909ms (Views: 1906.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:06:54 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.3ms)
+  Rendered users/_new_user.html.erb (4.3ms)
+  Rendered users/index.html.erb within layouts/application (19.7ms)
+  Rendered shared/_sidebar_menu.html.erb (3.4ms)
+Completed 200 OK in 1576ms (Views: 1573.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:07:11 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.5ms)
+  Rendered users/index.html.erb within layouts/application (17.2ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 866ms (Views: 863.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:08:44 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.0ms)
+  Rendered users/index.html.erb within layouts/application (16.6ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 788ms (Views: 785.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:09:57 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.8ms)
+  Rendered users/index.html.erb within layouts/application (21.6ms)
+  Rendered shared/_sidebar_menu.html.erb (3.8ms)
+Completed 200 OK in 1464ms (Views: 1461.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:11:55 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.9ms)
+  Rendered users/index.html.erb within layouts/application (21.0ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 794ms (Views: 791.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:12:40 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.7ms)
+  Rendered users/index.html.erb within layouts/application (17.4ms)
+  Rendered shared/_sidebar_menu.html.erb (2.0ms)
+Completed 200 OK in 786ms (Views: 783.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:13:02 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (6.8ms)
+  Rendered users/index.html.erb within layouts/application (17.7ms)
+  Rendered shared/_sidebar_menu.html.erb (2.0ms)
+Completed 200 OK in 814ms (Views: 811.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:14:07 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered users/_new_user.html.erb (4.0ms)
+  Rendered users/index.html.erb within layouts/application (17.0ms)
+  Rendered shared/_sidebar_menu.html.erb (2.3ms)
+Completed 200 OK in 796ms (Views: 793.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:15:02 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.5ms)
+  Rendered users/index.html.erb within layouts/application (16.0ms)
+  Rendered shared/_sidebar_menu.html.erb (2.0ms)
+Completed 200 OK in 830ms (Views: 828.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:15:21 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.4ms)
+  Rendered users/index.html.erb within layouts/application (19.0ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 804ms (Views: 800.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:19:39 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.2ms)
+  Rendered users/index.html.erb within layouts/application (27.1ms)
+  Rendered shared/_sidebar_menu.html.erb (3.9ms)
+Completed 200 OK in 2074ms (Views: 2071.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:19:56 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.8ms)
+  Rendered users/index.html.erb within layouts/application (17.3ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 800ms (Views: 797.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:20:50 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.3ms)
+  Rendered users/index.html.erb within layouts/application (18.5ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 1132ms (Views: 1129.7ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-10-14 18:22:03 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O/oNq9PwsDw1Tj+DdpbkKMPMXJGj9xDbq9qNKgm2Djnt9sVHOQeulm1ITEWFieDoENL5Dusuw/H1x56YX+uezw==", "user"=>{"name"=>"teste22", "email"=>"teste22@example.org"}, "commit"=>"Save user"}
+  [1m[36m (9.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (107.7ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('teste22@example.org') LIMIT 1
+  [1m[36mSQL (143.9ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "teste22"], ["email", "teste22@example.org"], ["password_digest", "$2a$10$B0qW.DhYzlPbJBo4OCnwQ.cXSID4d1RQJMWqracxI0PxtYTYp/X4S"], ["created_at", "2015-10-14 17:22:04.882685"], ["updated_at", "2015-10-14 17:22:04.882685"], ["activation_digest", "$2a$10$9txV8BIUOkclOfa2QOfJE.ZXiSVLquJMZMKQWcjL1TlMzd.iftw3K"]]
+  [1m[35m (22.0ms)[0m  COMMIT
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (4.6ms)
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (0.8ms)
+
+UserMailer#account_activation: processed outbound mail in 504.1ms
+
+Sent mail to teste22@example.org (38.7ms)
+Date: Wed, 14 Oct 2015 18:22:06 +0100
+From: noreply@example.com
+To: teste22@example.org
+Message-ID: <561e8f3ef37f_4dcb3ff3c04601d857639@MBP-de-Jorge.lan.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_561e8f3e84ad_4dcb3ff3c04601d857542";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_561e8f3e84ad_4dcb3ff3c04601d857542
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi teste22,
+
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/GjQQPPhW95ZjarblPJGf7g/edit?email=teste22%40example.org
+
+
+----==_mimepart_561e8f3e84ad_4dcb3ff3c04601d857542
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Insurance Pricing Room</h1>
+
+<p>Hi teste22,</p>
+
+<p>
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/GjQQPPhW95ZjarblPJGf7g/edit?email=teste22%40example.org">Activate</a>
+
+  </body>
+</html>
+
+----==_mimepart_561e8f3e84ad_4dcb3ff3c04601d857542--
+
+  Rendered users/index.html.erb within layouts/application (40.4ms)
+Completed 500 Internal Server Error in 1847ms (ActiveRecord: 286.5ms)
+
+ActionView::Template::Error (undefined method `count' for nil:NilClass):
+    22:     <div class="col-md-12 filters">
+    23:       <div class="links">
+    24:         <label>Filter users:</label>
+    25:         <a href="#" class="active">All users (<%= @users.count %>)</a>
+    26:         <a href="#">Active (<%= @users.collect(&:activated?).length %>)</a>
+    27:         <a href="#">Pending activation (<%= @users.count - @users.collect(&:activated?).length %>)</a>
+    28:       </div>
+  app/views/users/index.html.erb:25:in `_app_views_users_index_html_erb__3813788603086344062_70316187111760'
+  app/controllers/users_controller.rb:25:in `create'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.6ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.7ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (195.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:23:53 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.2ms)
+  Rendered users/index.html.erb within layouts/application (19.4ms)
+  Rendered shared/_sidebar_menu.html.erb (2.1ms)
+Completed 200 OK in 664ms (Views: 633.7ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:23:53 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (1.9ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.6ms)
+  Rendered users/index.html.erb within layouts/application (22.5ms)
+  Rendered shared/_sidebar_menu.html.erb (2.5ms)
+Completed 200 OK in 702ms (Views: 694.4ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-10-14 18:24:07 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r+WrMVb6mzT4jAOpuB308I84IEg5A8xbggTRwfSVtlJ56WPdvA2FnqCKcG9LAvAwXCaF13HaH3HcGcJzosgmpA==", "user"=>{"name"=>"teste33", "email"=>"teste33@example.org"}, "commit"=>"Save user"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('teste33@example.org') LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "teste33"], ["email", "teste33@example.org"], ["password_digest", "$2a$10$KvAxSdGM72NlgyiGS2L36.tKAEFLW.m3x7UlR2Of5w1F6YwrWIATq"], ["created_at", "2015-10-14 17:24:07.355376"], ["updated_at", "2015-10-14 17:24:07.355376"], ["activation_digest", "$2a$10$1SHaFgjDdIwAENWpbw37ZO85/yKKjj/3aFGa4RMzgPzdmNWE51CTi"]]
+  [1m[35m (251.2ms)[0m  COMMIT
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (0.5ms)
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (0.3ms)
+
+UserMailer#account_activation: processed outbound mail in 41.1ms
+
+Sent mail to teste33@example.org (4.4ms)
+Date: Wed, 14 Oct 2015 18:24:07 +0100
+From: noreply@example.com
+To: teste33@example.org
+Message-ID: <561e8fb7d726c_4dcb3ff3c04601d8578da@MBP-de-Jorge.lan.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_561e8fb7d66b7_4dcb3ff3c04601d8577f0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_561e8fb7d66b7_4dcb3ff3c04601d8577f0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi teste33,
+
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/tTUWzhVl7MHWI6r7uo24IQ/edit?email=teste33%40example.org
+
+
+----==_mimepart_561e8fb7d66b7_4dcb3ff3c04601d8577f0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Insurance Pricing Room</h1>
+
+<p>Hi teste33,</p>
+
+<p>
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/tTUWzhVl7MHWI6r7uo24IQ/edit?email=teste33%40example.org">Activate</a>
+
+  </body>
+</html>
+
+----==_mimepart_561e8fb7d66b7_4dcb3ff3c04601d8577f0--
+
+Redirected to 
+Completed 500 Internal Server Error in 649ms (ActiveRecord: 253.0ms)
+
+NoMethodError (undefined method `index_url' for #<UsersController:0x007fe78531e268>):
+  app/controllers/users_controller.rb:25:in `create'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.9ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (168.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:24:46 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  Rendered users/_new_user.html.erb (7.5ms)
+  Rendered users/index.html.erb within layouts/application (21.7ms)
+  Rendered shared/_sidebar_menu.html.erb (4.2ms)
+Completed 200 OK in 749ms (Views: 713.9ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-10-14 18:24:58 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hkWKXTORvrS0w77SoxWeOx4WsP/JsmWq11usAvqkqadQSUKx2WagHuzFzRRQCpr7zQgVYIFrtoCJRr+wrPk5UQ==", "user"=>{"name"=>"teste44", "email"=>"teste44@example.org"}, "commit"=>"Save user"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('teste44@example.org') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "teste44"], ["email", "teste44@example.org"], ["password_digest", "$2a$10$rBjxdYwtrlOlsCL2dwui7uddRHj6G4TEuHjX77gwLkSf0iLS9fRza"], ["created_at", "2015-10-14 17:24:58.827270"], ["updated_at", "2015-10-14 17:24:58.827270"], ["activation_digest", "$2a$10$lR.D1IHuWAnmXby/mZsOMO/Z8CHsO3amvzxN/WaFPz7PRfZhtePAi"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (0.8ms)
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (0.3ms)
+
+UserMailer#account_activation: processed outbound mail in 35.4ms
+
+Sent mail to teste44@example.org (6.4ms)
+Date: Wed, 14 Oct 2015 18:24:59 +0100
+From: noreply@example.com
+To: teste44@example.org
+Message-ID: <561e8feb17970_4dcb3ff3c04601d8580a3@MBP-de-Jorge.lan.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_561e8feb168b9_4dcb3ff3c04601d8579a4";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_561e8feb168b9_4dcb3ff3c04601d8579a4
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi teste44,
+
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/AAkMGQxeG_G6kp8p21N9zQ/edit?email=teste44%40example.org
+
+
+----==_mimepart_561e8feb168b9_4dcb3ff3c04601d8579a4
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Insurance Pricing Room</h1>
+
+<p>Hi teste44,</p>
+
+<p>
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/AAkMGQxeG_G6kp8p21N9zQ/edit?email=teste44%40example.org">Activate</a>
+
+  </body>
+</html>
+
+----==_mimepart_561e8feb168b9_4dcb3ff3c04601d8579a4--
+
+Redirected to http://localhost:3000/users
+Completed 302 Found in 392ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:24:59 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.6ms)
+  Rendered users/index.html.erb within layouts/application (16.3ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 643ms (Views: 641.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:31:57 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.6ms)
+  Rendered users/index.html.erb within layouts/application (20.3ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 650ms (Views: 648.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:32:10 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.6ms)
+  Rendered users/index.html.erb within layouts/application (21.1ms)
+  Rendered shared/_sidebar_menu.html.erb (2.0ms)
+Completed 200 OK in 676ms (Views: 674.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2015-10-14 18:32:22 +0100
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/edit.html.erb within layouts/application (1704.0ms)
+  Rendered shared/_sidebar_menu.html.erb (2.0ms)
+Completed 200 OK in 2363ms (Views: 2319.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2015-10-14 18:32:53 +0100
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/edit.html.erb within layouts/application (5.0ms)
+  Rendered shared/_sidebar_menu.html.erb (5.3ms)
+Completed 200 OK in 661ms (Views: 658.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-10-14 18:32:58 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (6.8ms)
+  Rendered shared/_sidebar_menu.html.erb (4.4ms)
+Completed 200 OK in 661ms (Views: 659.1ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2015-10-14 18:33:06 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3KnBBdWb71JI8R5cqciFqE5g7AT4qCAlphE3zbs8pHoKpQnpP2zx+BD3bZpa14FonX5Jm7Bx8w/4DCR/7WE0jA==", "user"=>{"name"=>"Jorge Pereira", "email"=>"jahpereira@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jahpereira@gmail.com') AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "Jorge Pereira"], ["updated_at", "2015-10-14 17:33:06.603394"], ["id", 1]]
+  [1m[35m (1.7ms)[0m  COMMIT
+  Rendered users/edit.html.erb within layouts/application (3.6ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 664ms (Views: 636.4ms | ActiveRecord: 3.9ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2015-10-14 18:33:48 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3KnBBdWb71JI8R5cqciFqE5g7AT4qCAlphE3zbs8pHoKpQnpP2zx+BD3bZpa14FonX5Jm7Bx8w/4DCR/7WE0jA==", "user"=>{"name"=>"Jorge Pereira", "email"=>"jahpereira@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jahpereira@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35m (1.2ms)[0m  COMMIT
+  Rendered users/show.html.erb within layouts/application (5.3ms)
+  Rendered shared/_sidebar_menu.html.erb (2.1ms)
+Completed 200 OK in 652ms (Views: 607.7ms | ActiveRecord: 5.3ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2015-10-14 18:33:54 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xfLOFqIYBNzGdcr2VZzq5hA9Rg2lBkkjW/0EVmuYg9cT/gb6SO8adp5zuTCmg+4mwyPjku3fmgkF4BfkPcUTIQ==", "user"=>{"name"=>"Jorge Pereira12", "email"=>"jahpereira@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jahpereira@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["name", "Jorge Pereira12"], ["updated_at", "2015-10-14 17:33:54.718721"], ["id", 1]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+  Rendered shared/_sidebar_menu.html.erb (1.7ms)
+Completed 200 OK in 680ms (Views: 668.5ms | ActiveRecord: 3.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2015-10-14 18:34:04 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cO2uUMlg+knJY3imuPjC3xBnaNQ2b8PFSYp8G76sb52m4Wa8I5fk45FlC2BL58Yfw3nNS362EO8Xl2+p6PH/aw==", "user"=>{"name"=>"Jorge Pereira", "email"=>"jahpereira@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jahpereira@gmail.com') AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "Jorge Pereira"], ["updated_at", "2015-10-14 17:34:04.297186"], ["id", 1]]
+  [1m[35m (1.3ms)[0m  COMMIT
+  Rendered users/show.html.erb within layouts/application (4.5ms)
+  Rendered shared/_sidebar_menu.html.erb (2.1ms)
+Completed 200 OK in 654ms (Views: 640.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:34:11 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.1ms)
+  Rendered users/index.html.erb within layouts/application (17.5ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 641ms (Views: 637.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/risks" for 127.0.0.1 at 2015-10-14 18:37:40 +0100
+Processing by RisksController#index as HTML
+  [1m[35mRisk Load (1.4ms)[0m  SELECT  "risks".* FROM "risks"  ORDER BY "risks"."id" ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "risks".* FROM "risks"  ORDER BY "risks"."id" ASC LIMIT 1[0m
+  [1m[35mRisk Load (2.2ms)[0m  SELECT "risks".* FROM "risks"
+  Rendered risks/index.html.erb within layouts/application (55.8ms)
+  Rendered shared/_sidebar_menu.html.erb (2.0ms)
+Completed 200 OK in 747ms (Views: 702.9ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-14 18:44:19 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (6.2ms)
+  Rendered users/index.html.erb within layouts/application (25.8ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 655ms (Views: 651.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 01:33:01 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (71.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35m (14.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (17.1ms)
+  Rendered users/_new_user.html.erb (121.6ms)
+  Rendered users/index.html.erb within layouts/application (214.7ms)
+  Rendered shared/_sidebar_menu.html.erb (9.5ms)
+Completed 200 OK in 2939ms (Views: 2779.7ms | ActiveRecord: 74.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 01:35:41 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (6.3ms)
+  Rendered users/index.html.erb within layouts/application (19.1ms)
+  Rendered shared/_sidebar_menu.html.erb (2.1ms)
+Completed 200 OK in 690ms (Views: 656.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 01:38:18 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.3ms)
+  Rendered users/index.html.erb within layouts/application (16.8ms)
+  Rendered shared/_sidebar_menu.html.erb (2.6ms)
+Completed 200 OK in 939ms (Views: 910.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 01:38:37 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.6ms)
+  Rendered users/index.html.erb within layouts/application (19.8ms)
+  Rendered shared/_sidebar_menu.html.erb (1.7ms)
+Completed 200 OK in 669ms (Views: 666.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 01:40:52 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (6.0ms)
+  Rendered users/index.html.erb within layouts/application (21.8ms)
+  Rendered shared/_sidebar_menu.html.erb (2.0ms)
+Completed 200 OK in 832ms (Views: 829.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 01:42:27 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.5ms)
+  Rendered users/index.html.erb within layouts/application (18.3ms)
+  Rendered shared/_sidebar_menu.html.erb (2.2ms)
+Completed 200 OK in 964ms (Views: 960.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 01:42:31 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (6.5ms)
+  Rendered users/index.html.erb within layouts/application (39.0ms)
+  Rendered shared/_sidebar_menu.html.erb (2.1ms)
+Completed 200 OK in 964ms (Views: 960.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 01:52:37 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.4ms)
+  Rendered users/index.html.erb within layouts/application (21.5ms)
+  Rendered shared/_sidebar_menu.html.erb (2.6ms)
+Completed 200 OK in 736ms (Views: 705.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 01:56:18 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.8ms)
+  Rendered users/index.html.erb within layouts/application (20.3ms)
+  Rendered shared/_sidebar_menu.html.erb (3.1ms)
+Completed 200 OK in 971ms (Views: 967.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:05:55 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.6ms)
+  Rendered users/index.html.erb within layouts/application (20.9ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 828ms (Views: 798.3ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:07:01 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.9ms)
+  Rendered users/index.html.erb within layouts/application (20.7ms)
+  Rendered shared/_sidebar_menu.html.erb (2.1ms)
+Completed 200 OK in 815ms (Views: 812.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:08:34 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.6ms)
+  Rendered users/index.html.erb within layouts/application (28.8ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 696ms (Views: 692.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:09:23 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.7ms)
+  Rendered users/index.html.erb within layouts/application (29.6ms)
+  Rendered shared/_sidebar_menu.html.erb (2.1ms)
+Completed 200 OK in 717ms (Views: 715.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:13:11 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.6ms)
+  Rendered users/index.html.erb within layouts/application (18.3ms)
+  Rendered shared/_sidebar_menu.html.erb (2.3ms)
+Completed 200 OK in 903ms (Views: 872.3ms | ActiveRecord: 3.4ms)
+
+
+Started DELETE "/users/destroy_multiple" for 127.0.0.1 at 2015-10-15 02:13:24 +0100
+Processing by UsersController#destroy_multiple as */*
+  Parameters: {"users_ids"=>["19"]}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 19]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (29.8ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 19]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 105ms (ActiveRecord: 32.5ms)
+
+
+Started DELETE "/users" for 127.0.0.1 at 2015-10-15 02:13:24 +0100
+
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.4) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.4) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.4) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.4) lib/thin/connection.rb:53:in `process'
+  thin (1.6.4) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.4) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.4) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.2) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.2) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.1ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (78.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:16:48 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (4.2ms)
+  Rendered users/_new_user.html.erb (27.4ms)
+  Rendered users/index.html.erb within layouts/application (52.6ms)
+  Rendered shared/_sidebar_menu.html.erb (4.2ms)
+Completed 200 OK in 1197ms (Views: 1145.5ms | ActiveRecord: 5.9ms)
+
+
+Started DELETE "/users/destroy_multiple" for 127.0.0.1 at 2015-10-15 02:17:01 +0100
+Processing by UsersController#destroy_multiple as */*
+  Parameters: {"users_ids"=>["20"]}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 20]]
+  [1m[35m (7.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/users
+Completed 302 Found in 34ms (ActiveRecord: 9.8ms)
+
+
+Started DELETE "/users" for 127.0.0.1 at 2015-10-15 02:17:02 +0100
+
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.4) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.4) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.4) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.4) lib/thin/connection.rb:53:in `process'
+  thin (1.6.4) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.4) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.4) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.2) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.2) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (52.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:17:43 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (6.4ms)
+  Rendered users/index.html.erb within layouts/application (20.1ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 745ms (Views: 716.7ms | ActiveRecord: 3.5ms)
+
+
+Started DELETE "/users/destroy_multiple" for 127.0.0.1 at 2015-10-15 02:17:50 +0100
+Processing by UsersController#destroy_multiple as */*
+  Parameters: {"users_ids"=>["21"]}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 21]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 21]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms)
+
+
+Started DELETE "/users" for 127.0.0.1 at 2015-10-15 02:17:50 +0100
+
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.4) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.4) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.4) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.4) lib/thin/connection.rb:53:in `process'
+  thin (1.6.4) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.4) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.4) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.2) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.2) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.0ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (47.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:18:23 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (5.0ms)
+  Rendered users/index.html.erb within layouts/application (22.6ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 776ms (Views: 741.7ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-10-15 02:18:53 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I20sFiIr31G6IINga8Z/F9uoVj6n1EK2IeJstDMKY8J7jtscSHdOCEUIdQCorvufrgyIYJ4otuNkti50EVstYA==", "user"=>{"name"=>"teste1", "email"=>"teste1@email.com"}, "commit"=>"Save user"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (42.4ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('teste1@email.com') LIMIT 1
+  [1m[36mSQL (62.0ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "teste1"], ["email", "teste1@email.com"], ["password_digest", "$2a$10$j6gTzZCggRtitsfLaQC2je72XBKDm52L4j/gDIxK8G3g57d.QIdza"], ["created_at", "2015-10-15 01:18:53.895054"], ["updated_at", "2015-10-15 01:18:53.895054"], ["activation_digest", "$2a$10$fcEd66bRf2rVx3Ze7bWc9eQmWZmJOvi.IH/Xv81psXqrv2HgG/XBG"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (3.5ms)
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (1.6ms)
+
+UserMailer#account_activation: processed outbound mail in 532.4ms
+
+Sent mail to teste1@email.com (28.9ms)
+Date: Thu, 15 Oct 2015 02:18:54 +0100
+From: noreply@example.com
+To: teste1@email.com
+Message-ID: <561efefebe64e_5ff3ff8c485e1dc1681e@MBP-de-Jorge.lan.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_561efefeb8d59_5ff3ff8c485e1dc16751";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_561efefeb8d59_5ff3ff8c485e1dc16751
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi teste1,
+
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/pf12npKhGQ9Q6lPTrSXH2Q/edit?email=teste1%40email.com
+
+
+----==_mimepart_561efefeb8d59_5ff3ff8c485e1dc16751
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Insurance Pricing Room</h1>
+
+<p>Hi teste1,</p>
+
+<p>
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/pf12npKhGQ9Q6lPTrSXH2Q/edit?email=teste1%40email.com">Activate</a>
+
+  </body>
+</html>
+
+----==_mimepart_561efefeb8d59_5ff3ff8c485e1dc16751--
+
+Redirected to http://localhost:3000/users
+Completed 302 Found in 1171ms (ActiveRecord: 106.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:18:54 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.0ms)
+  Rendered users/index.html.erb within layouts/application (16.0ms)
+  Rendered shared/_sidebar_menu.html.erb (2.0ms)
+Completed 200 OK in 710ms (Views: 708.0ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/destroy_multiple" for 127.0.0.1 at 2015-10-15 02:19:03 +0100
+Processing by UsersController#destroy_multiple as */*
+  Parameters: {"users_ids"=>["22"]}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 22]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 22]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 8ms (ActiveRecord: 2.1ms)
+
+
+Started DELETE "/users" for 127.0.0.1 at 2015-10-15 02:19:03 +0100
+
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.4) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.4) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.4) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.4) lib/thin/connection.rb:53:in `process'
+  thin (1.6.4) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.4) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.4) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.2) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.2) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.2) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.1ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (52.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:23:12 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.2ms)
+  Rendered users/_new_user.html.erb (4.4ms)
+  Rendered users/index.html.erb within layouts/application (15.7ms)
+  Rendered shared/_sidebar_menu.html.erb (3.1ms)
+Completed 200 OK in 677ms (Views: 650.0ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-10-15 02:23:30 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JCdqhsVyXFbVZKRlsJvoRJiyYpZt9hGr1rLKkM/ZJgR8xJ2Mry7NDypMUgVz82zM7Ra8yFQK5f6T5ohQ7Yhopg==", "user"=>{"name"=>"teste33", "email"=>"teste33@example.org"}, "commit"=>"Save user"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('teste33@example.org') LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "teste33"], ["email", "teste33@example.org"], ["password_digest", "$2a$10$tX3OZmCGntsD3sN4Z5hc8ebhwnIjJwSqksCS.r/c6H.WYMVOfGuAO"], ["created_at", "2015-10-15 01:23:30.725030"], ["updated_at", "2015-10-15 01:23:30.725030"], ["activation_digest", "$2a$10$XauSBBD8igM.MSi3qwTzae3iss/zSS6WLhRZTEcqZpaES3aCgTrOK"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (0.6ms)
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (0.3ms)
+
+UserMailer#account_activation: processed outbound mail in 34.3ms
+
+Sent mail to teste33@example.org (4.7ms)
+Date: Thu, 15 Oct 2015 02:23:30 +0100
+From: noreply@example.com
+To: teste33@example.org
+Message-ID: <561f0012f0868_5ff3ff8c485e1dc1704d@MBP-de-Jorge.lan.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_561f0012efc3c_5ff3ff8c485e1dc169d2";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_561f0012efc3c_5ff3ff8c485e1dc169d2
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi teste33,
+
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/p43GNOZ9LDeahB0C7M8hlQ/edit?email=teste33%40example.org
+
+
+----==_mimepart_561f0012efc3c_5ff3ff8c485e1dc169d2
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Insurance Pricing Room</h1>
+
+<p>Hi teste33,</p>
+
+<p>
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/p43GNOZ9LDeahB0C7M8hlQ/edit?email=teste33%40example.org">Activate</a>
+
+  </body>
+</html>
+
+----==_mimepart_561f0012efc3c_5ff3ff8c485e1dc169d2--
+
+Redirected to http://localhost:3000/users
+Completed 302 Found in 393ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:23:31 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.2ms)
+  Rendered users/index.html.erb within layouts/application (17.2ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 617ms (Views: 614.7ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/users/destroy_multiple" for 127.0.0.1 at 2015-10-15 02:23:40 +0100
+Processing by UsersController#destroy_multiple as */*
+  Parameters: {"users_ids"=>["23"]}
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 23]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 2.6ms)
+
+ActionView::MissingTemplate (Missing template users/destroy_multiple, application/destroy_multiple with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/jahpereira/Downloads/wolf-wrap/wolf-rails/app/views"
+):
+  app/controllers/users_controller.rb:57:in `destroy_multiple'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/missing_template.text.erb (1.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:24:17 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.5ms)
+  Rendered users/index.html.erb within layouts/application (19.2ms)
+  Rendered shared/_sidebar_menu.html.erb (2.4ms)
+Completed 200 OK in 653ms (Views: 625.0ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-10-15 02:24:35 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OABBA974600EFe9TEhzC0b4DjcATTuyQUVT2D0BlOYJg47YJtKR6FPs9GTPRdEZZy6dTniqyGMUUALTPYjR3IA==", "user"=>{"name"=>"teste33", "email"=>"teste33@example.org"}, "commit"=>"Save user"}
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('teste33@example.org') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "teste33"], ["email", "teste33@example.org"], ["password_digest", "$2a$10$Ek1t6X1uzY8duACtKN4wl.7BMa3KgRftAxnzPfIA4d723qS9biX1a"], ["created_at", "2015-10-15 01:24:35.413991"], ["updated_at", "2015-10-15 01:24:35.413991"], ["activation_digest", "$2a$10$JNxoryp7ZrjrVKb5zxKszunsNl0WNGN0viz7Ts.fQgpY/6Uu4n19e"]]
+  [1m[35m (1.5ms)[0m  COMMIT
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (0.8ms)
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (0.3ms)
+
+UserMailer#account_activation: processed outbound mail in 41.5ms
+
+Sent mail to teste33@example.org (5.2ms)
+Date: Thu, 15 Oct 2015 02:24:35 +0100
+From: noreply@example.com
+To: teste33@example.org
+Message-ID: <561f0053a713f_5ff3ff8c485e1dc17244@MBP-de-Jorge.lan.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_561f0053a6375_5ff3ff8c485e1dc17179";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_561f0053a6375_5ff3ff8c485e1dc17179
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi teste33,
+
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/LTJHXeyJd5Ifg57HirKMgg/edit?email=teste33%40example.org
+
+
+----==_mimepart_561f0053a6375_5ff3ff8c485e1dc17179
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Insurance Pricing Room</h1>
+
+<p>Hi teste33,</p>
+
+<p>
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/LTJHXeyJd5Ifg57HirKMgg/edit?email=teste33%40example.org">Activate</a>
+
+  </body>
+</html>
+
+----==_mimepart_561f0053a6375_5ff3ff8c485e1dc17179--
+
+Redirected to http://localhost:3000/users
+Completed 302 Found in 447ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:24:35 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.1ms)
+  Rendered users/index.html.erb within layouts/application (18.0ms)
+  Rendered shared/_sidebar_menu.html.erb (2.1ms)
+Completed 200 OK in 707ms (Views: 704.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-10-15 02:24:46 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/bL7OVyf6wSzG9aCuQ/wwXrGMXMXsj8sp5YvP3SQcDqlUQwzNsN6XUwzIOJ6Z3RJD2LvLS5Oy3niwm3/VsE+mA==", "user"=>{"name"=>"teste44", "email"=>"teste44@example.org"}, "commit"=>"Save user"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('teste44@example.org') LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "teste44"], ["email", "teste44@example.org"], ["password_digest", "$2a$10$DdnkZwpf21bbRccpmP1Zsegjem9R.TNSx.zSAPFet92J.MXO7X/Nm"], ["created_at", "2015-10-15 01:24:46.279798"], ["updated_at", "2015-10-15 01:24:46.279798"], ["activation_digest", "$2a$10$c8eKyNY8t4mgYZCln7UA3eIhdbHYarHm/I5lcGlD6Z1Uv5m0KiTXi"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (0.6ms)
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (0.6ms)
+
+UserMailer#account_activation: processed outbound mail in 31.6ms
+
+Sent mail to teste44@example.org (5.7ms)
+Date: Thu, 15 Oct 2015 02:24:46 +0100
+From: noreply@example.com
+To: teste44@example.org
+Message-ID: <561f005e7fc54_5ff3ff8c485e1dc174f1@MBP-de-Jorge.lan.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_561f005e7ec3b_5ff3ff8c485e1dc173a9";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_561f005e7ec3b_5ff3ff8c485e1dc173a9
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi teste44,
+
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/1XmhlA8ZxobU8sWzsL6Nmg/edit?email=teste44%40example.org
+
+
+----==_mimepart_561f005e7ec3b_5ff3ff8c485e1dc173a9
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Insurance Pricing Room</h1>
+
+<p>Hi teste44,</p>
+
+<p>
+Welcome to the Insurance Pricing Room! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/1XmhlA8ZxobU8sWzsL6Nmg/edit?email=teste44%40example.org">Activate</a>
+
+  </body>
+</html>
+
+----==_mimepart_561f005e7ec3b_5ff3ff8c485e1dc173a9--
+
+Redirected to http://localhost:3000/users
+Completed 302 Found in 364ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:24:46 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.7ms)
+  Rendered users/index.html.erb within layouts/application (18.9ms)
+  Rendered shared/_sidebar_menu.html.erb (1.7ms)
+Completed 200 OK in 634ms (Views: 631.9ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/destroy_multiple" for 127.0.0.1 at 2015-10-15 02:24:55 +0100
+Processing by UsersController#destroy_multiple as */*
+  Parameters: {"users_ids"=>["24"]}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 24]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 24]]
+  [1m[35m (1.2ms)[0m  COMMIT
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 2.9ms)
+
+NoMethodError (undefined method `read_attribute_for_serialization' for {:redirect=>"/users"}:Hash):
+  app/controllers/users_controller.rb:58:in `block (2 levels) in destroy_multiple'
+  app/controllers/users_controller.rb:57:in `destroy_multiple'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.0ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (2.1ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (234.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:28:37 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (5.0ms)
+  Rendered users/index.html.erb within layouts/application (21.7ms)
+  Rendered shared/_sidebar_menu.html.erb (4.1ms)
+Completed 200 OK in 842ms (Views: 811.5ms | ActiveRecord: 4.5ms)
+
+
+Started DELETE "/users/destroy_multiple" for 127.0.0.1 at 2015-10-15 02:28:47 +0100
+Processing by UsersController#destroy_multiple as JS
+  Parameters: {"users_ids"=>["25"]}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 25]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 25]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:28:47 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (1.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (5.2ms)
+  Rendered users/index.html.erb within layouts/application (20.8ms)
+  Rendered shared/_sidebar_menu.html.erb (2.0ms)
+Completed 200 OK in 754ms (Views: 750.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:32:41 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.3ms)
+  Rendered users/index.html.erb within layouts/application (16.7ms)
+  Rendered shared/_sidebar_menu.html.erb (2.2ms)
+Completed 200 OK in 912ms (Views: 909.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:33:42 +0100
+Processing by UsersController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (3.8ms)
+  Rendered users/index.html.erb within layouts/application (15.9ms)
+  Rendered shared/_sidebar_menu.html.erb (2.2ms)
+Completed 200 OK in 760ms (Views: 758.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-15 02:35:04 +0100
+Processing by UsersController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/_new_user.html.erb (4.7ms)
+  Rendered users/index.html.erb within layouts/application (16.3ms)
+  Rendered shared/_sidebar_menu.html.erb (2.3ms)
+Completed 200 OK in 827ms (Views: 825.1ms | ActiveRecord: 1.0ms)
