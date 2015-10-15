@@ -32,17 +32,12 @@
                         + "<span>No matching records were found</span>"
                         + "</div>";
 
-      if($(".row.user:contains('" + $(this).val() + "')").length > 0) {
-        $('#no-records').remove();
-        $(".row.user:contains('" + $(this).val() + "')").show();
-        $(".row.user:not(:contains('" + $(this).val() + "'))").hide();
-      }
-      else {
-        $(".row.user:not(:contains('" + $(this).val() + "'))").hide();
+      $('#no-records').remove();
+      $(".row.user:not(:contains('" + $(this).val() + "'))").hide();
+      $(".row.user:contains('" + $(this).val() + "')").show();
+
+      if($(".row.user:contains('" + $(this).val() + "')").length == 0)
         $( noRecords ).insertBefore( ".row.pager-wrapper" );
-      }
-
-
     });
 
 
