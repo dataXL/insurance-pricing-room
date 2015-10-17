@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user.password = @user.password_confirmation =  SecureRandom.base64(8)
 
     if @user.save
-      UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
       #flash[:info] = "Please check your email to activate your account."
       redirect_to :action => :index
     else

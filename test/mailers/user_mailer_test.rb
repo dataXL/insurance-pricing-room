@@ -20,5 +20,4 @@ class UserMailerTest < ActionMailer::TestCase
     assert_equal ["noreply@example.com"], mail.from
     assert_match "Hi", mail.body.encoded
   end
-
 end

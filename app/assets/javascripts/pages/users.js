@@ -211,7 +211,7 @@
           $('.row.user').has(".label.label-warning").show();
       }
 
-      $checkboxes = $("[name='select-user']:visible");
+      $checkboxes = $("[name^='delete']:visible");
       $(this).addClass("active");
     });
 
