@@ -1,0 +1,28 @@
+<% provide(:title, "Forgot password") %>
+<body id="signin">
+
+  <div class="bg clear">
+    <a href="<%= root_url %>" class="logo">
+      <%= image_tag "logo.png" %>
+    </a>
+
+    <h3>Insurance Pricing Room</h3>
+
+    <div class="content" style="min-height:100px">
+      <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+        <div class="fields">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="bottom-wrapper" style="padding-bottom: 40px">
+      <!-- Leave blank -->
+    </div>
+  </div>
+
+</body>

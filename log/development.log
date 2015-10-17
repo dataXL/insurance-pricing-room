@@ -5155,3 +5155,122 @@ Started GET "/" for 127.0.0.1 at 2015-10-17 14:04:06 +0100
 Processing by HomeController#index as HTML
   Rendered home/index.html.erb within layouts/empty (62.3ms)
 Completed 200 OK in 2505ms (Views: 2468.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/features/signin" for 127.0.0.1 at 2015-10-17 14:45:03 +0100
+Processing by FeaturesController#signin as HTML
+  Rendered features/signin.html.erb within layouts/empty (1.2ms)
+Completed 200 OK in 767ms (Views: 765.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2015-10-17 14:45:16 +0100
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/empty (1068.6ms)
+Completed 200 OK in 1812ms (Views: 1810.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2015-10-17 14:46:21 +0100
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/empty (6.0ms)
+Completed 200 OK in 1010ms (Views: 1008.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2015-10-17 14:47:23 +0100
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/empty (4.4ms)
+Completed 200 OK in 934ms (Views: 932.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2015-10-17 14:48:08 +0100
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/empty (4.1ms)
+Completed 200 OK in 968ms (Views: 967.2ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddResetToUsers (20151203131265)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (79.9ms)[0m  [1mALTER TABLE "users" ADD "reset_digest" character varying[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "users" ADD "reset_sent_at" timestamp
+  [1m[36mSQL (18.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20151203131265"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (5.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'products'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'profiles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'risks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2015-10-17 14:51:32 +0100
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (2.2ms)
+  Rendered shared/_sidebar_menu.html.erb (26.9ms)
+Completed 200 OK in 1392ms (Views: 1391.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2015-10-17 14:53:17 +0100
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (2.2ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 834ms (Views: 833.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2015-10-17 14:53:46 +0100
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/empty (2.4ms)
+Completed 200 OK in 802ms (Views: 797.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2015-10-17 14:55:43 +0100
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/empty (3.1ms)
+Completed 200 OK in 898ms (Views: 897.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2015-10-17 14:56:07 +0100
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/empty (2.4ms)
+Completed 200 OK in 804ms (Views: 802.7ms | ActiveRecord: 0.0ms)
