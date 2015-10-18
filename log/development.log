@@ -5274,3 +5274,91 @@ Started GET "/password_resets/new" for 127.0.0.1 at 2015-10-17 14:56:07 +0100
 Processing by PasswordResetsController#new as HTML
   Rendered password_resets/new.html.erb within layouts/empty (2.4ms)
 Completed 200 OK in 804ms (Views: 802.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-18 11:55:11 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (63.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35m (41.0ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered shared/_error_messages.html.erb (61.4ms)
+  Rendered users/_new_user.html.erb (243.5ms)
+  Rendered users/index.html.erb within layouts/application (412.6ms)
+  Rendered shared/_sidebar_menu.html.erb (6.1ms)
+Completed 200 OK in 4247ms (Views: 3744.5ms | ActiveRecord: 208.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-10-18 12:39:06 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 3.0ms)
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x007fb0d8839740>):
+  app/models/user.rb:17:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:12:in `show'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.2ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.8ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (195.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-10-18 12:39:07 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x007fb0d6a12e60>):
+  app/models/user.rb:17:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:12:in `show'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.0ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (147.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-10-18 12:48:03 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 2.7ms)
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x007fb0d67f30a8>):
+  app/models/user.rb:17:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:12:in `show'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.7ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.9ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (145.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-10-18 12:48:38 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (924.7ms)
+  Rendered shared/_sidebar_menu.html.erb (8.7ms)
+Completed 200 OK in 2253ms (Views: 2111.4ms | ActiveRecord: 4.2ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2015-10-18 12:49:22 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ArtkWRkepRhKUdJBaEROMLziwrg8Iq0fars9S+uTGlE35EpPxeACZzxUviSyHnmEhIthddaItu+broOXd0/IFA==", "user"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fb0d8dbe5d0 @tempfile=#<Tempfile:/var/folders/qn/0ly8lq5572v2zn52vppl0pr80000gn/T/RackMultipart20151018-1018-1oinson.jpg>, @original_filename="244022_453843831334968_104157054_o.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[picture]\"; filename=\"244022_453843831334968_104157054_o.jpg\"\r\nContent-Type: image/jpeg\r\n">, "name"=>"Jorge Pereira", "email"=>"jahpereira@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (22.2ms)[0m  BEGIN
+  [1m[36mUser Exists (40.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jahpereira@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSQL (28.4ms)[0m  [1mUPDATE "users" SET "picture" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["picture", "244022_453843831334968_104157054_o.jpg"], ["updated_at", "2015-10-18 11:49:24.385185"], ["id", 1]]
+  [1m[35m (30.0ms)[0m  COMMIT
+  Rendered users/show.html.erb within layouts/application (5.6ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 2252ms (Views: 638.3ms | ActiveRecord: 122.6ms)

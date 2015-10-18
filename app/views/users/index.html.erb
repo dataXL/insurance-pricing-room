@@ -89,7 +89,7 @@
         <div class="col-sm-2 avatar">
           <%= check_box_tag("delete[]", user.id, false) %>
           <!--<input type="checkbox" name="select-user" />-->
-          <%= image_tag "avatars/missing.jpg" %>
+          <%= image_tag "fallback/missing.jpg" %>
         </div>
         <div class="col-sm-2">
           <a href="<%= user_path(user) %>" class="name" data-type="name"><%= user.name %></a>

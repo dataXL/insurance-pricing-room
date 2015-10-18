@@ -20,11 +20,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem "iconv", "~> 1.0.3"
 gem 'remotipart'
 gem 'responders', '~> 2.0'
+gem 'carrierwave', '0.10.0'
+gem 'mini_magick', '3.8.0'
 gem 'fog'
 gem 'i18n', '~> 0.7.0'
 gem 'virtus', '~> 1.0.5'

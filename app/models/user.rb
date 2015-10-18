@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :reset_token
+
   before_save { self.email = email.downcase }
   before_create :create_activation_digest
   validates :name,  presence: true, length: { maximum: 50 }
@@ -10,11 +11,11 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false },
                     allow_nil: true
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/, allow_nil: true
-
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
+  mount_uploader :picture, PictureUploader
+  validate  :picture_size
 
   # Returns the hash digest of the given string.
   def User.digest(string)
@@ -85,5 +86,12 @@ class User < ActiveRecord::Base
     def create_activation_digest
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
+    end
+
+    # Validates the size of an uploaded picture.
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "should be less than 5MB")
+      end
     end
 end
