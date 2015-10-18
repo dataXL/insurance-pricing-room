@@ -29,12 +29,12 @@
     <div class="form-group avatar-field clearfix">
       <div class="col-sm-3">
         <%# image_tag "avatars/18.jpg", class: "img-responsive img-circle" %>
+        <%# image_tag @user.picture.url if @user.picture? %>
         <% gravatar_for @user %>
-        <!--<img src="<%# (@user.avatar.url(:medium)).gsub(/^./, "") %>" class="img-responsive img-circle"></img>-->
       </div>
       <div class="col-sm-9">
         <label>Set up your avatar picture</label>
-          <%= f.file_field :avatar %>
+          <%= f.file_field :picture, accept: 'image/jpg,image/gif,image/png' %>
       </div>
     </div>
     <div class="form-group">

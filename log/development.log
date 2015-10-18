@@ -5362,3 +5362,145 @@ Processing by UsersController#update as HTML
   Rendered users/show.html.erb within layouts/application (5.6ms)
   Rendered shared/_sidebar_menu.html.erb (1.9ms)
 Completed 200 OK in 2252ms (Views: 638.3ms | ActiveRecord: 122.6ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2015-10-18 13:00:27 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ArtkWRkepRhKUdJBaEROMLziwrg8Iq0fars9S+uTGlE35EpPxeACZzxUviSyHnmEhIthddaItu+broOXd0/IFA==", "user"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fb0d8246d88 @tempfile=#<Tempfile:/var/folders/qn/0ly8lq5572v2zn52vppl0pr80000gn/T/RackMultipart20151018-1018-14yp3bx.jpg>, @original_filename="244022_453843831334968_104157054_o.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[picture]\"; filename=\"244022_453843831334968_104157054_o.jpg\"\r\nContent-Type: image/jpeg\r\n">, "name"=>"Jorge Pereira", "email"=>"jahpereira@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jahpereira@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "picture" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["picture", "244022_453843831334968_104157054_o.jpg"], ["updated_at", "2015-10-18 12:00:28.182225"], ["id", 1]]
+  [1m[35m (15.9ms)[0m  COMMIT
+  Rendered users/show.html.erb within layouts/application (4.7ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 1352ms (Views: 681.4ms | ActiveRecord: 18.6ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2015-10-18 13:07:25 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ArtkWRkepRhKUdJBaEROMLziwrg8Iq0fars9S+uTGlE35EpPxeACZzxUviSyHnmEhIthddaItu+broOXd0/IFA==", "user"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fb0d6578f80 @tempfile=#<Tempfile:/var/folders/qn/0ly8lq5572v2zn52vppl0pr80000gn/T/RackMultipart20151018-1018-1d79kxo.jpg>, @original_filename="244022_453843831334968_104157054_o.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[picture]\"; filename=\"244022_453843831334968_104157054_o.jpg\"\r\nContent-Type: image/jpeg\r\n">, "name"=>"Jorge Pereira", "email"=>"jahpereira@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jahpereira@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "picture" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["picture", "244022_453843831334968_104157054_o.jpg"], ["updated_at", "2015-10-18 12:07:27.202089"], ["id", 1]]
+  [1m[35m (10.4ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 1062ms (ActiveRecord: 16.6ms)
+
+ArgumentError ( is not a recognized provider):
+  app/controllers/users_controller.rb:40:in `update'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.2ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.5ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (163.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-10-18 13:09:16 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (5.0ms)
+  Rendered shared/_sidebar_menu.html.erb (2.0ms)
+Completed 200 OK in 656ms (Views: 651.8ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2015-10-18 13:09:24 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GTiFX3MdxvWNJS15KiqJvGkPFQGAi6CdnIxxji/s0ZAsZ6tJr+NhivsgQRzwcL4IUWa2zGohu21tmc9SszAD1Q==", "user"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fb0d64d4408 @tempfile=#<Tempfile:/var/folders/qn/0ly8lq5572v2zn52vppl0pr80000gn/T/RackMultipart20151018-1018-qc7c46.jpg>, @original_filename="244022_453843831334968_104157054_o.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[picture]\"; filename=\"244022_453843831334968_104157054_o.jpg\"\r\nContent-Type: image/jpeg\r\n">, "name"=>"Jorge Pereira", "email"=>"jahpereira@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jahpereira@gmail.com') AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "picture" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["picture", "244022_453843831334968_104157054_o.jpg"], ["updated_at", "2015-10-18 12:09:25.020369"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 639ms (ActiveRecord: 2.6ms)
+
+ArgumentError ( is not a recognized provider):
+  app/controllers/users_controller.rb:40:in `update'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.2ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (150.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-10-18 13:10:49 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (13.7ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 811ms (Views: 780.6ms | ActiveRecord: 3.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2015-10-18 13:11:03 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g34p1aLlst44/soWQwg86WYr7jZ3dtjrb+MvbgIn9AK2IQfDfhsVoU77pnOZUgtdXkJN+53cwxue9pGynvsmRw==", "user"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fb0d8c2b970 @tempfile=#<Tempfile:/var/folders/qn/0ly8lq5572v2zn52vppl0pr80000gn/T/RackMultipart20151018-1018-1m0l64u.jpg>, @original_filename="244022_453843831334968_104157054_o.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[picture]\"; filename=\"244022_453843831334968_104157054_o.jpg\"\r\nContent-Type: image/jpeg\r\n">, "name"=>"Jorge Pereira", "email"=>"jahpereira@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jahpereira@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSQL (1.8ms)[0m  [1mUPDATE "users" SET "picture" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["picture", "244022_453843831334968_104157054_o.jpg"], ["updated_at", "2015-10-18 12:11:04.367677"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 955ms (ActiveRecord: 4.0ms)
+
+ArgumentError ( is not a recognized provider):
+  app/controllers/users_controller.rb:40:in `update'
+
+
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.4ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.2ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /Users/jahpereira/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (156.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-10-18 13:18:11 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (1251.9ms)
+  Rendered shared/_sidebar_menu.html.erb (26.2ms)
+Completed 200 OK in 5051ms (Views: 4572.0ms | ActiveRecord: 8.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2015-10-18 13:18:27 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7z4YlKpExI1MuCuheUx+IRESQ2UvwdRpBYfMtpnxAITaYTaCdrpj8jq9R8SjFkmVKXvgqMVrz5n0knJqBS3SwQ==", "user"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007ff16673b928 @tempfile=#<Tempfile:/var/folders/qn/0ly8lq5572v2zn52vppl0pr80000gn/T/RackMultipart20151018-1321-1vw80qh.jpg>, @original_filename="244022_453843831334968_104157054_o.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[picture]\"; filename=\"244022_453843831334968_104157054_o.jpg\"\r\nContent-Type: image/jpeg\r\n">, "name"=>"Jorge Pereira", "email"=>"jahpereira@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jahpereira@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "picture" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["picture", "244022_453843831334968_104157054_o.jpg"], ["updated_at", "2015-10-18 12:18:29.280062"], ["id", 1]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  Rendered users/show.html.erb within layouts/application (4.7ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 2856ms (Views: 647.5ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-10-18 13:25:15 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (4.8ms)
+  Rendered shared/_sidebar_menu.html.erb (1.9ms)
+Completed 200 OK in 699ms (Views: 648.1ms | ActiveRecord: 3.6ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2015-10-18 13:25:22 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G8kNafIVi/9fRyTnvzKuKtkclSdYtcVFjO6qi3MQ0bUuliN/LussgClCSIJlaJme4XU26rIf3rV9+xRX78wD8A==", "user"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007ff16752bc40 @tempfile=#<Tempfile:/var/folders/qn/0ly8lq5572v2zn52vppl0pr80000gn/T/RackMultipart20151018-1321-lz3qom.jpg>, @original_filename="244022_453843831334968_104157054_o.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[picture]\"; filename=\"244022_453843831334968_104157054_o.jpg\"\r\nContent-Type: image/jpeg\r\n">, "name"=>"Jorge Pereira", "email"=>"jahpereira@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jahpereira@gmail.com') AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "picture" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["picture", "244022_453843831334968_104157054_o.jpg"], ["updated_at", "2015-10-18 12:25:23.466355"], ["id", 1]]
+  [1m[36m (16.8ms)[0m  [1mCOMMIT[0m
+  Rendered users/show.html.erb within layouts/application (9.9ms)
+  Rendered shared/_sidebar_menu.html.erb (1.8ms)
+Completed 200 OK in 1397ms (Views: 644.9ms | ActiveRecord: 19.9ms)
