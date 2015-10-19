@@ -37,6 +37,7 @@ gem 'jquery-turbolinks'
 # gem 'rails_script', '~> 0.6.1'
 # CoffeeRoutes
 # gem 'coffee_routes'
+gem 'rinruby', '~> 2.0', '>= 2.0.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
