@@ -37,10 +37,10 @@ gem 'jquery-turbolinks'
 # gem 'rails_script', '~> 0.6.1'
 # CoffeeRoutes
 # gem 'coffee_routes'
-gem 'rinruby', '~> 2.0', '>= 2.0.3'
+#gem 'rinruby', '~> 2.0', '>= 2.0.3'
 # Pivot Tables
 gem 'pivot_table', '~> 0.5.0'
-gem 'rinruby', '~> 2.0', '>= 2.0.3'
+#gem 'rinruby', '~> 2.0', '>= 2.0.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -78,3 +78,10 @@ gem 'faker', '~> 1.5.0'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
+gem 'chartkick', '~> 1.2.4'
+
+gem 'groupdate', '~> 2.1.1'
+gem 'active_median', '~> 0.1.0'
+
+gem 'google_visualr', '>= 2.5'

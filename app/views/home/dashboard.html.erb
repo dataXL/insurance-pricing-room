@@ -1,5 +1,8 @@
 <% provide(:title, "Insurance Pricing Room") %>
 <%= content_for :body_id, "dashboard" %>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= javascript_include_tag "//www.google.com/jsapi" %>
+
 
 <div class="menubar">
     <div class="sidebar-toggler visible-xs">
@@ -7,9 +10,40 @@
     </div>
 
   <div class="page-title">
-        Dashboard
+        Dashboard 2
   </div>
 </div>
+
+
+<div class="content-wrapper">
+
+  <%= pie_chart @dictionary %>
+
+
+  <%= column_chart @barchart %>
+
+
+  <%= line_chart @data %>
+
+
+  <div id='chart'></div>
+  <%= render_chart(@barchart, 'chart') %>
+
+  <div id='chart2'></div>
+  <%= render_chart(@areachart, 'chart2') %>
+
+  <div id='chart3'></div>
+  <%= render_chart(@gaugechart, 'chart3') %>
+
+
+  <div id='chart4'></div>
+  <%= render_chart(@linechart, 'chart4') %>
+
+
+
+
+</div>
+
 
 <div class="content-wrapper">
   <div class="metrics clearfix">
