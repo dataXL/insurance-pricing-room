@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20151213131276) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "tablefunc"
 
   create_table "codings", force: :cascade do |t|
     t.jsonb "properties", default: {}, null: false
@@ -34,29 +33,35 @@ ActiveRecord::Schema.define(version: 20151213131276) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string  "insurer"
-    t.float   "premium"
-    t.integer "tariff_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "insurer"
+    t.jsonb    "properties", default: {}, null: false
+    t.float    "premium"
+    t.integer  "tariff_id"
   end
 
+  add_index "products", ["properties"], name: "index_products_on_properties", using: :gin
   add_index "products", ["tariff_id"], name: "index_products_on_tariff_id", using: :btree
 
   create_table "risks", force: :cascade do |t|
-    t.integer "exposition"
-    t.integer "frequency"
-    t.integer "risk"
-    t.float   "cost"
-    t.integer "tariff_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "exposition"
+    t.integer  "frequency"
+    t.integer  "risk"
+    t.float    "cost"
+    t.integer  "tariff_id"
   end
 
-  add_index "risks", ["tariff_id"], name: "index_risks_on_user_id", using: :btree
+  add_index "risks", ["tariff_id"], name: "index_risks_on_tariff_id", using: :btree
 
   create_table "tariffs", force: :cascade do |t|
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.jsonb    "properties", default: {}, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.float    "premium"
-    t.integer  "segment",    default: 1
+    t.integer  "segment",    default: 1,  null: false
     t.integer  "insurer_id"
   end
 

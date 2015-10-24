@@ -9,12 +9,12 @@ $(document).ready ( function () {
 
   $plans.click(function () {
     if ( $(this).hasClass( "selected" ) ) {
+      $(this).find("input:hidden").remove();
+      $(this).removeClass("selected");
+    } else {
       var property = $(this).text();
       var $hiddenInput = $('<input/>',{type:'hidden',name:"properties[]",id:"properties_", value:$.trim(property)});
       $(this).find(".select").prepend($hiddenInput);
-      $(this).removeClass("selected");
-    } else {
-      $(this).find("input:hidden").remove();
       $(this).addClass("selected");
     }
   });
@@ -27,13 +27,11 @@ $(document).ready ( function () {
     <strong>Please choose below</strong> which properties do you want to include:
   </div>
 
-  <%= @test.inspect %>
   <div class="step active animated fadeInRightStep">
   <%= form_tag import_tariffs_path do %>
-    <%= hidden_field_tag "file", @file %>
     <div class="plans">
       <% unless @header.blank? %>
-        <% @header.each do |header| %>
+        <% @header.each_with_index do |header, i| %>
           <% unless header == "Premio comercial" %>
             <div class="plan clearfix selected">
               <div class="info">
@@ -41,7 +39,7 @@ $(document).ready ( function () {
                   <%= header %>
                 </div>
                 <div class="select">
-                  <%# hidden_field_tag "properties[]", @header[i] %>
+                  <%= hidden_field_tag "properties[]", @header[i] %>
                   <i class="fa fa-check"></i>
                 </div>
               </div>
@@ -50,6 +48,7 @@ $(document).ready ( function () {
         <% end %>
       <% end %>
       </div>
+      <%= hidden_field_tag :file, @name %>
     <%= render :partial => "shared/buttons_footer" %>
   <% end %>
   </div>

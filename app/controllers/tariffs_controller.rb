@@ -26,11 +26,20 @@ class TariffsController < ApplicationController
 
   # GET /tariffs/select
   def select
-    spreadsheet = open_spreadsheet(params[:file])
+    # Save file to tmp/tariffs/
+    @name = "#{DateTime.now.to_i}_#{params[:file].original_filename}"
+    directory = "tmp/tariffs"
+    path = File.join(directory, @name)
+    File.open(path, "wb") { |f| f.write(params[:file].read) }
+
+    file = File.open(path, 'r')
+
+    spreadsheet = open_spreadsheet(file)
     @header = spreadsheet.sheet(0).row(1)
 
-    Tariff.truncate_me!
-    Risk.truncate_me!
+
+    # Tariff.truncate_me!
+    # Risk.truncate_me!
 
     #@headerhash = {}
     #@header.each do |value|
@@ -44,32 +53,47 @@ class TariffsController < ApplicationController
     #  }
 
     #Tariff.create!(:properties => @headerhash)
-    @test = []
-    (2..spreadsheet.last_row).each do |i|
-      spreadsheet.row(i)
-      row = Hash[[@header, spreadsheet.row(i)].transpose].except!("Premio comercial")
-      premium = row["Premio comercial"].to_f
-      t = Tariff.create!(:properties => row, :premium => premium, :insurer_id => 1)
 
-      Risk.find_or_create_by(tariff_id: t.id)
-      Product.find_or_create_by(tariff_id: t.id, premium: premium, :insurer => t.insurer.name)
-    end
+
+
+    # @test = []
+    # (2..spreadsheet.last_row).each do |i|
+    #   spreadsheet.row(i)
+    #   row = Hash[[@header, spreadsheet.row(i)].transpose].except!("Premio comercial")
+    #   premium = row["Premio comercial"].to_f
+    #   t = Tariff.create!(:properties => row, :premium => premium, :insurer_id => 1)
+
+    #   Risk.find_or_create_by(tariff_id: t.id)
+    #   Product.find_or_create_by(tariff_id: t.id, premium: premium, :insurer => t.insurer.name)
+    # end
   end
 
   # GET /tariffs/import
   def import
     @filters = params[:properties]
-    unless @filters.nil?
-      @filters.each do |filter|
-        #key = I18n.transliterate(filter).gsub(/\s/, '_').gsub(/[^0-9A-Za-z](_)/, '').downcase
-        #header = Tariff.first
-        #header.update_attribute :properties, header[:properties].except(key)
+    @name = params[:file]
 
-        @results = Tariff.where('properties ?| array[:keys]', keys: [filter])
-        @results.each do |result|
-          result.update_attribute :properties, result[:properties].except(filter)
-        end
-      end
+    directory = "tmp/tariffs"
+    path = File.join(directory, @name)
+
+    file = File.new(path, "r")
+
+    spreadsheet = open_spreadsheet(file)
+    @header = spreadsheet.sheet(0).row(1)
+
+
+
+    (2..spreadsheet.last_row).each do |i|      
+      row = Hash[[@header, spreadsheet.row(i)].transpose].except!("Premio comercial")
+      premium = row["Premio comercial"].to_f
+
+      hash = {}
+      @filters.each { |f| hash[f] = row[f] }
+
+      tariff = Tariff.create!(:properties => hash, :premium => premium, :insurer_id => 1)
+
+      Risk.find_or_create_by(tariff_id: tariff.id)
+      Product.find_or_create_by(tariff_id: tariff.id, premium: premium, :insurer => tariff.insurer.name)
     end
   end
 
@@ -135,7 +159,7 @@ class TariffsController < ApplicationController
 
     # Open imported spreadsheet
     def open_spreadsheet(file)
-      case File.extname(file.original_filename)
+      case File.extname(file.path)
         when ".csv" then Roo::Csv.new(file.path)
         when ".xls" then Roo::Excel.new(file.path)
         when ".xlsx" then Roo::Excelx.new(file.path)

@@ -19,6 +19,13 @@ $(document).ready ( function () {
             var src = $(this).attr("src").replace("hover.png", ".png");
             $(this).attr("src", src);
         });
+  $('button.button').click(function(e) {
+    if ($('input[type=file]').val() == "") {
+      e.preventDefault();
+      $('label.form-control').css('border-color', 'red').text('Upload a file to continue.');
+    }
+  })
+
 });
 </script>
 

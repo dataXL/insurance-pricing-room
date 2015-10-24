@@ -79,3 +79,5 @@ gem 'faker', '~> 1.5.0'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'byebug'
+
