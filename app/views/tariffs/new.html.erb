@@ -7,7 +7,7 @@ $(document).ready ( function () {
   $(".header .steps .step").removeClass("active").filter(":lt(1)").addClass("active");
 
   $('input[type=file]').change(function(e){
-    $(".form-group").children("label").text($(this).prop("files")[0]['name']);
+    $(".form-group").children("label").text($(this).prop("files")[0]['name']).css('border-color','gray');
   });
 
   $("img")

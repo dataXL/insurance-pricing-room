@@ -33727,3 +33727,21 @@ Processing by TariffsController#new as HTML
   Rendered tariffs/new.html.erb within layouts/application (16.6ms)
   Rendered shared/_sidebar_menu.html.erb (8.5ms)
 Completed 200 OK in 1918ms (Views: 1915.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tariffs/new" for 127.0.0.1 at 2015-10-24 20:44:17 +0100
+Processing by TariffsController#new as HTML
+  Rendered shared/_wizard_steps.html.erb (0.3ms)
+  Rendered shared/_buttons_footer.html.erb (1.1ms)
+  Rendered tariffs/new.html.erb within layouts/application (17.6ms)
+  Rendered shared/_sidebar_menu.html.erb (16.9ms)
+Completed 200 OK in 2012ms (Views: 1985.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tariffs/new" for 127.0.0.1 at 2015-10-24 20:45:31 +0100
+Processing by TariffsController#new as HTML
+  Rendered shared/_wizard_steps.html.erb (0.3ms)
+  Rendered shared/_buttons_footer.html.erb (1.3ms)
+  Rendered tariffs/new.html.erb within layouts/application (16.1ms)
+  Rendered shared/_sidebar_menu.html.erb (11.1ms)
+Completed 200 OK in 1988ms (Views: 1982.0ms | ActiveRecord: 0.0ms)
