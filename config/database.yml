@@ -7,6 +7,8 @@ development:
   adapter: postgresql
   database: wolfadmin_development
   host: localhost
+  user: postgres
+  password: newPassword
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
