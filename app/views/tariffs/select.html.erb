@@ -27,7 +27,7 @@ $(document).ready ( function () {
     <strong>Please choose below</strong> which properties do you want to include:
   </div>
 
-  <%= debug @test %>
+  <%= @test.inspect %>
   <div class="step active animated fadeInRightStep">
   <%= form_tag import_tariffs_path do %>
     <%= hidden_field_tag "file", @file %>

@@ -6,32 +6,17 @@ class UtilitiesController < ApplicationController
   def index
     @utilities = Utility.all
 
-    n = 10
-    beta_0 = 1
-    beta_1 = 0.25
-    alpha = 0.05
-    seed = 23423
-    R.x = (1..n).entries
+    #R.x = (1..n).entries
+    #y <- #{beta_0} + #{beta_1}*x + rnorm(#{n})
+    #byebug
+
     R.eval <<EOF
-      set.seed(#{seed})
-      y <- #{beta_0} + #{beta_1}*x + rnorm(#{n})
-      fit <- lm( y ~ x )
-      est <- round(coef(fit),3)
-      pvalue <- summary(fit)$coefficients[2,4]
+      require 'DoE_base'
+      oa.design(nfactors=4, nlevels=c(2,2,2,2),factor.names=lixo)
+      lixo<-c('Categoria','Idade do condutor','Idade da carta', 'Sexo')
 EOF
-    result = "E(y|x) ~= #{R.est[0]} + #{R.est[1]} * x"
-    @test = R.eval "expand.grid(height = seq(60, 80, 5), weight = seq(100, 300, 50),
-            sex = c('Male','Female'))"
 
-
-    R.image_path = Rails.root.join("app", "assets","images","sample.png").to_s
-    R.eval("numbers <- c(12,34,56,20,44,65)")
-    R.eval("png(filename=image_path)")
-    R.eval("require(stats)")
-    R.eval("plot(cars)")
-    R.eval("lines(lowess(cars))")
-    R.eval("dev.off()")
-
+    puts R.lixo
   end
 
   # GET /utilities/1

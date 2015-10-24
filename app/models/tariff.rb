@@ -1,5 +1,5 @@
 class Tariff < ActiveRecord::Base
-  serialize :properties, HashSerializer
+  #serialize :properties, HashSerializer
   store_accessor :properties
   attr_accessor :file
   belongs_to :insurer

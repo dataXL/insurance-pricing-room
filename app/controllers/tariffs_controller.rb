@@ -38,16 +38,21 @@ class TariffsController < ApplicationController
     #  @headerhash[key] = value
     #end
 
-    #Tariff.create!(:properties => @headerhash)
+    #row.except!("Premio comercial".to_sym).each_key { |x|
+    #    row[x] = row[x].to_s.strip if row[x]
+    #    @test << row[x]
+    #  }
 
+    #Tariff.create!(:properties => @headerhash)
+    @test = []
     (2..spreadsheet.last_row).each do |i|
       spreadsheet.row(i)
-      row = Hash[[@header, spreadsheet.row(i)].transpose]
-      row.except!("Premio comercial".to_sym).each_key{|x| row[x] = row[x].to_s.strip if row[x]}
-      # TODO inferir os tipos das variáveis
-      t = Tariff.create!(:properties => row, :premium => row["Premio comercial"].to_f, :insurer_id => 1)
+      row = Hash[[@header, spreadsheet.row(i)].transpose].except!("Premio comercial")
+      premium = row["Premio comercial"].to_f
+      t = Tariff.create!(:properties => row, :premium => premium, :insurer_id => 1)
+
       Risk.find_or_create_by(tariff_id: t.id)
-      Product.find_or_create_by(tariff_id: t.id, premium: row["Premio comercial"].to_f, :insurer => t.insurer.name)
+      Product.find_or_create_by(tariff_id: t.id, premium: premium, :insurer => t.insurer.name)
     end
   end
 
@@ -131,10 +136,15 @@ class TariffsController < ApplicationController
     # Open imported spreadsheet
     def open_spreadsheet(file)
       case File.extname(file.original_filename)
-      when ".csv" then Roo::Csv.new(file.path)
-      when ".xls" then Roo::Excel.new(file.path)
-      when ".xlsx" then Roo::Excelx.new(file.path)
-      else raise "Unknown file type: #{file.original_filename}"
+        when ".csv" then Roo::Csv.new(file.path)
+        when ".xls" then Roo::Excel.new(file.path)
+        when ".xlsx" then Roo::Excelx.new(file.path)
+        else raise "Unknown file type: #{file.original_filename}"
+      end
     end
-  end
+
+    # Test if string is number
+    def is_number? string
+      true if Float(string) rescue false
+    end
 end
