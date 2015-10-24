@@ -38,6 +38,9 @@ gem 'jquery-turbolinks'
 # CoffeeRoutes
 # gem 'coffee_routes'
 gem 'rinruby', '~> 2.0', '>= 2.0.3'
+# Pivot Tables
+gem 'pivot_table', '~> 0.5.0'
+gem 'rinruby', '~> 2.0', '>= 2.0.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

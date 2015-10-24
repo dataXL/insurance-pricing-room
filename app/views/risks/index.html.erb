@@ -17,46 +17,31 @@
   <table id="orders-datatable">
     <thead>
       <tr>
-      <% @header.each do |header| %>
-        <% if header == "covariates" %>
-          <% Risk.first.covariates.each do |k,v| %>
-          <th tabindex="0" rowspan="1" colspan="1"><%= v["name"] %></th>
-          <% end %>
-        <% else %>
-          <th tabindex="0" rowspan="1" colspan="1"><%= header.camelize %></th>
-        <% end %>
-      <% end %>
+          <th tabindex="0" rowspan="1" colspan="1">Tariff ID</th>
+          <th tabindex="0" rowspan="1" colspan="1">Exposition</th>
+          <th tabindex="0" rowspan="1" colspan="1">Frequency</th>
+          <th tabindex="0" rowspan="1" colspan="1">Risk</th>
+          <th tabindex="0" rowspan="1" colspan="1">Cost</th>
       </tr>
     </thead>
 
     <tfoot>
       <tr>
-      <% @header.each do |header| %>
-        <% if header == "covariates" %>
-          <% Risk.first.covariates.each do |k,v| %>
-          <th tabindex="0" rowspan="1" colspan="1"><%= v["name"] %></th>
-          <% end %>
-        <% else %>
-          <th tabindex="0" rowspan="1" colspan="1"><%= header.camelize %></th>
-        <% end %>
-      <% end %>
+          <th rowspan="1" colspan="1">Tariff ID</th>
+          <th rowspan="1" colspan="1">Exposition</th>
+          <th rowspan="1" colspan="1">Frequency</th>
+          <th rowspan="1" colspan="1">Risk</th>
+          <th rowspan="1" colspan="1">Cost</th>
       </tr>
     </tfoot>
+
     <tbody>
     <% @risks.each do |risk| %>
       <tr>
-        <td><%= risk.id %></td>
-        <% unless risk.covariates.blank? %>
-          <% risk.covariates.each do |k,v| %>
-          <td>
-            <!--<input type="text" name="name" class= "form-control", style="width:100% !important" value="<%= v["value"] %>">-->
-            <%= v["value"] %>
-            </td>
-          <% end %>
-        <% end %>
+        <td><a href="<%= tariff_path(risk.tariff_id) %>"><%= risk.tariff_id %></a></td>
         <td><%= risk.exposition %></td>
         <td><%= risk.frequency %></td>
-        <td><%= risk.exposition * risk.frequency %></td>
+        <td><%= risk.risk %></td>
         <td><%= risk.cost %></td>
       </tr>
     <% end %>

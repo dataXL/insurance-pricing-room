@@ -1,0 +1,76 @@
+<%= content_for :body_id, "steps" %>
+
+<div class="content-wrapper">
+  <div class="sidebar-toggler visible-xs">
+    <i class="ion-navicon"></i>
+  </div>
+
+  <div class="header">
+    Welcome to the Insurance Pricing Room
+  </div>
+
+  <div class="steps">
+    <div class="step clearfix">
+      <div class="info">
+        <span class="number">1</span>
+        Edit your company settings
+      </div>
+
+      <a href="#" class="button">
+        <span>Edit company settings</span>
+      </a>
+    </div>
+
+    <% if Tariff.all.empty? %>
+      <div class="step clearfix">
+    <% else %>
+      <div class="step clearfix done">
+    <% end %>
+      <div class="info">
+        <% unless Tariff.all.empty? %>
+          <span class="number">
+            <i class="ion-checkmark-circled"></i>
+          </span>
+        <% end %>
+        <span class="number">2</span>
+        Upload your company's tariff table
+      </div>
+
+      <a href="<%= new_tariff_path %>" class="button"> <!-- class="disabled button" -->
+        <span>Upload tariff table</span>
+      </a>
+    </div>
+
+    <div class="step clearfix">
+      <div class="info">
+        <span class="number">3</span>
+        Upload your company's competitive set
+      </div>
+
+      <a href="#" class="button">
+        <span>Upload competitive set</span>
+      </a>
+    </div>
+
+    <div class="step clearfix done">
+      <div class="info">
+        <span class="number">4</span>
+        Perform a new conjoint analysis
+      </div>
+
+      <a href="#" class="disabled button">
+        <span>Perform conjoint analysis</span>
+      </a>
+    </div>
+    <div class="step clearfix done">
+      <div class="info">
+        <span class="number">5</span>
+        Perform a profit and market share analysis
+      </div>
+
+      <a href="#" class="disabled button">
+        <span>Perform market analysis</span>
+      </a>
+    </div>
+  </div>
+</div>

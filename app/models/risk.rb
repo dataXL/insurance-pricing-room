@@ -1,4 +1,6 @@
 class Risk < ActiveRecord::Base
-  serialize :covariates, HashSerializer
-  store_accessor :covariates, :vehicles_category
+
+  def self.truncate_me!
+    Risk.connection.execute("TRUNCATE TABLE risks RESTART IDENTITY")
+  end
 end

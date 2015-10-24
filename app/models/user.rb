@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :reset_token
+  belongs_to :insurer
 
   before_save { self.email = email.downcase }
   before_create :create_activation_digest

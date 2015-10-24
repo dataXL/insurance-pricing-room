@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :utilities
+  resources :codings
+  resources :insurers
   get 'password_resets/new'
-
   get 'password_resets/edit'
-
-  resources :profiles
-  resources :risks
   get 'sessions/new'
 
   root to: 'home#index'
@@ -18,12 +17,33 @@ Rails.application.routes.draw do
 
   resources :users do
     collection do
+      get 'notifications'
       delete 'destroy_multiple'
+    end
+  end
+
+  resources :insurers do
+    collection do
+      get '/:id/billing', to: 'insurers#billing', as: 'billing'
     end
   end
 
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+
+  resources :tariffs do
+    collection do
+      get 'select'
+      post 'select'
+      get 'filter'
+      post 'filter'
+      get 'import'
+      post 'import'
+      put  'complete'
+      post 'export'
+      get 'custom'
+    end
+  end
 
   resources :risks do
     collection do
@@ -46,6 +66,7 @@ Rails.application.routes.draw do
       get 'import'
       post 'import'
       put  'complete'
+      get 'grid'
     end
   end
 

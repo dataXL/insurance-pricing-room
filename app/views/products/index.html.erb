@@ -9,6 +9,10 @@
   <div class="page-title">
     Competitive set
   </div>
+  <div class="options pull-right" style="margin-top:5px !important">
+    <a href="#" data-grid=".users-list" class="grid-view active"><i class="fa fa-th-list" style="color:gray; font-size:20px !important; cursor:default; margin-right:5px"></i></a>
+    <a href="/products/grid" data-grid=".users-grid" class="grid-view"><i class="fa fa-th" style="font-size:20px !important"></i></a>
+  </div>
 </div>
 
 <div class="content-wrapper">
@@ -16,50 +20,30 @@
   <table id="orders-datatable">
     <thead>
       <tr>
-        <% @header.each do |header| %>
-        <% if header == "properties" %>
-          <% Product.first.properties.each do |k,v| %>
-            <th tabindex="0" rowspan="1" colspan="1"><%= v["name"] %></th>
-          <% end %>
-        <% else %>
-          <th tabindex="0" rowspan="1" colspan="1"><%= header.camelize %></th>
-        <% end %>
-      <% end %>
+          <th tabindex="0" rowspan="1" colspan="1">Tariff ID</th>
+          <th tabindex="0" rowspan="1" colspan="1">Insurer</th>
+          <th tabindex="0" rowspan="1" colspan="1">Premium</th>
       </tr>
     </thead>
 
     <tfoot>
       <tr>
-        <% @header.each do |header| %>
-          <% if header == "properties" %>
-            <% Product.first.properties.each do |k,v| %>
-              <th tabindex="0" rowspan="1" colspan="1"><%= v["name"] %></th>
-            <% end %>
-            <% else %>
-              <th tabindex="0" rowspan="1" colspan="1"><%= header.camelize %></th>
-          <% end %>
-        <% end %>
+          <th rowspan="1" colspan="1">Tariff ID</th>
+          <th rowspan="1" colspan="1">Insurer</th>
+          <th rowspan="1" colspan="1">Premium</th>
       </tr>
     </tfoot>
 
     <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.id %></td>
-        <td><%= product.company %></td>
-        <% unless product.properties.blank? %>
-          <% product.properties.each do |k,v| %>
-          <td>
-            <!--<input type="text" name="name" class= "form-control", style="width:100% !important" value="<%= v["value"] %>">-->
-            <%= v["value"] %>
-            </td>
-          <% end %>
+      <% unless @products.empty? %>
+        <% @products.each do |p| %>
+          <tr>
+            <td><a href="<%# tariff_path(p.tariff_id) %>"><%= p.tariff_id %></a></td>
+            <td><%= p.insurer %></td>
+            <td><%= p.premium %></td>
+          </tr>
         <% end %>
-        <td><%= product.premium %></td>
-      </tr>
-    <% end %>
+      <% end %>
     </tbody>
-
-    </table>
+  </table>
 </div>
-

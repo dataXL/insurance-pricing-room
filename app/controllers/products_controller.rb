@@ -8,13 +8,33 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @header = Product.column_names
     @products = Product.all
+  end
+
+
+  def grid
+    @products = Product.all
+
+    data = []
+    @products.each do |p|
+      temp = Product.new(insurer: p[:insurer],   premium: p[:premium], tariff_id: p[:tariff_id])
+      data << temp
+    end
+
+    g = PivotTable::Grid.new do |g|
+      g.source_data  = data
+      g.column_name  = :insurer
+      g.row_name     = :tariff_id
+      g.field_name   = :premium
+    end
+
+    @pivot = g.build
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    product = Product.find_by_id(params[:id])
   end
 
   # GET /products/1/edit
@@ -41,11 +61,6 @@ class ProductsController < ApplicationController
     @test = params[:task_ids]
     puts @test.inspect
     render :new
-  end
-
-  def test
-    @header = %w[1 2 3]
-    render :partial => "/products/import"
   end
 
   # GET /products/new

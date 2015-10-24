@@ -185,11 +185,11 @@ var Sidebar = {
 			// it's a link from a submenu
 			if ($active_link.parents(".submenu").length) {
 				var $parent = $active_link.closest(".option").find("[data-toggle~='sidebar']");
-				$parent.addClass("active toggled");
-				$active_link.parents(".submenu").addClass("active");
+				$parent.not(":odd").addClass("active toggled");
+				$active_link.parents(".submenu").not(":odd").addClass("active");
 			}
 		} else {
-			$sidebar_menu.find(".menu-section .option > a:eq(0)").addClass("active");
+			//$sidebar_menu.find(".menu-section .option > a:eq(0)").addClass("active");
 		}
 
 

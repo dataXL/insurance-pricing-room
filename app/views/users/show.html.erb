@@ -8,9 +8,15 @@
   <h3>My account</h3>
   <ul class="menu">
     <li>
-      <a href="<%= settings_account_index_path %>" class="active">
+      <a href="<%= user_path(1) %>" class="active">
         <i class="ion-ios7-person-outline"></i>
         Profile
+      </a>
+    </li>
+    <li>
+      <a href="<%= notifications_users_path %>" class="active">
+        <i class="ion-ios7-email-outline"></i>
+        Notifications
       </a>
     </li>
   </ul>

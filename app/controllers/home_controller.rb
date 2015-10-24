@@ -4,4 +4,6 @@ class HomeController < ApplicationController
     render layout: "empty"
 	end
 
+  def dashboard
+  end
 end

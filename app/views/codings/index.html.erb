@@ -1,0 +1,43 @@
+<% provide(:title, "Tariff Analysis") %>
+<%= content_for :body_id, "datatables" %>
+
+<div class="menubar">
+  <div class="sidebar-toggler visible-xs">
+    <i class="ion-navicon"></i>
+  </div>
+
+  <div class="page-title">
+    Tariff table
+  </div>
+  <div class="options pull-right">
+    <%= link_to(tariffs_path(format: :csv)) do %>
+      <i class="fa fa-download"></i> <span>Download CSV</span>
+    <% end %>
+  </div>
+</div>
+
+<div class="content-wrapper" style="overflow:auto !important">
+<%# render :partial => "shared/filter_table" %>
+<%= @test.inspect %>
+  <table id="orders-datatable">
+    <thead>
+      <tr>
+      <th tabindex="0" rowspan="1" colspan="1">Rating</th>
+      <% @header.each do |header| %>
+        <th tabindex="0" rowspan="1" colspan="1"><%= header %></th>
+      <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @rows.each do |row| %>
+      <tr>
+        <td></td>
+        <% row.each do |r| %>
+        <td><%= r %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

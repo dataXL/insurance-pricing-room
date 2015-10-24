@@ -1,4 +1,22 @@
 #dashboard {
+
+    .content-wrapper {
+        margin-top: 40px;
+        padding-bottom: 40px;
+
+        thead th {
+            border-top: 1px solid #dee3ea;
+            border-bottom: 1px solid #dee3ea;
+            padding: 5px 50px;
+        }
+
+        td {
+            padding: 5px 50px;
+        }
+    }
+
+
+
     .menubar {
         .period-select {
             float: right;

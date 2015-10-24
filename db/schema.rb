@@ -11,53 +11,81 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203131265) do
+ActiveRecord::Schema.define(version: 20151213131276) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "tablefunc"
 
+  create_table "codings", force: :cascade do |t|
+    t.jsonb "properties", default: {}, null: false
+  end
+
+  add_index "codings", ["properties"], name: "index_codings_on_properties", using: :gin
+
+  create_table "insurers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "timezone"
+    t.string   "address"
+    t.string   "city"
+    t.string   "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: :cascade do |t|
-    t.string "company"
-    t.jsonb  "properties", default: {}, null: false
-    t.float  "premium"
+    t.string  "insurer"
+    t.float   "premium"
+    t.integer "tariff_id"
   end
 
-  add_index "products", ["properties"], name: "index_products_on_properties", using: :gin
-
-  create_table "profiles", force: :cascade do |t|
-  end
+  add_index "products", ["tariff_id"], name: "index_products_on_tariff_id", using: :btree
 
   create_table "risks", force: :cascade do |t|
-    t.jsonb   "covariates", default: {}, null: false
     t.integer "exposition"
     t.integer "frequency"
     t.integer "risk"
     t.float   "cost"
+    t.integer "tariff_id"
   end
 
-  add_index "risks", ["covariates"], name: "index_risks_on_covariates", using: :gin
+  add_index "risks", ["tariff_id"], name: "index_risks_on_user_id", using: :btree
+
+  create_table "tariffs", force: :cascade do |t|
+    t.jsonb    "properties", default: {}, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "premium"
+    t.integer  "segment",    default: 1
+    t.integer  "insurer_id"
+  end
+
+  add_index "tariffs", ["insurer_id"], name: "index_tariffs_on_insurer_id", using: :btree
+  add_index "tariffs", ["properties"], name: "index_tariffs_on_properties", using: :gin
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.string   "timezone"
+    t.string   "picture"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_digest"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string   "activation_digest"
-    t.boolean  "activated",           default: false
+    t.boolean  "activated",         default: false
     t.datetime "activated_at"
-    t.boolean  "admin",               default: false
+    t.boolean  "admin",             default: false
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.integer  "insurer_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["insurer_id"], name: "index_users_on_insurer_id", using: :btree
+
+  create_table "utilities", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
