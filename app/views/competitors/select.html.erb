@@ -28,9 +28,6 @@ $(document).ready ( function () {
     <strong>Please choose below</strong> which properties do you want to include:
   </div>
 
-  <%= debug @test %>
-  <%= debug Tariff.first.properties %>
-  <%= debug @row %>
   <div class="step active animated fadeInRightStep">
   <%= form_tag import_competitors_path do %>
     <%= hidden_field_tag "file", @file %>

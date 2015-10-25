@@ -83,16 +83,7 @@ class CompetitorsController < ApplicationController
       name = row2["Companhia"].to_s
 
       row = row2.except!("Premio comercial","Companhia")
-      hash = row
-      #@test = Tariff.first == row
-      @row = row.to_h
-
-
-      puts Tariff.first.properties
-      puts row.to_h
-      @test = Tariff.where(:properties => row.to_json).first.id
-
-      tariff = 1
+      tariff = Tariff.where(:properties => row.to_json).first.id
 
       p = Competitor.create!(:premium => premium, :tariff_id => tariff, :name => name)
     end
