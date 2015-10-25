@@ -6,22 +6,41 @@ class CodingsController < ApplicationController
   def index
     @tariffs = Tariff.all
 
-    Tariff.first.properties.each do |k,v|
-      # Iterate through each property
-
-    end
-
     connection = ActiveRecord::Base.connection
-    temp = []
+    quantitative = []
+    categorical = []
+    values = []
     Tariff.first.properties.each do |k,v|
-      unless k == "Premio comercial"
-        result = connection.select_all("SELECT properties->>'" + k + "' AS category FROM tariffs").rows
-        temp << result
+      if v.is_a? String
+        r1 = connection.select_all("SELECT properties->>'" + k + "' AS property FROM tariffs").rows
+        categorical << r1 if r1.uniq.length > 1
+      else
+        r2 = connection.select_all("SELECT properties->>'" + k + "' AS property FROM tariffs").rows.flatten
+        values << r2.collect{|s| s.to_i}
+        quantitative << k
       end
     end
 
-    @header = temp.flatten.uniq
-    @rows = sequence(@header.length)
+    temp = categorical.flatten.uniq
+    rows = sequence(temp.length)
+
+    @header = temp # | quantitative
+    @rows =  rows # | values
+
+    # @test = values
+
+    #data_set = Daru::DataFrame.from_csv "logistic_mle.csv"
+    #glm = Statsample::GLM.compute data_set, :y, :logistic, {constant: 1, algorithm: :mle}
+
+    # Options hash specifying addition of an extra constants
+    # vector all of whose values is '1' and also specifying
+    # that the MLE algorithm is to be used.
+
+    #@test = glm.coefficients
+      #=> [0.3270, 0.8147, -0.4031,-5.3658]
+    #puts glm.standard_error
+      #=> [0.4390, 0.4270, 0.3819,1.9045]
+    #puts glm.log_likelihood
 
 
     #p sequence(3) #=>[[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]

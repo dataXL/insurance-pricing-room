@@ -16,27 +16,30 @@
   </div>
 </div>
 
+<%= @test.inspect %>
 <div class="content-wrapper" style="overflow:auto !important">
 <%# render :partial => "shared/filter_table" %>
-<%= @test.inspect %>
+
   <table id="orders-datatable">
     <thead>
       <tr>
-      <th tabindex="0" rowspan="1" colspan="1">Rating</th>
-      <% @header.each do |header| %>
-        <th tabindex="0" rowspan="1" colspan="1"><%= header %></th>
+      <th tabindex="0" rowspan="1" colspan="1">B 0</th>
+      <% for i in 0...@header.length %>
+        <th tabindex="0" rowspan="1" colspan="1">B <%=i+1%></th>
+        <th tabindex="0" rowspan="1" colspan="1"><%= @header[i] %></th>
       <% end %>
       </tr>
     </thead>
 
     <tbody>
       <% @rows.each do |row| %>
-      <tr>
-        <td></td>
-        <% row.each do |r| %>
-        <td><%= r %></td>
-        <% end %>
-      </tr>
+        <tr>
+          <td></td>
+          <% row.each do |r| %>
+            <td></td>
+            <td><%= r %></td>
+          <% end %>
+        </tr>
       <% end %>
     </tbody>
   </table>

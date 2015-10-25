@@ -38,9 +38,9 @@
       <% unless @products.empty? %>
         <% @products.each do |p| %>
           <tr>
-            <td><a href="<%# tariff_path(p.tariff_id) %>"><%= p.tariff_id %></a></td>
+            <td><a href="<%= tariff_path(p.tariff_id) %>"><%= p.tariff_id %></a></td>
             <td><%= p.insurer %></td>
-            <td><%= p.premium %></td>
+            <td><%= p.premium.round(2) %></td>
           </tr>
         <% end %>
       <% end %>

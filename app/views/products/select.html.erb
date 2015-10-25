@@ -1,3 +1,4 @@
+<% provide(:title, "Market Analysis") %>
 <%= content_for :body_id, "wizard" %>
 <%= render :partial => "shared/wizard_steps" %>
 
@@ -9,10 +10,12 @@ $(document).ready ( function () {
 
   $plans.click(function () {
     if ( $(this).hasClass( "selected" ) ) {
-      $(this).find("input:hidden").val("false");
+      var property = $(this).text();
+      var $hiddenInput = $('<input/>',{type:'hidden',name:"properties[]",id:"properties_", value:$.trim(property)});
+      $(this).find(".select").prepend($hiddenInput);
       $(this).removeClass("selected");
     } else {
-      $(this).find("input:hidden").val("true");
+      $(this).find("input:hidden").remove();
       $(this).addClass("selected");
     }
   });
@@ -26,29 +29,24 @@ $(document).ready ( function () {
   </div>
 
   <div class="step active animated fadeInRightStep">
-  <%= form_tag filter_products_path do %>
+  <%= form_tag import_products_path do %>
+    <%= hidden_field_tag "file", @file %>
     <div class="plans">
       <% unless @header.blank? %>
-        <% for i in 0..(@header.size - 1) %>
-          <div class="plan clearfix selected">
-            <div class="info">
-              <div class="name">
-                <%= I18n.transliterate(@header[i]).gsub(/\s/, '_').gsub(/[^0-9A-Za-z](_)/, '').downcase %>
-              </div>
-              <div class="details" style="margin-top:10px">
-                <%= radio_button_tag("radio#{i}", "string", { :checked => "checked" }) %>
-                <%= label_tag(hash, "Text", :style => "margin: 0px 10px 0px 5px;") %>
-                <%= radio_button_tag("radio#{i}", "int") %>
-                <%= label_tag(hash, "Integer", :style => "margin: 0px 10px 0px 5px;") %>
-                <%= radio_button_tag("radio#{i}", "double") %>
-                <%= label_tag(hash, "Float", :style => "margin-left:5px;") %>
-              </div>
-              <div class="select">
-                <%= hidden_field "option#{i}", "", value: "true" %>
-                <i class="fa fa-check"></i>
+        <% @header.each do |header| %>
+          <% unless header == "Premio" %>
+            <div class="plan clearfix selected">
+              <div class="info">
+                <div class="name">
+                  <%= header %>
+                </div>
+                <div class="select">
+                  <%# hidden_field_tag "properties[]", @header[i] %>
+                  <i class="fa fa-check"></i>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
       </div>

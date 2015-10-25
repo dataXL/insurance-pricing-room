@@ -3,6 +3,63 @@
 
 <script>
 $(document).ready ( function () {
+  $(".header .steps .step").removeClass("active").filter(":lt(2)").addClass("active");
+
+  var $plans = $(".form-wizard .plans .plan");
+
+  $plans.click(function () {
+    if ( $(this).hasClass( "selected" ) ) {
+      var property = $(this).text();
+      var $hiddenInput = $('<input/>',{type:'hidden',name:"properties[]",id:"properties_", value:$.trim(property)});
+      $(this).find(".select").prepend($hiddenInput);
+      $(this).removeClass("selected");
+    } else {
+      $(this).find("input:hidden").remove();
+      $(this).addClass("selected");
+    }
+  });
+});
+</script>
+
+<section class="form-wizard">
+
+  <div class="instructions" style="width:715px !important; margin: 0 auto !important; text-align: center !important; margin-bottom: 20px !important">
+    <strong>Please choose below</strong> which properties do you want to include:
+  </div>
+
+  <div class="step active animated fadeInRightStep">
+  <%= form_tag import_tariffs_path do %>
+    <%= hidden_field_tag "file", @file %>
+    <div class="plans">
+      <% unless @header.blank? %>
+        <% @header.each do |header| %>
+          <% unless header == "Premio comercial" %>
+            <div class="plan clearfix selected">
+              <div class="info">
+                <div class="name">
+                  <%= header %>
+                </div>
+                <div class="select">
+                  <%# hidden_field_tag "properties[]", @header[i] %>
+                  <i class="fa fa-check"></i>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+      </div>
+    <%= render :partial => "shared/buttons_footer" %>
+  <% end %>
+  </div>
+</section>
+
+
+<%= content_for :body_id, "wizard" %>
+<%= render :partial => "shared/wizard_steps" %>
+
+<script>
+$(document).ready ( function () {
   $(".header .steps .step").removeClass("active").filter(":lt(1)").addClass("active");
 
   $('input[type=file]').change(function(e){
@@ -28,16 +85,10 @@ $(document).ready ( function () {
   <%= label_tag :file do %>
     <%= image_tag "file-upload.png", :style => "cursor: pointer; width: 50% !important" %>
   <% end %>
-  <%= form_tag select_risks_path, multipart: true do %>
+  <%= form_tag select_products_path, multipart: true do %>
     <div class="form-group" style="height:60px !important">
           <%= label "file", nil, class: "form-control", style:"width:500px; margin: 25px auto !important" %>
           <%= file_field_tag :file, :style => "margin: 0 auto !important; display:none"%>
-          <div style="text-align:center; width:280px; margin-left:30%; margin-top:-15px !important">
-          <%= label_tag :tariff_ids, class: "checkbox inline" do %>
-            <%= check_box_tag :tariff_ids %>
-            <span>Upload competitive set <em>without</em> Tariff IDs</span>
-          <% end %>
-          </div>
     </div>
     <%= render :partial => "shared/buttons_footer" %>
   <% end %>

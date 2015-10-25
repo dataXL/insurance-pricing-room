@@ -1,0 +1,39 @@
+<%= content_for :body_id, "wizard" %>
+<%= render :partial => "shared/wizard_steps" %>
+
+<script>
+$(document).ready ( function () {
+  $(".header .steps .step").removeClass("active").filter(":lt(1)").addClass("active");
+
+  $('input[type=file]').change(function(e){
+    $(".form-group").children("label").text($(this).prop("files")[0]['name']);
+  });
+
+  $("img")
+        .mouseover(function() {
+            var src = $(this).attr("src").match(/[^\.]+/) + "hover.png";
+            $(this).attr("src", src);
+        })
+        .mouseout(function() {
+            var src = $(this).attr("src").replace("hover.png", ".png");
+            $(this).attr("src", src);
+        });
+});
+</script>
+
+<section class="form-wizard">
+
+  <div class="step active animated fadeInRightStep" style="text-align:center; margin-top: 10% !important">
+
+  <%= label_tag :file do %>
+    <%= image_tag "file-upload.png", :style => "cursor: pointer; width: 50% !important" %>
+  <% end %>
+  <%= form_tag select_competitors_path, multipart: true do %>
+    <div class="form-group" style="height:60px !important">
+          <%= label "file", nil, class: "form-control", style:"width:500px; margin: 25px auto !important" %>
+          <%= file_field_tag :file, :style => "margin: 0 auto !important; display:none"%>
+    </div>
+    <%= render :partial => "shared/buttons_footer" %>
+  <% end %>
+  </div>
+</section>

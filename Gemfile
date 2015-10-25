@@ -40,6 +40,8 @@ gem 'jquery-turbolinks'
 # Pivot Tables
 gem 'pivot_table', '~> 0.5.0'
 gem 'rinruby', '~> 2.0', '>= 2.0.3'
+gem 'daru', '~> 0.1.1'
+gem 'statsample', '~> 2.0', '>= 2.0.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -54,8 +56,8 @@ group :development do
 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 	gem 'spring'
 
-    gem "better_errors"
-    gem "binding_of_caller"
+    #gem "better_errors"
+    #gem "binding_of_caller"
   	gem 'quiet_assets'
 end
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :products
   resources :utilities
   resources :codings
   resources :insurers
@@ -57,7 +58,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products do
+  resources :competitors do
     collection do
       get 'select'
       post 'select'

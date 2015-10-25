@@ -5,18 +5,6 @@ class UtilitiesController < ApplicationController
   # GET /utilities.json
   def index
     @utilities = Utility.all
-
-    #R.x = (1..n).entries
-    #y <- #{beta_0} + #{beta_1}*x + rnorm(#{n})
-    #byebug
-
-    R.eval <<EOF
-      require 'DoE_base'
-      oa.design(nfactors=4, nlevels=c(2,2,2,2),factor.names=lixo)
-      lixo<-c('Categoria','Idade do condutor','Idade da carta', 'Sexo')
-EOF
-
-    puts R.lixo
   end
 
   # GET /utilities/1

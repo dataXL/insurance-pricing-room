@@ -30,7 +30,7 @@
           <% unless exceptions.include? header %>
             <% if header == "properties" %>
               <% Tariff.first.properties.each do |k,v| %>
-              <th tabindex="0" rowspan="1" colspan="1"><%= k if k != "Premio comercial" %></th>
+              <th tabindex="0" rowspan="1" colspan="1"><%= k %></th>
               <% end %>
             <% else %>
               <th tabindex="0" rowspan="1" colspan="1"><%= header.camelize %></th>
@@ -43,11 +43,11 @@
       <tfoot>
         <tr>
         <% Tariff.column_names.each do |header| %>
-        <% exceptions = ["created_at", "updated_at", "segment", "Premio comercial", "insurer_id"] %>
+        <% exceptions = ["created_at", "updated_at", "segment", "insurer_id"] %>
           <% unless exceptions.include? header %>
             <% if header == "properties" %>
               <% Tariff.first.properties.each do |k,v| %>
-              <th tabindex="0" rowspan="1" colspan="1"><%= k if k != "Premio comercial" %></th>
+              <th tabindex="0" rowspan="1" colspan="1"><%= k %></th>
               <% end %>
             <% else %>
               <th tabindex="0" rowspan="1" colspan="1"><%= header.camelize %></th>
@@ -64,11 +64,11 @@
               <% unless tariff.properties.blank? %>
                 <% tariff.properties.each do |k,v| %>
                 <td>
-                  <%= v.class if k != "Premio comercial"  %>
+                  <%= v %>
                   </td>
                 <% end %>
               <% end %>
-              <td><%= tariff.premium %></td>
+              <td><%= tariff.premium.round(2) %></td>
               <!--<td><%= tariff.segment %></td>-->
             </tr>
           <% end %>

@@ -44,12 +44,14 @@ class TariffsController < ApplicationController
     #  }
 
     #Tariff.create!(:properties => @headerhash)
-    @test = []
+
     (2..spreadsheet.last_row).each do |i|
       spreadsheet.row(i)
-      row = Hash[[@header, spreadsheet.row(i)].transpose].except!("Premio comercial")
-      premium = row["Premio comercial"].to_f
-      t = Tariff.create!(:properties => row, :premium => premium, :insurer_id => 1)
+      row2 = Hash[[@header, spreadsheet.row(i)].transpose]
+      premium = row2["Premio comercial"].to_f
+      row = row2.except!("Premio comercial")
+      hash = row.to_set.hash
+      t = Tariff.create!(:properties => row, :premium => premium, :insurer_id => 1, :hash => hash)
 
       Risk.find_or_create_by(tariff_id: t.id)
       Product.find_or_create_by(tariff_id: t.id, premium: premium, :insurer => t.insurer.name)
@@ -136,7 +138,7 @@ class TariffsController < ApplicationController
     # Open imported spreadsheet
     def open_spreadsheet(file)
       case File.extname(file.original_filename)
-        when ".csv" then Roo::Csv.new(file.path)
+        when ".csv" then Roo::CSV.new(file.path)
         when ".xls" then Roo::Excel.new(file.path)
         when ".xlsx" then Roo::Excelx.new(file.path)
         else raise "Unknown file type: #{file.original_filename}"
@@ -146,5 +148,10 @@ class TariffsController < ApplicationController
     # Test if string is number
     def is_number? string
       true if Float(string) rescue false
+    end
+
+    # Test if string is number
+    def is_integer? string
+      true if Integer(string) rescue false
     end
 end
