@@ -1,4 +1,4 @@
-<% provide(:title, "Market Analysis") %>
+<% provide(:title, "Product Analysis") %>
 <%= content_for :body_id, "datatables" %>
 
 <div class="menubar">
@@ -7,7 +7,7 @@
     </div>
 
   <div class="page-title">
-    Competitive set
+    Products
   </div>
   <div class="options pull-right" style="margin-top:5px !important">
     <a href="#" data-grid=".users-list" class="grid-view active"><i class="fa fa-th-list" style="color:gray; font-size:20px !important; cursor:default; margin-right:5px"></i></a>
@@ -20,28 +20,31 @@
   <table id="orders-datatable">
     <thead>
       <tr>
-          <th tabindex="0" rowspan="1" colspan="1">Tariff ID</th>
+          <th tabindex="0" rowspan="1" colspan="1">Name</th>
+          <th tabindex="0" rowspan="1" colspan="1">Price</th>
           <th tabindex="0" rowspan="1" colspan="1">Insurer</th>
-          <th tabindex="0" rowspan="1" colspan="1">Premium</th>
+          <th tabindex="0" rowspan="1" colspan="1">Coverage</th>
       </tr>
     </thead>
 
     <tfoot>
       <tr>
-          <th rowspan="1" colspan="1">Tariff ID</th>
+          <th rowspan="1" colspan="1">Name</th>
+          <th rowspan="1" colspan="1">Price</th>
           <th rowspan="1" colspan="1">Insurer</th>
-          <th rowspan="1" colspan="1">Premium</th>
+          <th rowspan="1" colspan="1">Coverage</th>
       </tr>
     </tfoot>
 
     <tbody>
       <% unless @products.empty? %>
-        <% @products.each do |p| %>
-          <tr>
-            <td><a href="<%= tariff_path(p.tariff_id) %>"><%= p.tariff_id %></a></td>
-            <td><%= p.insurer %></td>
-            <td><%= p.premium.round(2) %></td>
-          </tr>
+        <% @products.each do |product| %>
+        <tr>
+          <td><%= product.name %></td>
+          <% product.properties.each do |k,v| %>
+            <td><%= v %></td>
+          <% end %>
+        </tr>
         <% end %>
       <% end %>
     </tbody>

@@ -68,28 +68,38 @@
 						i {
 							min-width: 30px;
 
-							&.ion-ios7-person-outline {
-								font-size: 30px;
+							&.ion-ios-person-outline {
+								font-size: 28px;
 								position: relative;
 								top: 4px;
+								margin-right: 10px;
 							}
 
-							&.ion-ios7-email-outline {
-								font-size: 24px;
+							&.ion-ios-email-outline {
+								font-size: 26px;
 								position: relative;
 								top: 4px;
+								margin-right: 10px;
+							}
+
+							&.ion-ios-briefcase-outline {
+								font-size: 26px;
+								position: relative;
+								top: 4px;
+								margin-right: 10px;
 							}
 
 							&.ion-ios7-help-outline {
 								font-size: 24px;
 								position: relative;
-								top: 4px;	
+								top: 4px;
 							}
 
 							&.ion-card {
-								font-size: 21px;
+								font-size: 26px;
 								position: relative;
-								top: 3px;
+								top: 4px;
+								margin-right: 10px;
 							}
 						}
 					}
@@ -302,11 +312,11 @@
 
 					.types {
 						margin-top: 40px;
-						
+
 						h4 {
 							font-weight: 600;
 							font-size: 16px;
-							margin-bottom: 30px;	
+							margin-bottom: 30px;
 						}
 
 						section {

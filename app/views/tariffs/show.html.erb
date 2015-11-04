@@ -20,10 +20,11 @@
       <thead>
         <tr>
         <% @header.each do |header| %>
-          <% unless header == "created_at" || header == "updated_at" %>
+          <% exceptions = ["created_at", "updated_at", "segment", "insurer_id"] %>
+          <% unless exceptions.include? header %>
             <% if header == "properties" %>
               <% Tariff.first.properties.each do |k,v| %>
-              <th tabindex="0" rowspan="1" colspan="1"><%= v %></th>
+              <th tabindex="0" rowspan="1" colspan="1"><%= k %></th>
               <% end %>
             <% else %>
               <th tabindex="0" rowspan="1" colspan="1"><%= header.camelize %></th>
@@ -38,10 +39,9 @@
           <td class=" sorting_1"><%= @tariff.id %></td>
           <% unless @tariff.properties.blank? %>
             <% @tariff.properties.each do |k,v| %>
-              <td>
-                <%= v %>
-              </td>
+              <td><%= v %></td>
             <% end %>
+            <td><%= @tariff.premium %></td>
           <% end %>
         </tr>
       </tbody>

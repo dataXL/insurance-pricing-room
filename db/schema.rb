@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151213131279) do
+ActiveRecord::Schema.define(version: 20151413131280) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,11 +44,15 @@ ActiveRecord::Schema.define(version: 20151213131279) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string  "insurer"
-    t.float   "premium"
+    t.string  "coverage"
+    t.string  "name"
     t.integer "tariff_id"
+    t.integer "insurer_id"
+    t.jsonb   "properties", default: {}, null: false
   end
 
+  add_index "products", ["insurer_id"], name: "index_products_on_insurer_id", using: :btree
+  add_index "products", ["properties"], name: "index_products_on_properties", using: :gin
   add_index "products", ["tariff_id"], name: "index_products_on_tariff_id", using: :btree
 
   create_table "risks", force: :cascade do |t|
@@ -98,4 +102,6 @@ ActiveRecord::Schema.define(version: 20151213131279) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "products", "insurers"
+  add_foreign_key "products", "tariffs"
 end

@@ -1,0 +1,21 @@
+<% provide(:title, "Product Analysis") %>
+<%= content_for :body_id, "datatables" %>
+
+<div class="menubar">
+    <div class="sidebar-toggler visible-xs">
+        <i class="ion-navicon"></i>
+    </div>
+
+  <div class="page-title">
+    Products
+  </div>
+  <div class="options pull-right" style="margin-top:5px !important">
+    <a href="/products" data-grid=".users-list" class="grid-view active"><i class="fa fa-th-list" style="font-size:20px !important; margin-right:5px"></i></a>
+    <a href="#" data-grid=".users-grid" class="grid-view"><i class="fa fa-th" style="color:gray; cursor:default; font-size:20px !important"></i></a>
+  </div>
+</div>
+
+<%= debug @test %>
+<div class="content-wrapper">
+</div>
+

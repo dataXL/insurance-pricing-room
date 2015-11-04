@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :products
+  resources :products do
+    collection do
+      get 'grid'
+    end
+  end
+
   resources :utilities
   resources :codings
   resources :insurers
@@ -8,7 +13,7 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
   get 'sessions/new'
 
-  root to: 'home#index'
+  root to: 'sessions#new'
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
