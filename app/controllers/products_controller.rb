@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 	# GET /products
 	# GET /products.json
 	def index
-		Product.truncate_me!
+		Product.delete_all
 
 		# Companhias: Mapfre, Generali, Zurich
 		# Preço: Baixo, Medio, Alto
@@ -24,10 +24,12 @@ class ProductsController < ApplicationController
 
 		permutations.each_with_index  do |permutation, index|
 			hash = Hash[hash_names.zip permutation]
-			Product.create!(:name => "Product #{index+1}", :properties => hash)
+			product_number = ( "00" + (index + 1).to_s )[-3..-1]
+			Product.create!(:name => "Product #{product_number}", 
+											:properties => hash)
 		end
 
-		#@products = Product.all
+		@products = Product.all
 	end
 
 	def grid
