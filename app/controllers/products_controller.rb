@@ -12,35 +12,26 @@ class ProductsController < ApplicationController
 
 		# Companhias: Mapfre, Generali, Zurich
 		# Preço: Baixo, Medio, Alto
-		# Cobertiras: RC, RC+AV, DP
+		# Coberturas: RC, RC+AV, DP
 
 		insurers = ["Mapfre", "Generali", "Zurich"]
 		prices = ["Baixo", "Medio", "Alto"]
 		coverages = ["RC","RC+AV","DP"]
+		hash_names = ["insurer", "price", "coverage"]
 
 		# Generate all possible permutations
-		permutations = (array_permutations [insurers, prices, coverages]).map {|x| x.split(";")}
+		permutations = array_permutations [insurers, prices, coverages]
 
-		(0...permutations.length).each do |i|
-
-			hash = {}
-			permutations[i].each do |s|
-				if insurers.include? (s)
-					hash["insurer"] = s
-				elsif prices.include? (s)
-					hash["price"] = s
-				else coverages.include? (s)
-					hash["coverage"] = s
-				end
-			end
-			Product.create!(:name => "Product #{i+1}", :properties => hash)
+		permutations.each_with_index  do |permutation, index|
+			hash = Hash[hash_names.zip permutation]
+			Product.create!(:name => "Product #{index+1}", :properties => hash)
 		end
 
-		@products = Product.all
+		#@products = Product.all
 	end
 
 	def grid
-		@products = Product.all
+		#@products = Product.all
 
 		data = []
 		#@products.each do |p|
@@ -126,8 +117,6 @@ class ProductsController < ApplicationController
 		end
 
 		def array_permutations array
-			return array[0] if array.size == 1
-			first = array.shift
-			return first.product( array_permutations(array) ).map {|x| x.flatten.join(";")}
+			array.length == 1 ? array : array[0].product(*array[1..-1])
 		end
 end
