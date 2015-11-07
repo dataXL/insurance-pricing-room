@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   	before_filter :detect_pjax
 
     include SessionsHelper
+    include ProductsHelper
 
 private
 	def detect_pjax

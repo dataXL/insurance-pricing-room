@@ -8,32 +8,32 @@ class ProductsController < ApplicationController
 	# GET /products
 	# GET /products.json
 	def index
-		Product.delete_all
 
-		# Companhias: Mapfre, Generali, Zurich
-		# Preço: Baixo, Medio, Alto
-		# Coberturas: RC, RC+AV, DP
-
+		# Dummy data
 		insurers = ["Mapfre", "Generali", "Zurich"]
 		prices = ["Baixo", "Medio", "Alto"]
 		coverages = ["RC","RC+AV","DP"]
-		hash_names = ["insurer", "price", "coverage"]
+
+		keys = ["insurer", "price", "coverage"]
+		values = [insurers, prices, coverages]
+
+		Product.truncate_me!
 
 		# Generate all possible permutations
-		permutations = array_permutations [insurers, prices, coverages]
+		permutations = create_permutations( values )
+		hash = Hash.new
 
 		permutations.each_with_index  do |permutation, index|
-			hash = Hash[hash_names.zip permutation]
-			product_number = ( "00" + (index + 1).to_s )[-3..-1]
-			Product.create!(:name => "Product #{product_number}", 
-											:properties => hash)
+			hash[:properties] = create_product_hash( keys, permutation )
+			hash[:name] = "Product #{ create_product_number( index ) }"
+			Product.create( hash )
 		end
 
 		@products = Product.all
 	end
 
 	def grid
-		#@products = Product.all
+		@products = Product.all
 
 		data = []
 		#@products.each do |p|
@@ -118,7 +118,5 @@ class ProductsController < ApplicationController
 			params[:product]
 		end
 
-		def array_permutations array
-			array.length == 1 ? array : array[0].product(*array[1..-1])
-		end
+	
 end
