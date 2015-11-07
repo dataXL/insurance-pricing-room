@@ -15,15 +15,15 @@
   <div class="metrics clearfix">
     <div class="metric">
       <span class="field">Total Tariff Cells</span>
-      <span class="data"><%= Tariff.all.count - 1 %></span>
+      <span class="data"><%= Tariff.all.count %></span>
     </div>
     <div class="metric">
       <span class="field">Total Risks</span>
-      <span class="data"><%= Risk.all.count - 1 %></span>
+      <span class="data"><%= Risk.all.count %></span>
     </div>
     <div class="metric">
       <span class="field">Number of Competitors</span>
-      <span class="data"><%= Product.uniq.pluck(:insurer).count %></span>
+      <span class="data"><%= Competitor.all.count %></span>
     </div>
     <div class="metric">
       <span class="field">Number of Segments</span>

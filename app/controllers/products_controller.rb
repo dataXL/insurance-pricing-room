@@ -8,35 +8,33 @@ class ProductsController < ApplicationController
 	# GET /products
 	# GET /products.json
 	def index
-		Product.truncate_me!
+		# Product.truncate_me!
 
 		# Companhias: Mapfre, Generali, Zurich
 		# Preço: Baixo, Medio, Alto
 		# Cobertiras: RC, RC+AV, DP
 
-		insurers = ["Mapfre", "Generali", "Zurich"]
-		prices = ["Baixo", "Medio", "Alto"]
-		coverages = ["RC","RC+AV","DP"]
+		# insurers = ["Mapfre", "Generali", "Zurich"]
+		# prices = ["Baixo", "Medio", "Alto"]
+		# coverages = ["RC","RC+AV","DP"]
 
 		# Generate all possible permutations
-		permutations = (array_permutations [insurers, prices, coverages]).map {|x| x.split(";")}
+		# permutations = (array_permutations [insurers, prices, coverages]).map {|x| x.split(";")}
 
-		(0...permutations.length).each do |i|
+		# (0...permutations.length).each do |i|
 
-			hash = {}
-			permutations[i].each do |s|
-				if insurers.include? (s)
-					hash["insurer"] = s
-				elsif prices.include? (s)
-					hash["price"] = s
-				else coverages.include? (s)
-					hash["coverage"] = s
-				end
-			end
-			Product.create!(:name => "Product #{i+1}", :properties => hash)
-		end
-
-		@products = Product.all
+		#	hash = {}
+		#	permutations[i].each do |s|
+		#		if insurers.include? (s)
+		#			hash["insurer"] = s
+		#		elsif prices.include? (s)
+		#			hash["price"] = s
+		#		else coverages.include? (s)
+		#			hash["coverage"] = s
+		#		end
+		#	end
+		#	Product.create!(:name => "Product #{i+1}", :properties => hash)
+		# end
 	end
 
 	def grid
@@ -107,6 +105,31 @@ class ProductsController < ApplicationController
 			format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
 			format.json { head :no_content }
 		end
+	end
+
+	def add_multiple
+
+		product_template = ProductTemplate.find('47')
+		keys = product_template.properties.keys
+		properties = Hash.new
+
+		puts "================"
+		puts params[:products_ids]
+		puts "================"
+  	params[:products_ids].tap do |head, *body|
+  		for i in 0...body.length
+  			properties.merge!(Hash[keys[i], body[i]])
+  		end
+  		Product.create!(:name => head, :properties => properties)
+  	end
+
+	  if request.xhr?
+	    render :js => "window.location = '/product_templates/47'"
+	  else
+	    respond_to do |format|
+	      format.html { redirect_to :action => "index" }
+	    end
+	  end
 	end
 
 	private

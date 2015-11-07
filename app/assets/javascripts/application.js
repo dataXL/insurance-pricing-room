@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require jquery.remotipart
 //= require bootstrap/bootstrap.min
+//= require bootstrap-tagsinput
 //= require ../../../vendor/assets/javascripts/jquery.flot/jquery.flot
 //= require ../../../vendor/assets/javascripts/jquery.flot/jquery.flot.time
 //= require ../../../vendor/assets/javascripts/jquery.flot/jquery.flot.categories

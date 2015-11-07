@@ -1,8 +1,41 @@
 Rails.application.routes.draw do
 
+  resources :coefficients do
+    collection do
+      get 'select'
+      post 'select'
+      get 'filter'
+      post 'filter'
+      get 'import'
+      post 'import'
+      get 'simulation'
+    end
+  end
+
+  resources :surveys do
+    collection do
+      get 'select'
+      post 'select'
+      get 'filter'
+      post 'filter'
+      get 'import'
+      post 'import'
+    end
+  end
+
+  resources :product_templates do
+    collection do
+      get 'build'
+      post 'build'
+      get 'save'
+      post 'save'
+    end
+  end
+
   resources :products do
     collection do
       get 'grid'
+      post 'add_multiple'
     end
   end
 
@@ -45,9 +78,7 @@ Rails.application.routes.draw do
       post 'filter'
       get 'import'
       post 'import'
-      put  'complete'
       post 'export'
-      get 'custom'
     end
   end
 

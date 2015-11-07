@@ -67,13 +67,14 @@
 		padding: 30px 30px 0px;
 		background: #fafafa;
 		border-bottom: 1px solid #ccc;
+		overflow:auto;
 
 		@media (max-width: $maxSmall) {
 			margin: 0 -20px;
 		}
 
 		.bar-chart-wrapper {
-			overflow: hidden;
+			height: 280px;
 
 			#bar-chart {
 				height: 240px;

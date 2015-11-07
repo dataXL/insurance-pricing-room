@@ -32,7 +32,6 @@
         </a>
         <ul class="submenu">
           <li><a href="<%= tariffs_path %>">View tariff table</a></li>
-          <li><a href="<%= custom_tariffs_path %>">Edit tariff attributes</a></li>
           <li><a href="<%= new_tariff_path %>">Upload tariff table</a></li>
         </ul>
       </li>
@@ -58,12 +57,12 @@
       </li>
       <li class="option">
         <a href="#" data-toggle="sidebar">
-          <i class="ion-cube"></i> <span>Product Analysis</span>
+          <i class="ion-cube"></i> <span>Product Bundler</span>
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="<%= products_path %>">View products</a></li>
-          <li><a href="<%= new_product_path %>">Create product</a></li>
+          <li><a href="<%= product_templates_path %>">View product templates</a></li>
+          <li><a href="<%= new_product_template_path %>">Create product template</a></li>
         </ul>
       </li>
       <li class="option">
@@ -72,8 +71,8 @@
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="<%= utilities_path %>">Compare utilities</a></li>
-          <li><a href="#">Upload beta coefficients</a></li>
+          <li><a href="<%= surveys_path %>">View survey results</a></li>
+          <li><a href="<%= new_survey_path %>">Upload survey results</a></li>
         </ul>
       </li>
       <li class="option">
@@ -82,8 +81,9 @@
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="#">Demand curve</a></li>
-          <li><a href="#">Share of preference</a></li>
+          <li><a href="<%= simulation_coefficients_path %>">New simulation</a></li>
+          <li><a href="<%= coefficients_path %>">View beta coefficients</a></li>
+          <li><a href="<%= new_coefficient_path %>">Upload beta coefficients</a></li>
         </ul>
       </li>
     </ul>

@@ -75,11 +75,6 @@ class TariffsController < ApplicationController
     end
   end
 
-  # Set properties and levels
-  def custom
-
-  end
-
   # GET /tariffs/1/edit
   def edit
   end

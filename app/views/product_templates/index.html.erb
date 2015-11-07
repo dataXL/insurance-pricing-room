@@ -1,0 +1,42 @@
+<% provide(:title, "Product Bundler") %>
+<%= content_for :body_id, "gallery" %>
+
+<div class="menubar">
+  <div class="sidebar-toggler visible-xs">
+    <i class="ion-navicon"></i>
+  </div>
+
+  <div class="page-title">
+    Product Templates
+  </div>
+  <a href="<%= new_product_template_path %>" class="btn btn-success pull-right">
+    Add new template
+  </a>
+</div>
+
+<div class="content-wrapper clearfix" style="height:800px !important">
+  <div class="gallery-wrapper">
+    <% @product_templates.each do |pt| %>
+    <a href="<%= product_template_path(pt)%>">
+    <div class="image" style="background-image:url('<%= base_url %>/assets/bgs/1.jpg');cursor:pointer">
+      <div class="mask">
+        <div class="name"><%= pt.name %></div>
+        <div class="date"><%= pt.created_at.strftime('%c') %></div>
+      </div>
+    </div>
+    </a>
+    <% end %>
+  </div>
+
+  <div class="filter clearfix">
+    <section class="pull-left">
+      <span>Filter:</span>
+      <a href="#" class="active">Insurance</a>
+    </section>
+    <section class="pull-right">
+      <span>Sort by:</span>
+      <a href="#" class="active">Name</a>
+      <a href="#">Date</a>
+    </section>
+  </div>
+</div>

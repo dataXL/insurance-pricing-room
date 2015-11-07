@@ -1,0 +1,58 @@
+<% provide(:title, "Experimental Design") %>
+<%= content_for :body_id, "datatables" %>
+
+<div class="menubar">
+  <div class="sidebar-toggler visible-xs">
+    <i class="ion-navicon"></i>
+  </div>
+
+  <div class="page-title">
+    Simulator
+  </div>
+</div>
+
+<div class="content-wrapper" style="overflow:auto !important">
+<%# render :partial => "shared/filter_table" %>
+
+  <table id="orders-datatable2">
+    <thead>
+      <tr>
+          <th tabindex="0" rowspan="1" colspan="1">Companhia_2</th>
+          <th tabindex="0" rowspan="1" colspan="1">Companhia_3</th>
+          <th tabindex="0" rowspan="1" colspan="1">Companhia_4</th>
+          <th tabindex="0" rowspan="1" colspan="1">Companhia_5</th>
+          <th tabindex="0" rowspan="1" colspan="1">Companhia_6</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+      <% @prices.each do |price| %>
+        <td><%= text_field_tag "price", price, :class => "form-control" %></td>
+      <% end %>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="height:50px"></div>
+
+  <table id="orders-datatable">
+    <thead>
+      <tr>
+        <% @keys.each do |k| %>
+          <th tabindex="0" rowspan="1" colspan="1"><%= k %></th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+      <% Coefficient.all.tap do |head, *body| %>
+        <% body.each do |b| %>
+          <td><%= b.value %></td>
+        <% end %>
+      <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -41,6 +41,10 @@ gem 'jquery-turbolinks'
 gem 'pivot_table', '~> 0.5.0'
 gem 'daru', '~> 0.1.1'
 gem 'statsample', '~> 2.0', '>= 2.0.1'
+gem 'bootstrap-tagsinput-rails'
+#gem 'flot-rails', :git => "https://github.com/Kjarrigan/flot-rails.git"
+# Pass rails variables to js
+gem 'gon', '~> 6.0', '>= 6.0.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -1,0 +1,93 @@
+
+  <% provide(:title, "Product Bundler") %>
+  <%= content_for :body_id, "datatables" %>
+
+  <script>
+  $(document).ready ( function () {
+
+    $("#save-form").click(function() {
+      $("#orders-datatable > tbody > tr").each(function (i, row) {
+        var $row = $(row),
+          $columns = $row.find("td");
+
+        var itemsArray = [];
+        $columns.each(function (j, column) {
+          var $column = $(column);
+          var $element = $column.children().first();
+
+          //não adicionar linhas vazias
+          itemsArray.push($element.val());
+        });
+
+        $.ajax({
+          type: "POST",
+          url: "../products/add_multiple",
+          data: {
+            products_ids: itemsArray
+          },
+          dataType: "script"
+        });
+      });
+    });
+
+    $("tbody").on("input", "tr[type='row']:last-child", function(event) {
+        var clone = $("tr[type='row']:first").clone();
+        var current = $("tr[type='row']").length
+
+        clone.find("input#products_0_name").attr("name", "products[" + current + "][name]");
+        clone.find("input#products_0_name").val("");
+
+        $("tbody").append(clone);
+    });
+
+  });
+  </script>
+
+  <div class="menubar">
+    <div class="sidebar-toggler visible-xs">
+      <i class="ion-navicon"></i>
+    </div>
+
+    <div class="page-title">
+      <%= @product_template.name %>
+    </div>
+    <a href="#" id="save-form" class="btn btn-success pull-right">
+      Save template
+    </a>
+  </div>
+
+  <div class="content-wrapper" style="overflow:auto !important">
+  <%# render :partial => "shared/filter_table" %>
+
+    <table id="orders-datatable">
+      <thead>
+        <tr>
+            <th tabindex="0" rowspan="1" colspan="1">Product Name</th>
+            <% @keys.each do |k| %>
+              <th tabindex="0" rowspan="1" colspan="1"><%= k.camelize %></th>
+            <% end %>
+        </tr>
+      </thead>
+
+      <tfoot>
+        <tr>
+          <th tabindex="0" rowspan="1" colspan="1">Product Name</th>
+          <% @keys.each do |k| %>
+            <th tabindex="0" rowspan="1"><%= k.camelize %></th>
+          <% end %>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr type="row">
+          <td class=" sorting_1" style="width:20% !important">
+            <%= text_field_tag "products[0][name]", nil, :class => "form-control", :placeholder => "Name", :data => {"type" => "name"} %>
+          </td>
+          <% @values.each do |v| %>
+            <td>
+              <%= select_tag "products[0][price]", options_for_select(v["values"]), :class => "form-control" %>
+            </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
