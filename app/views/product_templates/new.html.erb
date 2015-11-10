@@ -32,7 +32,7 @@ $(document).ready ( function () {
   <%= form_tag build_product_templates_path do %>
     <div class="form-group" style="width:60% !important; margin-left:20%; margin-bottom:-50px">
       <label for="template" >Name of this product template:</label>
-      <%= text_field_tag :template, nil, :class => "form-control" %>
+      <%= text_field_tag "template", nil, :class => "form-control" %>
     </div>
     <%= render :partial => "shared/buttons_footer" %>
   <% end %>

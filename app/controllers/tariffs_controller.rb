@@ -38,23 +38,11 @@ class TariffsController < ApplicationController
     #  @headerhash[key] = value
     #end
 
-    #row.except!("Premio comercial".to_sym).each_key { |x|
-    #    row[x] = row[x].to_s.strip if row[x]
-    #    @test << row[x]
-    #  }
-
-    #Tariff.create!(:properties => @headerhash)
-
     (2..spreadsheet.last_row).each do |i|
-      spreadsheet.row(i)
-      row2 = Hash[[@header, spreadsheet.row(i)].transpose]
-      premium = row2["Premio comercial"].to_f
-      row = row2.except!("Premio comercial")
-      hash = row.to_set.hash
-      t = Tariff.create!(:properties => row, :premium => premium, :insurer_id => 1, :hash => hash)
-
+      rows = Hash[[@header, spreadsheet.row(i)].transpose]
+      t = Tariff.create!(:properties => rows.except("Premio comercial"), :premium => rows["Premio comercial"], :insurer_id => 1)
       Risk.find_or_create_by(tariff_id: t.id)
-      Product.find_or_create_by(tariff_id: t.id, premium: premium, :insurer => t.insurer.name)
+      Competitor.create_with(name: "My Company", premium: rows["Premio comercial"].to_f).find_or_create_by(tariff_id: t.id, name: "My Company")
     end
   end
 

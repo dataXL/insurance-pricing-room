@@ -34,6 +34,7 @@
 		var $chrt_second = "#607493";
 
 		var dBar = gon.bars;
+		//alert(dBar);
 		var products = gon.products;
 
 		var options = {

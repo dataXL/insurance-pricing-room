@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get 'import'
       post 'import'
       get 'simulation'
+      post 'update_async'
     end
   end
 

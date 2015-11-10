@@ -76,7 +76,7 @@ class CompetitorsController < ApplicationController
     Competitor.truncate_me!
 
     #spreadsheet.last_row
-    (2..2).each do |i|
+    (2..spreadsheet.last_row).each do |i|
       spreadsheet.row(i)
       row2 = Hash[[@header, spreadsheet.row(i)].transpose]
       premium = row2["Premio comercial"].to_f

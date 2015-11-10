@@ -5,17 +5,19 @@ class CoefficientsController < ApplicationController
   # GET /coefficients.json
   def index
     @coefficients = Coefficient.all
+    @keys = @coefficients.first.coefficients.keys
 
     bars = []
     products = []
-    results = Coefficient.select(:coefficient, "SUM(value)").group(:coefficient).order(:coefficient)
-    results.each_with_index do |r, index|
-      bars << [r.coefficient, r.sum]
-      products <<  [index, r.coefficient]
+
+    @keys.each_with_index do |k, index|
+      results = Coefficient.select("SUM((coefficients->>'"+ k +"')::float)").group(:id)
+      bars << [k, results.first.sum]
+      products <<  [index, k]
     end
+
     gon.bars = bars
     gon.products = products
-
   end
 
   # GET /coefficients/1
@@ -35,13 +37,11 @@ class CoefficientsController < ApplicationController
 
     Coefficient.truncate_me!
 
-    for i in 1..@header.length
-      temp = spreadsheet.sheet(0).column(i)
-      temp.tap do |head, *body|
-        body.each do |b|
-          Coefficient.create!(:coefficient => head, :value => b)
-        end
-      end
+    #header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      coefficients = Hash[[@header, spreadsheet.row(i)].transpose]
+      coefficients.update(coefficients){ |k,v| v.to_f }
+      Coefficient.create!(:intercept => coefficients["Intercept"], :coefficients => coefficients.except("Intercept"), :product_template_id => 1)
     end
   end
 
@@ -62,8 +62,63 @@ class CoefficientsController < ApplicationController
   # Where the magic happens
   def simulation
     @prices = [56260, 55331, 75220, 61882, 114736]
-    @keys = Coefficient.uniq.pluck(:coefficient)
-    @coefficients = Coefficient.select(:coefficient, :value)
+    @keys = Coefficient.first.coefficients.keys
+
+    @competitors = Competitor.all
+
+    data = []
+    @competitors.each do |p|
+      temp = Competitor.new(name: p[:name],   premium: p[:premium], tariff_id: p[:tariff_id])
+      data << temp
+    end
+
+    g = PivotTable::Grid.new do |g|
+      g.source_data  = data
+      g.column_name  = :name
+      g.row_name     = :tariff_id
+      g.field_name   = :premium
+    end
+
+    @pivot = g.build
+    @value = @pivot.rows.first.data[0]
+
+    #@keys = Coefficient.uniq.pluck(:coefficient)
+
+  end
+
+  def update_async
+
+    @keys = Coefficient.first.coefficients.keys
+
+    @competitors = Competitor.all
+
+    data = []
+    @competitors.each do |p|
+      temp = Competitor.new(name: p[:name],   premium: p[:premium], tariff_id: p[:tariff_id])
+      data << temp
+    end
+
+    g = PivotTable::Grid.new do |g|
+      g.source_data  = data
+      g.column_name  = :name
+      g.row_name     = :tariff_id
+      g.field_name   = :premium
+    end
+
+    @pivot = g.build
+
+    # Handle POST requests
+    tariff = params[:tariff]
+    @value = params[:value]
+    insurer = params[:insurer]
+
+    competitor = Competitor.find_by(name: insurer, tariff_id: tariff)
+    competitor.premium = @value
+    competitor.save
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /coefficients/1/edit

@@ -51,12 +51,15 @@
     <table id="datatable-example">
             <thead>
                 <tr>
-                    <th tabindex="0" rowspan="1" colspan="1">ID
+                  <th tabindex="0" rowspan="1" colspan="1">ID
+                  </th>
+                  <th tabindex="0" rowspan="1" colspan="1">Intercept
+                  </th>
+                  <% @keys.each do |k| %>
+                    <th tabindex="0" rowspan="1" colspan="1">
+                      <%= k %>
                     </th>
-                    <th tabindex="0" rowspan="1" colspan="1">Product
-                    </th>
-                    <th tabindex="0" rowspan="1" colspan="1">Answer
-                    </th>
+                  <% end %>
                 </tr>
             </thead>
             <tbody>
@@ -64,9 +67,11 @@
               <tr>
                 <td><%= c.id %></td>
                 <td>
-                  <a href="#"><%= c.coefficient %></a>
+                  <a href="#"><%= c.intercept %></a>
                 </td>
-                <td><%= c.value %></td>
+                <% c.coefficients.each do |k,v| %>
+                  <td><%= v %></td>
+                <% end %>
               </tr>
             <% end %>
             </tbody>

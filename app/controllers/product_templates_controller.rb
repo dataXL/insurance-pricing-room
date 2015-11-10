@@ -22,14 +22,21 @@ class ProductTemplatesController < ApplicationController
 
   def build
     @template = params[:template]
+
+    @insurers = Competitor.uniq.pluck(:name).join(",")
   end
 
   def save
 
+    @test = params[:template]
     properties = Hash.new
     params[:properties].each do |p|
-      properties.merge!(Hash[p[1][:name],Hash["type", p[1][:type], "values", (p[1][:values]).split(",")]])
+      unless p[1][:name].empty?
+        values = p[1][:values].nil? ? [] : (p[1][:values]).split(",")
+        properties.merge!(Hash[p[1][:name],Hash["type", p[1][:type], "values", values]])
+      end
     end
+
     ProductTemplate.create!(:name => params[:template], :properties => properties)
   end
 

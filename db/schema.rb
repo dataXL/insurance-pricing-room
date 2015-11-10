@@ -24,13 +24,14 @@ ActiveRecord::Schema.define(version: 20151413131283) do
   add_index "codings", ["properties"], name: "index_codings_on_properties", using: :gin
 
   create_table "coefficients", force: :cascade do |t|
-    t.string   "coefficient"
-    t.float    "value"
+    t.float    "intercept"
+    t.jsonb    "coefficients",        default: {}, null: false
     t.integer  "product_template_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
+  add_index "coefficients", ["coefficients"], name: "index_coefficients_on_coefficients", using: :gin
   add_index "coefficients", ["product_template_id"], name: "index_coefficients_on_product_template_id", using: :btree
 
   create_table "competitors", force: :cascade do |t|

@@ -80,11 +80,15 @@
       <tbody>
         <tr type="row">
           <td class=" sorting_1" style="width:20% !important">
-            <%= text_field_tag "products[0][name]", nil, :class => "form-control", :placeholder => "Name", :data => {"type" => "name"} %>
+            <%= text_field_tag "products[0][name]", nil, :class => "form-control", :placeholder => "Name (e.g. A)", :data => {"type" => "name"} %>
           </td>
           <% @values.each do |v| %>
             <td>
+            <% if v["type"] == "Categorical" %>
               <%= select_tag "products[0][price]", options_for_select(v["values"]), :class => "form-control" %>
+            <% else %>
+              <%= text_field_tag "products[0][value]", nil, :class => "form-control", :placeholder => "Value (e.g. 88.2)" %>
+            <% end %>
             </td>
           <% end %>
         </tr>
