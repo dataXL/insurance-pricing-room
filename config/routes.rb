@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :brokers
+  resources :quotes
+  devise_for :users
+
+  devise_scope :user do
+    root to: "home#dashboard"
+  end
+
   resources :coefficients do
     collection do
       get 'select'
@@ -8,7 +16,6 @@ Rails.application.routes.draw do
       post 'filter'
       get 'import'
       post 'import'
-      get 'simulation'
       post 'update_async'
     end
   end
@@ -43,24 +50,8 @@ Rails.application.routes.draw do
   resources :utilities
   resources :codings
   resources :insurers
-  get 'password_resets/new'
-  get 'password_resets/edit'
-  get 'sessions/new'
 
-  root to: 'sessions#new'
-
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
-  get 'test' => 'products#test'
   get 'dashboard' => 'home#dashboard'
-
-  resources :users do
-    collection do
-      get 'notifications'
-      delete 'destroy_multiple'
-    end
-  end
 
   resources :insurers do
     collection do

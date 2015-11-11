@@ -28,16 +28,29 @@ class ProductTemplatesController < ApplicationController
 
   def save
 
-    @test = params[:template]
+    @names = []
     properties = Hash.new
+    pt = ProductTemplate.create!(:name => params[:template])
+
     params[:properties].each do |p|
       unless p[1][:name].empty?
         values = p[1][:values].nil? ? [] : (p[1][:values]).split(",")
         properties.merge!(Hash[p[1][:name],Hash["type", p[1][:type], "values", values]])
+
+        # Add default products
+        if values.empty?
+          Competitor.all.each do |c|
+            linear = Hash[p[1][:name] + "_L", [1, c.premium]]
+            quadratic = Hash[p[1][:name] + "_Q", [0, c.premium]]
+
+            Product.create!(:name => "default", :properties => linear.merge!(quadratic), :brand => c.name, :product_template_id => pt.id, :tariff_id => c.tariff_id)
+          end
+        end
       end
     end
 
-    ProductTemplate.create!(:name => params[:template], :properties => properties)
+    pt.update(:properties => properties)
+
   end
 
   # GET /product_templates/1/edit
@@ -93,5 +106,9 @@ class ProductTemplatesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_template_params
       params[:product_template]
+    end
+
+    def sequence(n)
+      [0, 1].repeated_permutation(n).to_a
     end
 end

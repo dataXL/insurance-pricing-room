@@ -1,5 +1,5 @@
 <% provide(:title, "Product Bundler") %>
-<%= content_for :body_id, "gallery" %>
+<%= content_for :body_id, "projects" %>
 
 <div class="menubar">
   <div class="sidebar-toggler visible-xs">
@@ -9,34 +9,43 @@
   <div class="page-title">
     Product Templates
   </div>
-  <a href="<%= new_product_template_path %>" class="btn btn-success pull-right">
-    Add new template
+  <a href="<%= new_product_forms_path %>" class="new-user btn btn-success pull-right">
+    <span>Create Template</span>
   </a>
 </div>
 
-<div class="content-wrapper clearfix" style="height:800px !important">
-  <div class="gallery-wrapper">
+<div class="content-wrapper clearfix">
+  <div class="row project-list">
+    <div class="project new">
+      <a href="<%= new_product_template_path %>">
+        <i class="ion-ios-plus-outline"></i>
+        <span class="info">
+          Create Product Template
+        </span>
+      </a>
+    </div>
     <% @product_templates.each do |pt| %>
-    <a href="<%= product_template_path(pt)%>">
-    <div class="image" style="background-image:url('<%= base_url %>/assets/bgs/1.jpg');cursor:pointer">
-      <div class="mask">
-        <div class="name"><%= pt.name %></div>
-        <div class="date"><%= pt.created_at.strftime('%c') %></div>
+    <div class="project">
+      <div class="info">
+        <div class="name"><a href="<%= product_template_path(pt) %>"><%= pt.name %></a></div>
+        <div class="category"><%= pt.tag %></div>
+        <div class="last-update">
+          <%= pt.updated_at.strftime('%c') %>
+        </div>
+      </div>
+      <div class="members">
+        <%= image_tag "fallback/missing.jpg" %>
+
+        <a href="#" class="add-more">
+          <i class="fa fa-plus"></i>
+        </a>
+        <ul class="menu">
+          <li><a href="#">Invite a new user</a></li>
+          <li><a href="#">Change name</a></li>
+          <li><a href="#">Delete project</a></li>
+        </ul>
       </div>
     </div>
-    </a>
     <% end %>
-  </div>
-
-  <div class="filter clearfix">
-    <section class="pull-left">
-      <span>Filter:</span>
-      <a href="#" class="active">Insurance</a>
-    </section>
-    <section class="pull-right">
-      <span>Sort by:</span>
-      <a href="#" class="active">Name</a>
-      <a href="#">Date</a>
-    </section>
   </div>
 </div>

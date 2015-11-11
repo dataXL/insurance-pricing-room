@@ -59,33 +59,6 @@ class CoefficientsController < ApplicationController
     end
   end
 
-  # Where the magic happens
-  def simulation
-    @prices = [56260, 55331, 75220, 61882, 114736]
-    @keys = Coefficient.first.coefficients.keys
-
-    @competitors = Competitor.all
-
-    data = []
-    @competitors.each do |p|
-      temp = Competitor.new(name: p[:name],   premium: p[:premium], tariff_id: p[:tariff_id])
-      data << temp
-    end
-
-    g = PivotTable::Grid.new do |g|
-      g.source_data  = data
-      g.column_name  = :name
-      g.row_name     = :tariff_id
-      g.field_name   = :premium
-    end
-
-    @pivot = g.build
-    @value = @pivot.rows.first.data[0]
-
-    #@keys = Coefficient.uniq.pluck(:coefficient)
-
-  end
-
   def update_async
 
     @keys = Coefficient.first.coefficients.keys

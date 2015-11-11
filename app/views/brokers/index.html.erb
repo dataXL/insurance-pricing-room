@@ -1,0 +1,42 @@
+<% provide(:title, "Manage Crawlers") %>
+<%= content_for :body_id, "gallery" %>
+
+<div class="menubar">
+  <div class="sidebar-toggler visible-xs">
+    <i class="ion-navicon"></i>
+  </div>
+
+  <div class="page-title">
+    Crawlers
+  </div>
+  <a href="<%= new_product_template_path %>" class="btn btn-success pull-right">
+    Add new crawler
+  </a>
+</div>
+
+<div class="content-wrapper clearfix" style="height:800px !important">
+  <div class="gallery-wrapper">
+    <% @brokers.each do |b| %>
+    <a href="<%= broker_path(b)%>">
+    <div class="image" style="background-image:url('<%= base_url %>/assets/crawlers/<%= b.name %>.jpg');cursor:pointer">
+      <div class="mask">
+        <div class="name"><%= b.name %></div>
+        <div class="date"><%= b.created_at.strftime('%c') %></div>
+      </div>
+    </div>
+    </a>
+    <% end %>
+  </div>
+
+  <div class="filter clearfix">
+    <section class="pull-left">
+      <span>Filter:</span>
+      <a href="#" class="active">Insurance</a>
+    </section>
+    <section class="pull-right">
+      <span>Sort by:</span>
+      <a href="#" class="active">Name</a>
+      <a href="#">Date</a>
+    </section>
+  </div>
+</div>

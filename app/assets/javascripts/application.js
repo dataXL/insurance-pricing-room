@@ -25,6 +25,7 @@
 //= require ../../../vendor/assets/javascripts/moment.min
 //= require_directory ../../../vendor/assets/javascripts/.
 //= require turbolinks
+//= require bootstrap-slider
 
 //= require theme
 //= require_directory ./pages/.

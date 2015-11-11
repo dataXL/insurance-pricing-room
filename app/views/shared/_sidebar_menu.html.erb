@@ -1,4 +1,4 @@
-<div id="sidebar-flat-dark" class="main-sidebar fix-scroll">
+<div id="sidebar-flat" class="main-sidebar fix-scroll">
   <div class="current-user">
       <a href="#" class="name">
         <%= image_tag "fallback/missing.jpg", class: "avatar" %>
@@ -9,10 +9,10 @@
       </a>
       <ul class="menu">
         <li>
-          <a href="<%= edit_user_path(1) %>">Account settings</a>
+          <a href="<%# edit_user_path(1) %>">Account settings</a>
         </li>
         <li>
-          <a href="<%= signin_features_path %>">Sign out</a>
+          <a href="<%# signin_features_path %>">Sign out</a>
         </li>
       </ul>
   </div>
@@ -81,14 +81,13 @@
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="<%= simulation_coefficients_path %>">New simulation</a></li>
           <li><a href="<%= coefficients_path %>">View beta coefficients</a></li>
           <li><a href="<%= new_coefficient_path %>">Upload beta coefficients</a></li>
         </ul>
       </li>
     </ul>
   </div>
-  <!--<div class="menu-section">
+  <div class="menu-section">
     <h3>Brokers</h3>
     <ul>
       <li class="option">
@@ -98,13 +97,13 @@
         </a>
       </li>
       <li class="option">
-        <a href="#">
-          <i class="ion-chatboxes"></i>
-          <span>Manage Quotes</span>
+        <a href="<%= brokers_path %>">
+          <i class="ion-bug"></i>
+          <span>Manage Crawlers</span>
         </a>
       </li>
     </ul>
-  </div>-->
+  </div>
   <div class="menu-section">
     <h3>Admin</h3>
     <ul>
@@ -114,12 +113,12 @@
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="<%= user_path(1) %>">Personal Info</a></li>
-          <li><a href="<%= notifications_users_path %>">Notifications</a></li>
+          <li><a href="<%# user_path(1) %>">Personal Info</a></li>
+          <li><a href="<%# notifications_users_path %>">Notifications</a></li>
         </ul>
       </li>
       <li class="option">
-          <a href="<%= users_path %>">
+          <a href="<%# users_path %>">
             <i class="ion-person-stalker"></i>
             <span>Users & Roles</span>
           </a>
@@ -131,7 +130,7 @@
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="<%= users_path %>">Users &amp; Roles</a></li>
+          <li><a href="<%# users_path %>">Users &amp; Roles</a></li>
           <li>
             <a href="#" data-toggle="sidebar">
               Settings
@@ -161,9 +160,11 @@
         </ul>-->
       </li>
       <li>
-        <%= link_to logout_path, method: :delete do %>
+      <a href="#">
+        <%# link_to logout_path, method: :delete do %>
           <i class="ion-log-out"></i>
-        <% end %>
+        <%# end %>
+        </a>
       </li>
     </ul>
   </div>
