@@ -8,28 +8,33 @@ class ProductsController < ApplicationController
 	# GET /products
 	# GET /products.json
 	def index
+		# Product.truncate_me!
 
-		# Dummy data
-		insurers = ["Mapfre", "Generali", "Zurich"]
-		prices = ["Baixo", "Medio", "Alto"]
-		coverages = ["RC","RC+AV","DP"]
+		# Companhias: Mapfre, Generali, Zurich
+		# Preço: Baixo, Medio, Alto
+		# Cobertiras: RC, RC+AV, DP
 
-		keys = ["insurer", "price", "coverage"]
-		values = [insurers, prices, coverages]
-
-		Product.truncate_me!
+		# insurers = ["Mapfre", "Generali", "Zurich"]
+		# prices = ["Baixo", "Medio", "Alto"]
+		# coverages = ["RC","RC+AV","DP"]
 
 		# Generate all possible permutations
-		permutations = create_permutations( values )
-		hash = Hash.new
+		# permutations = (array_permutations [insurers, prices, coverages]).map {|x| x.split(";")}
 
-		permutations.each_with_index  do |permutation, index|
-			hash[:properties] = create_product_hash( keys, permutation )
-			hash[:name] = "Product #{ create_product_number( index ) }"
-			Product.create( hash )
-		end
+		# (0...permutations.length).each do |i|
 
-		@products = Product.all
+		#	hash = {}
+		#	permutations[i].each do |s|
+		#		if insurers.include? (s)
+		#			hash["insurer"] = s
+		#		elsif prices.include? (s)
+		#			hash["price"] = s
+		#		else coverages.include? (s)
+		#			hash["coverage"] = s
+		#		end
+		#	end
+		#	Product.create!(:name => "Product #{i+1}", :properties => hash)
+		# end
 	end
 
 	def grid
@@ -102,6 +107,31 @@ class ProductsController < ApplicationController
 		end
 	end
 
+	def add_multiple
+
+		product_template = ProductTemplate.find('47')
+		keys = product_template.properties.keys
+		properties = Hash.new
+
+		puts "================"
+		puts params[:products_ids]
+		puts "================"
+  	params[:products_ids].tap do |head, *body|
+  		for i in 0...body.length
+  			properties.merge!(Hash[keys[i], body[i]])
+  		end
+  		Product.create!(:name => head, :properties => properties)
+  	end
+
+	  if request.xhr?
+	    render :js => "window.location = '/product_templates/47'"
+	  else
+	    respond_to do |format|
+	      format.html { redirect_to :action => "index" }
+	    end
+	  end
+	end
+
 	private
 
 		def all_products
@@ -118,5 +148,9 @@ class ProductsController < ApplicationController
 			params[:product]
 		end
 
-	
+		def array_permutations array
+			return array[0] if array.size == 1
+			first = array.shift
+			return first.product( array_permutations(array) ).map {|x| x.flatten.join(";")}
+		end
 end

@@ -1,0 +1,75 @@
+<% provide(:title, "Customer Analysis") %>
+<%= content_for :body_id, "reports-alt" %>
+
+<div class="menubar">
+  <div class="sidebar-toggler visible-xs">
+    <i class="ion-navicon"></i>
+  </div>
+
+  <div class="page-title">
+    Survey results
+  </div>
+  <div class="options pull-right hidden-xs">
+    <a href="#"><i class="fa fa-print"></i> Print</a>
+    <a href="#"><i class="fa fa-download"></i> Download</a>
+  </div>
+  <div class="date-range pull-right">
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon">
+          <i class="fa fa-calendar-o"></i>
+        </span>
+        <input type="text" name="daterange" class="form-control" placeholder="05/01/2014 - 05/31/2014" />
+    </div>
+  </div>
+</div>
+
+<div class="content-wrapper">
+  <div class="chart">
+    <div class="bar-chart-wrapper">
+       <div id="bar-chart"></div>
+    </div>
+    <!--<label class="yaxis">Products</label>-->
+  </div>
+
+  <div class="filters">
+    <!-- Single button -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          Edit properties <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+    </div>
+  </div>
+
+  <div class="data">
+    <table id="datatable-example">
+            <thead>
+                <tr>
+                    <th tabindex="0" rowspan="1" colspan="1">ID
+                    </th>
+                    <th tabindex="0" rowspan="1" colspan="1">Product
+                    </th>
+                    <th tabindex="0" rowspan="1" colspan="1">Answer
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @surveys.each do |s| %>
+              <tr>
+                <td><%= s.id %></td>
+                <td>
+                  <a href="#"><%= s.product_name %></a>
+                </td>
+                <td><%= s.answer %></td>
+              </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

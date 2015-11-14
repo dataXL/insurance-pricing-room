@@ -1,4 +1,4 @@
-<div id="sidebar-default" class="main-sidebar fix-scroll">
+<div id="sidebar-flat" class="main-sidebar fix-scroll">
   <div class="current-user">
       <a href="#" class="name">
         <%= image_tag "fallback/missing.jpg", class: "avatar" %>
@@ -9,10 +9,10 @@
       </a>
       <ul class="menu">
         <li>
-          <a href="<%= edit_user_path(1) %>">Account settings</a>
+          <a href="<%# edit_user_path(1) %>">Account settings</a>
         </li>
         <li>
-          <a href="<%= signin_features_path %>">Sign out</a>
+          <a href="<%# signin_features_path %>">Sign out</a>
         </li>
       </ul>
   </div>
@@ -32,7 +32,6 @@
         </a>
         <ul class="submenu">
           <li><a href="<%= tariffs_path %>">View tariff table</a></li>
-          <li><a href="<%= custom_tariffs_path %>">Edit tariff attributes</a></li>
           <li><a href="<%= new_tariff_path %>">Upload tariff table</a></li>
         </ul>
       </li>
@@ -58,12 +57,12 @@
       </li>
       <li class="option">
         <a href="#" data-toggle="sidebar">
-          <i class="ion-cube"></i> <span>Product Analysis</span>
+          <i class="ion-cube"></i> <span>Product Bundler</span>
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="<%= products_path %>">View products</a></li>
-          <li><a href="<%= new_product_path %>">Create product</a></li>
+          <li><a href="<%= product_templates_path %>">View product templates</a></li>
+          <li><a href="<%= new_product_template_path %>">Create product template</a></li>
         </ul>
       </li>
       <li class="option">
@@ -72,8 +71,8 @@
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="<%= utilities_path %>">Compare utilities</a></li>
-          <li><a href="#">Upload beta coefficients</a></li>
+          <li><a href="<%= surveys_path %>">View survey results</a></li>
+          <li><a href="<%= new_survey_path %>">Upload survey results</a></li>
         </ul>
       </li>
       <li class="option">
@@ -82,13 +81,13 @@
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="#">Demand curve</a></li>
-          <li><a href="#">Share of preference</a></li>
+          <li><a href="<%= coefficients_path %>">View beta coefficients</a></li>
+          <li><a href="<%= new_coefficient_path %>">Upload beta coefficients</a></li>
         </ul>
       </li>
     </ul>
   </div>
-  <!--<div class="menu-section">
+  <div class="menu-section">
     <h3>Brokers</h3>
     <ul>
       <li class="option">
@@ -98,13 +97,13 @@
         </a>
       </li>
       <li class="option">
-        <a href="#">
-          <i class="ion-chatboxes"></i>
-          <span>Manage Quotes</span>
+        <a href="<%= brokers_path %>">
+          <i class="ion-bug"></i>
+          <span>Manage Crawlers</span>
         </a>
       </li>
     </ul>
-  </div>-->
+  </div>
   <div class="menu-section">
     <h3>Admin</h3>
     <ul>
@@ -114,18 +113,24 @@
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="<%= user_path(1) %>">Personal Info</a></li>
-          <li><a href="<%= notifications_users_path %>">Notifications</a></li>
+          <li><a href="<%# user_path(1) %>">Personal Info</a></li>
+          <li><a href="<%# notifications_users_path %>">Notifications</a></li>
         </ul>
       </li>
-
       <li class="option">
+          <a href="<%# users_path %>">
+            <i class="ion-person-stalker"></i>
+            <span>Users & Roles</span>
+          </a>
+      </li>
+
+      <!--<li class="option">
         <a href="#" data-toggle="sidebar">
           <i class="ion-briefcase"></i> <span>My Company</span>
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="submenu">
-          <li><a href="<%= users_path %>">Users &amp; Roles</a></li>
+          <li><a href="<%# users_path %>">Users &amp; Roles</a></li>
           <li>
             <a href="#" data-toggle="sidebar">
               Settings
@@ -137,7 +142,7 @@
             </ul>
           </li>
         </ul>
-      </li>
+      </li>-->
     </ul>
   </div>
   <div class="bottom-menu hidden-sm">
@@ -155,9 +160,11 @@
         </ul>-->
       </li>
       <li>
-        <%= link_to logout_path, method: :delete do %>
+      <a href="#">
+        <%# link_to logout_path, method: :delete do %>
           <i class="ion-log-out"></i>
-        <% end %>
+        <%# end %>
+        </a>
       </li>
     </ul>
   </div>

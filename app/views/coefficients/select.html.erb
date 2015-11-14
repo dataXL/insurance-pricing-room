@@ -1,0 +1,56 @@
+<% provide(:title, "Experimental Design") %>
+<%= content_for :body_id, "wizard" %>
+<%= render :partial => "shared/wizard_steps" %>
+
+<script>
+$(document).ready ( function () {
+  $(".header .steps .step").removeClass("active").filter(":lt(2)").addClass("active");
+
+  var $plans = $(".form-wizard .plans .plan");
+
+  $plans.click(function () {
+    if ( $(this).hasClass( "selected" ) ) {
+      var property = $(this).text();
+      var $hiddenInput = $('<input/>',{type:'hidden',name:"properties[]",id:"properties_", value:$.trim(property)});
+      $(this).find(".select").prepend($hiddenInput);
+      $(this).removeClass("selected");
+    } else {
+      $(this).find("input:hidden").remove();
+      $(this).addClass("selected");
+    }
+  });
+});
+</script>
+
+<%= debug @test %>
+<section class="form-wizard">
+
+  <div class="instructions" style="width:715px !important; margin: 0 auto !important; text-align: center !important; margin-bottom: 20px !important">
+    <strong>Please choose below</strong> which properties do you want to include:
+  </div>
+
+  <div class="step active animated fadeInRightStep">
+  <%= form_tag import_coefficients_path do %>
+    <%= hidden_field_tag "file", @file %>
+    <div class="plans">
+      <% unless @header.blank? %>
+        <% @header.each do |header| %>
+            <div class="plan clearfix selected">
+              <div class="info">
+                <div class="name">
+                  <%= header %>
+                </div>
+                <div class="select">
+                  <%# hidden_field_tag "properties[]", @header[i] %>
+                  <i class="fa fa-check"></i>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+      </div>
+    <%= render :partial => "shared/buttons_footer" %>
+  <% end %>
+  </div>
+</section>
+

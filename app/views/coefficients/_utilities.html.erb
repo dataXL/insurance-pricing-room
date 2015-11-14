@@ -1,0 +1,36 @@
+<%= debug @value %>
+  <thead>
+    <tr>
+      <th tabindex="0" rowspan="1" colspan="1">Intercept</th>
+      <% @keys.each do |k| %>
+        <th tabindex="0" rowspan="1" colspan="1"><%= k %></th>
+      <% end %>
+      <th tabindex="0" rowspan="1" colspan="1">U(A)</th>
+      <th tabindex="0" rowspan="1" colspan="1">U(B)</th>
+      <th tabindex="0" rowspan="1" colspan="1">U(C)</th>
+      <th tabindex="0" rowspan="1" colspan="1">U(D)</th>
+      <th tabindex="0" rowspan="1" colspan="1">U(E)</th>
+      <th tabindex="0" rowspan="1" colspan="1">Máx Util</th>
+      <th tabindex="0" rowspan="1" colspan="1">Logit</th>
+      <th tabindex="0" rowspan="1" colspan="1">Logit(%)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% Coefficient.all.each do |c| %>
+    <tr>
+      <td><%= c.intercept %></td>
+      <% @keys.each do |k| %>
+        <td><%= c.coefficients[k] %></td>
+      <% end %>
+      <% @pivot.rows.first.data.each do |d| %>
+        <td><%= d  %></td>
+        <!--<td><%# (c.intercept + d * c.coefficients["Preco_L"]).round(1) %></td>
+        <td><%# (c.intercept + d * c.coefficients["Preco_L"]).round(1) %></td>
+        <td><%# (c.intercept + d * c.coefficients["Preco_L"]).round(1) %></td>
+        <td><%# (c.intercept + d * c.coefficients["Preco_L"]).round(1) %></td>
+        <td><%# (c.intercept + d * c.coefficients["Preco_L"]).round(1) %></td>-->
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>

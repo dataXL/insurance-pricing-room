@@ -1,52 +1,15 @@
-<% provide(:title, "Product Analysis") %>
-<%= content_for :body_id, "datatables" %>
+<h1>Listing products</h1>
 
-<div class="menubar">
-    <div class="sidebar-toggler visible-xs">
-        <i class="ion-navicon"></i>
-    </div>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
 
-  <div class="page-title">
-    Products
-  </div>
-  <div class="options pull-right" style="margin-top:5px !important">
-    <a href="#" data-grid=".users-list" class="grid-view active"><i class="fa fa-th-list" style="color:gray; font-size:20px !important; cursor:default; margin-right:5px"></i></a>
-    <a href="/products/grid" data-grid=".users-grid" class="grid-view"><i class="fa fa-th" style="font-size:20px !important"></i></a>
-  </div>
-</div>
-
-<div class="content-wrapper">
-
-  <table id="orders-datatable">
-    <thead>
-      <tr>
-          <th tabindex="0" rowspan="1" colspan="1">Name</th>
-          <th tabindex="0" rowspan="1" colspan="1">Price</th>
-          <th tabindex="0" rowspan="1" colspan="1">Insurer</th>
-          <th tabindex="0" rowspan="1" colspan="1">Coverage</th>
-      </tr>
-    </thead>
-
-    <tfoot>
-      <tr>
-          <th rowspan="1" colspan="1">Name</th>
-          <th rowspan="1" colspan="1">Price</th>
-          <th rowspan="1" colspan="1">Insurer</th>
-          <th rowspan="1" colspan="1">Coverage</th>
-      </tr>
-    </tfoot>
-
-    <tbody>
-      <% unless @products.empty? %>
-        <% @products.each do |product| %>
-        <tr>
-          <td><%= product.name %></td>
-          <% product.properties.each do |k,v| %>
-            <td><%= v %></td>
-          <% end %>
-        </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.id %></td>
+      <td><%= product.name %></td>
+    </tr>
+  <% end %>
+</table>

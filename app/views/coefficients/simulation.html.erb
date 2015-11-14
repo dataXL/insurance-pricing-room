@@ -1,0 +1,85 @@
+<% provide(:title, "Experimental Design") %>
+<%= content_for :body_id, "datatables" %>
+
+<script>
+$(document).ready ( function () {
+
+  $("#orders-datatable-2 > tbody > tr input").on("keyup", function(event) {
+    event.preventDefault();
+
+    var $th = $("#orders-datatable-2 thead tr th").eq($(this).parent().parent().index());
+
+    var insurer = $th.text();
+    var tariff = $(this).attr("name");
+    var value = $(this).val();
+
+    $.ajax({
+      type: "POST",
+      url: "/coefficients/update_async",
+      cache: false,
+      async: true,
+      data: {
+        tariff: tariff,
+        value: value,
+        insurer: insurer
+      },
+      success: function(result) {
+        // Append the result to a table or list, $("list").append(result)
+      }
+    });
+  });
+
+});
+</script>
+
+<div class="menubar">
+  <div class="sidebar-toggler visible-xs">
+    <i class="ion-navicon"></i>
+  </div>
+
+  <div class="page-title">
+    Simulator
+  </div>
+</div>
+
+<div class="content-wrapper" style="overflow:auto !important">
+<%# render :partial => "shared/filter_table" %>
+
+  <table id="orders-datatable-2" style="margin:0 auto">
+    <thead>
+      <tr>
+        <th tabindex="0" rowspan="1" colspan="1">Tariff</th>
+        <% @pivot.column_headers.each do |c| %>
+          <th tabindex="0" rowspan="1" colspan="1"><%= c %></th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% unless @competitors.empty? %>
+        <% @pivot.rows.each do |r| %>
+          <tr>
+            <td><a href="<%= tariff_path(r.header) %>"><%= r.header %></a></td>
+            <% r.data.each do |d| %>
+              <td>
+              <div class="has-feedback">
+                <%= text_field_tag r.header, d, :class => "form-control" %>
+                <i class="ion-reply form-control-feedback" style="margin-top:-25px; cursor:pointer" data-toggle="tooltip" title="Reverse changes">
+                </i>
+                </div>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+
+    </table>
+
+  <div style="height:50px"></div>
+
+  <table id="orders-datatable">
+    <%= render "coefficients/utilities" %>
+  </table>
+
+</div>
