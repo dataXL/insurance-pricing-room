@@ -9,19 +9,20 @@ class HomeController < ApplicationController
 
     @products = Product.all
     @coefficients = Coefficient.all
+    @tariffs = Tariff.all
 
-
-    @prices = [56260, 55331, 75220, 61882, 114736]
+    @prices = Product.where(tariff_id: @tariffs.first).pluck(:properties)
     @coefficient_keys = Coefficient.first.coefficients.keys
     @keys = Product.order("brand DESC").pluck(:brand).uniq
 
     @result = []
 
-    @products.each do |p|
-      p.properties.each do |k,v|
-        @coefficients.each do |c|
-          @result << c.intercept + c.coefficients[k] * v[1]
-        end
+    @products.first.properties.each do |property|
+      property.each do |key, value|
+        #@coefficients.each do |c|
+        #  temp = c.intercept + c.coefficients[key] * v[1]
+        #end
+        @result << key
       end
     end
 

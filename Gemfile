@@ -46,6 +46,7 @@ gem 'bootstrap-tagsinput-rails'
 # Pass rails variables to js
 gem 'gon', '~> 6.0', '>= 6.0.1'
 gem 'bootstrap-slider-rails'
+gem 'mechanize', '~> 2.7', '>= 2.7.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

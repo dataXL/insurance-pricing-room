@@ -10,6 +10,20 @@ class BrokersController < ApplicationController
   # GET /brokers/1
   # GET /brokers/1.json
   def show
+
+    @test = []
+    # Test Mechanize
+    agent = Mechanize.new
+    page = agent.get("https://www.okteleseguros.pt/simulador/auto")
+    form = page.forms[3]
+    #first_form = page.form("form_simulador")
+    #first_form["tipo_simulacao"] = "Um Veículo"
+    #pp form
+    form.radiobuttons_with(:name => "gender_tomador").each do |field|
+      @test << field.value
+    end
+
+
   end
 
   # GET /brokers/new

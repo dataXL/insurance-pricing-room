@@ -10,6 +10,16 @@ $(document).ready ( function () {
     }
   });
 
+  /*$('#previous').hover(
+    function() {
+      $(this).removeClass('ion-android-arrow-dropleft');
+      $(this).addClass('ion-android-arrow-dropleft-circle');
+    },
+    function() {
+      $(this).removeClass('ion-android-arrow-dropleft-circle');
+      $(this).addClass('ion-android-arrow-dropleft');
+    });*/
+
 });
 </script>
 
@@ -34,6 +44,14 @@ $(document).ready ( function () {
 #ex1Slider .slider-handle {
   background: black;
 }
+
+#previous, #next {
+  color: gray;
+}
+
+#previous:hover, #next:hover {
+  color: black;
+}
 </style>
 
 <div class="menubar">
@@ -46,6 +64,7 @@ $(document).ready ( function () {
   </div>
 </div>
 
+<%= debug @result %>
 <div class="content-wrapper">
 
   <div class="chart">
@@ -55,7 +74,12 @@ $(document).ready ( function () {
     <div id="visitors-chart"></div>
   </div>
 
-  <table id="orders-datatable-2" style="margin:0 auto; background-color: rgb(224, 224, 224)">
+  <div id style="margin:0 auto; position:relative; height:30px; top:-50px; text-align:center">
+    <a href=""><i id="previous" class="icon ion-android-arrow-dropleft-circle" style="font-size:32px; margin-right:20px"></i></a>
+    <a href=""><i id="next" class="icon ion-android-arrow-dropright-circle" style="font-size:32px"></i></a>
+  </div>
+
+  <table id="orders-datatable" style="margin:0 auto; background-color: rgb(224, 224, 224)">
     <thead>
       <tr>
         <th tabindex="0" rowspan="1" colspan="1">Tariff</th>
@@ -107,7 +131,7 @@ $(document).ready ( function () {
         Product Utilities
       </h3>
       <div>
-        <table id="orders-datatable" style="width: 100% !important; overflow:scroll; position:relative">
+        <table id="orders-datatable-2" style="width: 100% !important; overflow:scroll; position:relative">
           <thead>
             <tr>
               <% @keys.each do |k| %>
