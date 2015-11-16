@@ -1,6 +1,8 @@
 class CreateDelayedJobs < ActiveRecord::Migration
-  def self.up
+  def change
     create_table :delayed_jobs, force: true do |table|
+
+      ## Properties
       table.integer :priority, default: 0, null: false # Allows some jobs to jump to the front of the queue
       table.integer :attempts, default: 0, null: false # Provides for retries, but still fail eventually.
       table.text :handler,                 null: false # YAML-encoded string of the object that will do work
@@ -10,13 +12,12 @@ class CreateDelayedJobs < ActiveRecord::Migration
       table.datetime :failed_at                        # Set when all retries have failed (actually, by default, the record is deleted instead)
       table.string :locked_by                          # Who is working on this object (if locked)
       table.string :queue                              # The name of the queue this job is in
+
+      ## Timestamps
       table.timestamps null: true
     end
 
+    ## Indexes
     add_index :delayed_jobs, [:priority, :run_at], name: "delayed_jobs_priority"
-  end
-
-  def self.down
-    drop_table :delayed_jobs
   end
 end
