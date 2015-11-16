@@ -6,6 +6,9 @@ class HomeController < ApplicationController
 	end
 
   def dashboard
+  end
+
+  def dashboard2
 
     @products = Product.all
     @coefficients = Coefficient.all

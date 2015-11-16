@@ -2,10 +2,12 @@ Rails.application.routes.draw do
 
   resources :brokers
   resources :quotes
-  devise_for :users
+  devise_for :users, :controllers => {:confirmations => 'confirmations', :registrations => 'registrations'}
 
   devise_scope :user do
     root to: "home#dashboard"
+    #patch "/confirm" => "confirmations#create"
+    patch "/confirm" => "confirmations#confirm"
   end
 
   resources :coefficients do
@@ -19,6 +21,8 @@ Rails.application.routes.draw do
       post 'update_async'
     end
   end
+
+  resources :users
 
   resources :surveys do
     collection do
@@ -64,36 +68,30 @@ Rails.application.routes.draw do
 
   resources :tariffs do
     collection do
-      get 'select'
-      post 'select'
-      get 'filter'
-      post 'filter'
-      get 'import'
-      post 'import'
+      match 'select', via: [:get, :post]
+      match 'map', via: [:get, :post]
+      match 'import', via: [:get, :post]
+
       post 'export'
     end
   end
 
   resources :risks do
     collection do
-      get 'select'
-      post 'select'
-      get 'filter'
-      post 'filter'
-      get 'import'
-      post 'import'
+      match 'select', via: [:get, :post]
+      match 'map', via: [:get, :post]
+      match 'import', via: [:get, :post]
+
       put  'complete'
     end
   end
 
   resources :competitors do
     collection do
-      get 'select'
-      post 'select'
-      get 'filter'
-      post 'filter'
-      get 'import'
-      post 'import'
+      match 'select', via: [:get, :post]
+      match 'map', via: [:get, :post]
+      match 'import', via: [:get, :post]
+
       put  'complete'
       get 'grid'
     end

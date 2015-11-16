@@ -8,7 +8,7 @@ class CreateProductTemplates < ActiveRecord::Migration
       t.jsonb :properties, null: false, default: '{}'
 
       ## Timestamps
-      t.timestamps, null: false
+      t.timestamps null: false
     end
 
     ## Indexes

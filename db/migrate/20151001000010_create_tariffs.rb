@@ -1,4 +1,4 @@
-class CreateRisks < ActiveRecord::Migration
+class CreateTariffs < ActiveRecord::Migration
   def change
     create_table :tariffs do |t|
 
@@ -7,7 +7,6 @@ class CreateRisks < ActiveRecord::Migration
 
       ## Properties
       t.jsonb   :properties, null: false, default: '{}'
-      t.float   :premium
       t.integer :segment, null: false, default: '1'
 
       ## Timestamps

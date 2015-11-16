@@ -3,7 +3,6 @@
 	#content {
 		padding: 0 0 40px;
 
-
 		.content-wrapper {
 			margin-top: 0;
 			overflow-y: scroll;
@@ -33,8 +32,8 @@
 		}
 
 		.steps {
-			width: 80%;
-			margin-left:20%;
+			width: 79%;
+			margin: 0 auto;
 			border-radius: 2px 2px 0 0;
 
 			.step {
@@ -141,85 +140,85 @@
 					padding-bottom: 15px;
 				}
 			}
-			}
+		}
 
 		.plans {
 			max-width: 600px !important;
 			margin: 0 auto;
 
 			.plan {
-					margin-top: 5px;
-					position: relative;
-					padding: 12px 0;
-					border-radius: 5px;
-					cursor: pointer;
+				margin-top: 5px;
+				position: relative;
+				padding: 12px 0;
+				border-radius: 5px;
+				cursor: pointer;
 
-					@include transition(all .15s linear);
+				@include transition(all .15s linear);
 
-					@media (max-width: $maxSmall) {
-						padding: 12px 8px;
-					}
+				@media (max-width: $maxSmall) {
+					padding: 12px 8px;
+				}
 
-					&.selected {
-						.select {
-							.fa-check {
-								display: inline-block;
-							}
+				&.selected {
+					.select {
+						.fa-check {
+							display: inline-block;
 						}
 					}
+				}
 
-					&.selected,
-					&:hover {
-						background: #ebf2fb;
+				&.selected,
+				&:hover {
+					background: #ebf2fb;
 
-						.price {
-							color: #458EDB;
-						}
-
-						.info {
-							.details {
-								color: #73ACE9;
-							}
-						}
-
-						.select {
-							border: 2px solid #8FC4FD;
-						}
+					.price {
+						color: #458EDB;
 					}
 
 					.info {
-						float: left;
-						width: 260px;
-
-						.name {
-							font-size: 17px;
-							font-weight: 600;
-							color: #3e95f1;
-						}
-
 						.details {
-							color: #888;
+							color: #73ACE9;
 						}
 					}
 
 					.select {
-						position: absolute;
-						right: 10px;
-						top: 10px;
-						width: 27px;
-						height: 27px;
-						border-radius: 25px;
-						border: 2px solid #ccc;
-
-						.fa-check {
-							position: relative;
-							top: 2px;
-							left: 4px;
-							color: #057DFF;
-							display: none;
-						}
+						border: 2px solid #8FC4FD;
 					}
 				}
+
+				.info {
+					float: left;
+					width: 260px;
+
+					.name {
+						font-size: 17px;
+						font-weight: 600;
+						color: #3e95f1;
+					}
+
+					.details {
+						color: #888;
+					}
+				}
+
+				.select {
+					position: absolute;
+					right: 10px;
+					top: 10px;
+					width: 27px;
+					height: 27px;
+					border-radius: 25px;
+					border: 2px solid #ccc;
+
+					.fa-check {
+						position: relative;
+						top: 2px;
+						left: 4px;
+						color: #057DFF;
+						display: none;
+					}
+				}
+			}
 		}
 
 		@media (max-width: $maxSmall) {
@@ -325,6 +324,3 @@
 	}
 
 }
-
-
-

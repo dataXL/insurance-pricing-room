@@ -6,7 +6,7 @@ class CreateCompetitors < ActiveRecord::Migration
       t.integer :tariff_id
 
       ## Properties
-      t.string :name,
+      t.string :name
       t.float :premium
 
       ## Timestamps

@@ -28,23 +28,5 @@
 		});
 	};
 
-	/*$("a#delete").click(function() {
-     var serializedArray = $("input:checked").serializeArray();
-     var itemIdsArray = [];
-
-     for (var i = 0, length = serializedArray.length; i < length; i++) {
-        itemIdsArray.push(serializedArray[i]['value']);
-     }
-
-     $.ajax({
-       type: "DELETE",
-       url: "users/destroy_multiple",
-       data: {
-         users_ids: itemIdsArray
-       },
-       dataType: "script"
-     });
-  });*/
-
 	$(document).on("ready page:load", page_scripts);
 })();

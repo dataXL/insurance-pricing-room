@@ -1,6 +1,6 @@
 (function () {
     var page_scripts = function () {
-        if (!$("#reports-alt").length) return;
+    if (!$("#reports-alt").length) return;
 
 		// daterange input
 		$('input[name="daterange"]').daterangepicker({

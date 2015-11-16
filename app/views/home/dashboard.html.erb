@@ -10,16 +10,6 @@ $(document).ready ( function () {
     }
   });
 
-  /*$('#previous').hover(
-    function() {
-      $(this).removeClass('ion-android-arrow-dropleft');
-      $(this).addClass('ion-android-arrow-dropleft-circle');
-    },
-    function() {
-      $(this).removeClass('ion-android-arrow-dropleft-circle');
-      $(this).addClass('ion-android-arrow-dropleft');
-    });*/
-
 });
 </script>
 
@@ -52,6 +42,10 @@ $(document).ready ( function () {
 #previous:hover, #next:hover {
   color: black;
 }
+
+table th:first-child {
+    text-align: left !important;
+}​
 </style>
 
 <div class="menubar">
@@ -83,15 +77,17 @@ $(document).ready ( function () {
     <thead>
       <tr>
         <th tabindex="0" rowspan="1" colspan="1">Tariff</th>
-        <% @pivot.column_headers.each do |c| %>
-          <th tabindex="0" rowspan="1" colspan="1"><%= c %></th>
-        <% end %>
+        <%- unless @pivot.nil? %>
+          <%- @pivot.column_headers.each do |c| %>
+            <th tabindex="0" rowspan="1" colspan="1"><%= c %></th>
+          <% end -%>
+        <% end -%>
       </tr>
     </thead>
 
     <tbody>
-      <% unless @competitors.empty? %>
-        <% @pivot.rows.each do |r| %>
+      <%- unless @competitors.nil? %>
+        <%- @pivot.rows.each do |r| %>
           <tr>
             <td><a href="<%= tariff_path(r.header) %>"><%= r.header %></a></td>
             <% r.data.each do |d| %>
@@ -104,8 +100,8 @@ $(document).ready ( function () {
               </td>
             <% end %>
           </tr>
-        <% end %>
-      <% end %>
+        <% end -%>
+      <% end -%>
     </tbody>
 
     </table>
@@ -116,27 +112,30 @@ $(document).ready ( function () {
         Beta Coefficients
       </h3>
 
-      <% @coefficient_keys.each do |ck|%>
-      <div class="referral">
-        <span style="margin-bottom:30px !important"><%= ck %></span>
-        <p>
-          <b>0</b><input class="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="2" data-slider-step="0.1" data-slider-value="1"/><b>2</b>
-        </p>
-      </div>
-      <% end %>
+      <%- unless @coefficient_keys.nil? %>
+        <%- @coefficient_keys.each do |ck|%>
+        <div class="referral">
+          <span style="margin-bottom:30px !important"><%= ck %></span>
+          <p>
+            <b>0</b><input class="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="2" data-slider-step="0.1" data-slider-value="1"/><b>2</b>
+          </p>
+        </div>
+        <% end -%>
+      <% end -%>
     </div>
 
     <div class="chart pull-right">
       <h3>
-        Product Utilities
+        Price Scenarios
       </h3>
       <div>
-        <table id="orders-datatable-2" style="width: 100% !important; overflow:scroll; position:relative">
+        <table id="orders-datatable-2" style="table-layout:fixed; width: 100%">
           <thead>
             <tr>
-              <% @keys.each do |k| %>
-                <th tabindex="0" rowspan="1" colspan="1"><%= k %></th>
-              <% end %>
+              <th tabindex="0" rowspan="1" colspan="1">Scenarios</th>
+              <th tabindex="0" rowspan="1" colspan="1">Price</th>
+              <th tabindex="0" rowspan="1" colspan="1">Logit (%)</th>
+              <th tabindex="0" rowspan="1" colspan="1">Elasticity</th>
             </tr>
           </thead>
 
@@ -144,9 +143,8 @@ $(document).ready ( function () {
             <tr>
               <td><a href="#">High Price</a></td>
               <td>2160 €</td>
-              <td>6,6 %</td>
-              <td>2160 €</td>
-              <td>6,6 %</td>
+              <td>6.6 %</td>
+              <td>-9.4</td>
             </tr>
           </tbody>
         </table>

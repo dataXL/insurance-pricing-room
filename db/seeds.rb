@@ -10,7 +10,8 @@ User.create!(:name => 'Jorge André Pereira',
             :email => 'jahpereira@gmail.com',
             :password => 'topsecret',
             :password_confirmation => 'topsecret',
-            :confirmed_at => DateTime.now)
+            :confirmed_at => DateTime.now,
+            :admin => true)
 
 # 9.times do |n|
 #  name  = Faker::Name.name

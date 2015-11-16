@@ -1,0 +1,35 @@
+<!-- Form with Validation Modal -->
+<div class="modal fade" id="form-validation-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= form_for( resource,
+                    :as => resource_name,
+                    :url => user_registration_path(resource),
+                    :html => {:id => "sign_up_user"} ) do |f| %>
+
+        <%= devise_error_messages! %>
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">
+            Create a new user
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+              <%= render 'shared/error_messages' %>
+
+              <%= f.label :name, "Name:"%>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :email, "Email:"%>
+              <%= f.email_field :email, class: "form-control" %>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button id="dismiss" type="button" class="btn btn-default" data-dismiss="modal" style="float:left">Cancel</button>
+          <%= f.submit "Save user", class: "btn btn-success btn-medium", style: "float:right" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

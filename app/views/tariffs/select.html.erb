@@ -32,24 +32,25 @@ $(document).ready ( function () {
   <%= form_tag import_tariffs_path do %>
     <%= hidden_field_tag "file", @file %>
     <div class="plans">
-      <% unless @header.blank? %>
-        <% @header.each do |header| %>
-          <% unless header == "Premio comercial" %>
-            <div class="plan clearfix selected">
-              <div class="info">
-                <div class="name">
-                  <%= header %>
-                </div>
-                <div class="select">
-                  <%# hidden_field_tag "properties[]", @header[i] %>
-                  <i class="fa fa-check"></i>
-                </div>
+    <% unless @header.blank? %>
+      <% @header.each_with_index do |header, i| %>
+        <% unless header == "Premio comercial" %>
+          <div class="plan clearfix selected">
+            <div class="info">
+              <div class="name">
+                <%= header %>
+              </div>
+              <div class="select">
+                <%= hidden_field_tag "properties[]", @header[i] %>
+                <i class="fa fa-check"></i>
               </div>
             </div>
-          <% end %>
+          </div>
         <% end %>
       <% end %>
-      </div>
+    <% end %>
+    </div>
+      <%= hidden_field_tag :file, @name %>
     <%= render :partial => "shared/buttons_footer" %>
   <% end %>
   </div>

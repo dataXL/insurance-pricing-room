@@ -22,6 +22,6 @@ class CreateProducts < ActiveRecord::Migration
 
     ## Restrictions
     add_foreign_key :products, :product_templates
-    add_foreign_key :products, :tariffs
+    # add_foreign_key :products, :tariffs
   end
 end

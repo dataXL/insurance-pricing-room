@@ -1,0 +1,45 @@
+<% provide(:title, "Set password") %>
+
+<style>
+input.form-control:focus {
+  border-color: rgb(96,96,96);
+}
+</style>
+
+<body id="signin">
+
+  <div class="bg clear">
+
+
+    <h3><b>Insurance Pricing Room</b></h3>
+    <h4 style="text-align:center">Set password</h4>
+
+    <div class="content" style="min-height:300px">
+      <%= form_for(resource, :as => resource_name, :url => confirm_path) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :confirmation_token, :input_html => { :value => @original_token } %>
+
+        <div class="fields">
+          <%= f.label :password, "New password" %><br />
+          <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control" %>
+        </div>
+
+        <div class="fields">
+          <%= f.label :password_confirmation, "Confirm new password" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        </div>
+
+        <%= f.submit "Change password", class: "btn btn-default" %>
+
+      <% end %>
+      <%= render "devise/shared/links" %>
+
+    </div>
+
+    <div class="bottom-wrapper" style="margin-top:50px; padding-bottom: 40px; height:180px">
+      <a href="<%= root_url %>" class="logo" style=" margin-top:50px">
+        <%= image_tag "logo.png" %>
+      </a>
+    </div>
+  </div>
+</body>
