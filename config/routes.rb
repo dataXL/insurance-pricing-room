@@ -2,11 +2,10 @@ Rails.application.routes.draw do
 
   resources :brokers
   resources :quotes
-  devise_for :users, :controllers => {:confirmations => 'confirmations', :registrations => 'registrations'}
+  devise_for :users, :controllers => { :confirmations => 'confirmations', :registrations => 'registrations' }
 
   devise_scope :user do
     root to: "home#dashboard"
-    #patch "/confirm" => "confirmations#create"
     patch "/confirm" => "confirmations#confirm"
   end
 
