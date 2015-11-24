@@ -4,8 +4,7 @@ class TariffsController < ApplicationController
   # GET /tariffs
   # GET /tariffs.json
   def index
-
-    @tariffs = Tariff.where("updated_at > ?", Tariff.last.updated_at.change(:usec => 0))
+    @tariffs = Tariff.order(:id)
 
     respond_to do |format|
       format.html
@@ -95,13 +94,15 @@ class TariffsController < ApplicationController
   # PATCH/PUT /tariffs/1
   # PATCH/PUT /tariffs/1.json
   def update
+    @tariff = Tariff.find params[:id]
+
     respond_to do |format|
       if @tariff.update(tariff_params)
         format.html { redirect_to @tariff, notice: 'Tariff was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tariff }
+        format.json { respond_with_bip(@tariff) }
       else
         format.html { render :edit }
-        format.json { render json: @tariff.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@tariff) }
       end
     end
   end
@@ -125,7 +126,15 @@ class TariffsController < ApplicationController
 
     ## Never trust parameters from the scary internet, only allow the white list through.
     def tariff_params
-      params.require(:tariff).permit(:tariff, :properties)
+      #params.require(:tariff).permit(:tariff, :properties, :segment)
+
+      whitelist = [:tariff, :properties, :segment]
+
+      Tariff.first.properties.each do |k,v|
+        whitelist << k.to_sym
+      end
+
+      params.require(:tariff).permit(whitelist)
     end
 
     ## Open imported spreadsheet

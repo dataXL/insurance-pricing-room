@@ -1,0 +1,54 @@
+  - provide(:title, "Tariff Analysis")
+  = content_for :body_id, "tariffs"
+
+  span class="test"
+  | Hello
+
+  div class="menubar"
+    div class="sidebar-toggler visible-xs"
+      i class="ion-navicon"
+
+    div class="page-title"
+      | Tariff table
+    div class="options pull-right hidden-xs"
+      = link_to(tariffs_path(format: :csv)) do
+        i class="fa fa-download"
+        span Download CSV
+
+  div class="content-wrapper clearfix"
+
+    == render "shared/filters_toggler"
+    == render "shared/filter_table"
+
+    div class="results"
+
+      div class="top-bar"
+
+      div class="middle-bar"
+        table id="tariffs-datatable" class="table"
+          thead
+            tr
+            - unless Tariff.all.empty?
+              - Tariff.column_names.except(["created_at","updated_at","insurer_id"]).each do |header|
+                - if header == "properties"
+                  - Tariff.first.properties.keys.each do |property|
+                    th
+                      = property
+                - else
+                  th
+                    = header.camelize
+
+          tbody
+            - unless Tariff.all.empty?
+              - @tariffs.each do |tariff|
+                tr
+                  td
+                    = tariff.id
+                  - unless tariff.properties.blank?
+                    - tariff.properties.each do |k,v|
+                      td
+                        = best_in_place tariff, k
+                    td
+                      = best_in_place tariff, :segment
+
+      div class="bottombar"

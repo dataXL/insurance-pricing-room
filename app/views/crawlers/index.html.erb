@@ -1,0 +1,52 @@
+<% provide(:title, "Manage Crawlers") %>
+<%= content_for :body_id, "projects" %>
+
+<div class="menubar">
+  <div class="sidebar-toggler visible-xs">
+    <i class="ion-navicon"></i>
+  </div>
+
+  <div class="page-title">
+    Crawlers
+  </div>
+  <a href="<%= new_product_forms_path %>" class="new-user btn btn-success pull-right">
+    <span>Do something</span>
+  </a>
+</div>
+
+<div class="content-wrapper clearfix">
+  <div class="row project-list">
+    <div class="project new">
+      <a href="<%= new_crawler_path %>">
+        <i class="ion-ios-plus-outline"></i>
+        <span class="info">
+          Create Crawler
+        </span>
+      </a>
+    </div>
+    <% @crawlers.each do |c| %>
+    <div class="project">
+      <div class="info">
+        <div class="name"><a href="<%= crawler_path(c) %>"><%= c.name %></a></div>
+        <div class="category"><%# c.tag %></div>
+        <div class="last-update">
+          <%= c.updated_at.strftime('%c') %>
+        </div>
+        <%= image_tag "logos/#{c.image_tag}.png", :style => "max-height: 90px; padding-top:20px" %>
+      </div>
+      <div class="members">
+        <%= image_tag "fallback/missing.jpg" %>
+
+        <a href="#" class="add-more">
+          <i class="fa fa-plus"></i>
+        </a>
+        <ul class="menu">
+          <li><a href="#">Invite a new user</a></li>
+          <li><a href="#">Change name</a></li>
+          <li><a href="#">Delete project</a></li>
+        </ul>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

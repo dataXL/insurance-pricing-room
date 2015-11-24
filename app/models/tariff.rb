@@ -1,8 +1,18 @@
 class Tariff < ActiveRecord::Base
-  #serialize :properties, HashSerializer
+  after_initialize :add_field_accessors
+  # serialize :properties, HashWithIndifferentAccess
   store_accessor :properties
   attr_accessor :file
   belongs_to :insurer
+
+  def add_store_accessor field_name
+      singleton_class.class_eval {store_accessor :properties, field_name}
+  end
+
+  def add_field_accessors
+    num_fields = properties.try(:keys).try(:count) || 0
+    properties.keys.each {|field_name| add_store_accessor field_name} if num_fields > 0
+  end
 
   def self.truncate_me!
     Tariff.connection.execute("TRUNCATE TABLE tariffs RESTART IDENTITY")

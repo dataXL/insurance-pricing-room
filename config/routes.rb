@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :crawlers do
+    collection do
+      get 'report'
+    end
+  end
+
   resources :brokers
   resources :quotes
   devise_for :users, :controllers => { :confirmations => 'confirmations', :registrations => 'registrations' }

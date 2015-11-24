@@ -87,23 +87,23 @@
       </li>
     </ul>
   </div>
-  <div class="menu-section">
+  <!--<div class="menu-section">
     <h3>Brokers</h3>
     <ul>
       <li class="option">
-        <a href="#">
-          <i class="ion-stats-bars"></i>
+        <a href="<%= report_crawlers_path %>">
+          <i class="ion-load-a"></i>
           <span>Progress Report</span>
         </a>
       </li>
       <li class="option">
-        <a href="<%= brokers_path %>">
+        <a href="<%= crawlers_path %>">
           <i class="ion-bug"></i>
           <span>Manage Crawlers</span>
         </a>
       </li>
     </ul>
-  </div>
+  </div>-->
   <div class="menu-section">
     <h3>Admin</h3>
     <ul>
@@ -147,10 +147,14 @@
   </div>
   <div class="bottom-menu hidden-sm">
     <ul>
-      <li><a href="#"><i class="ion-help"></i></a></li>
+      <li>
+        <a href="#menu-toggle">
+          <i class="ion-android-color-palette"></i>
+        </a>
+      </li>
       <li>
         <a href="#">
-          <i class="ion-archive"></i>
+          <i class="ion-information-circled"></i>
           <!--<span class="flag"></span>-->
         </a>
         <!--<ul class="menu">

@@ -27,6 +27,7 @@ gem 'responders', '~> 2.0'
 gem 'carrierwave', '0.10.0'
 gem 'mini_magick', '3.8.0'
 gem 'fog'
+gem 'slim'
 gem 'i18n', '~> 0.7.0'
 gem 'virtus', '~> 1.0.5'
 gem 'active_model_serializers', '~> 0.9.3'
@@ -46,6 +47,8 @@ gem 'bootstrap-tagsinput-rails'
 # Pass rails variables to js
 gem 'gon', '~> 6.0', '>= 6.0.1'
 gem 'bootstrap-slider-rails'
+gem 'best_in_place', '~> 3.0.1'
+gem "bootstrap-table-rails"
 gem 'mechanize', '~> 2.7', '>= 2.7.3'
 
 # Use jquery as the JavaScript library

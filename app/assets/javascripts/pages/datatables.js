@@ -16,14 +16,47 @@
         endDate: moment()
     });
 
-    var $table = $("#orders-datatable");
+    var $filters = $(".filters .filter input:checkbox");
+
+    $filters.change(function () {
+        var $option = $(this).closest(".filter").find(".filter-option");
+
+        if ($(this).is(":checked")) {
+            $option.slideDown(150, function () {
+                $option.find("input:text:eq(0)").focus();
+            });
+        } else {
+            $option.slideUp(150);
+        }
+    });
+
+    // Filter dropdown options for Created date, show/hide datepicker or input text
+    var $dropdown_switcher = $(".field-switch");
+    $dropdown_switcher.change(function () {
+        var field_class = $(this).find("option:selected").data("field");
+        var $filter_option = $(this).closest(".filter-option");
+        $filter_option.find(".field").hide();
+        $filter_option.find(".field." + field_class).show();
+
+        if (field_class === "calendar") {
+            $filter_option.find(".datepicker").datepicker("show");
+        } else {
+            $filter_option.find(".field." + field_class + " input:text").focus();
+        }
+    });
+
+    var $table = $("#tariffs-datatable");
 
     $table.dataTable({
+        bSort : false,
         sPaginationType: "full_numbers",
         iDisplayLength: 20,
         aLengthMenu: [[20, 50, 100, -1], [20, 50, 100, "All"]],
         bDestroy: true
     });
+
+    $("#tariffs-datatable_filter").detach().appendTo("#topbar");
+    $("#tariffs-datatable_paginate").detach().appendTo("#bottombar");
   };
 
   $(document).on("ready page:load", page_scripts);

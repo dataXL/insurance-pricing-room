@@ -14,6 +14,7 @@
  *= require bootstrap/bootstrap.min
  *= require bootstrap-tagsinput
  *= require bootstrap-slider
+ *= require bootstrap-table
  *= require ../../../vendor/assets/stylesheets/select2
  *= require ../../../vendor/assets/stylesheets/select2-bootstrap
  *= require ../../../vendor/assets/stylesheets/messenger/messenger

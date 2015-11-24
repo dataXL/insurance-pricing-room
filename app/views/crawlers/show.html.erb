@@ -1,0 +1,50 @@
+<% provide(:title, "Crawler") %>
+<%= content_for :body_id, "datatables" %>
+
+<div class="menubar">
+  <div class="sidebar-toggler visible-xs">
+    <i class="ion-navicon"></i>
+  </div>
+
+  <div class="page-title">
+    Risk table
+  </div>
+</div>
+
+<div class="content-wrapper" style="overflow:auto !important">
+<%# render :partial => "shared/filter_table" %>
+
+  <table id="orders-datatable">
+    <thead>
+      <tr>
+          <th tabindex="0" rowspan="1" colspan="1">Tariff ID</th>
+          <th tabindex="0" rowspan="1" colspan="1">Exposition</th>
+          <th tabindex="0" rowspan="1" colspan="1">Frequency</th>
+          <th tabindex="0" rowspan="1" colspan="1">Risk</th>
+          <th tabindex="0" rowspan="1" colspan="1">Cost</th>
+      </tr>
+    </thead>
+
+    <tfoot>
+      <tr>
+          <th rowspan="1" colspan="1">Tariff ID</th>
+          <th rowspan="1" colspan="1">Exposition</th>
+          <th rowspan="1" colspan="1">Frequency</th>
+          <th rowspan="1" colspan="1">Risk</th>
+          <th rowspan="1" colspan="1">Cost</th>
+      </tr>
+    </tfoot>
+
+    <tbody>
+    <% @risks.each do |risk| %>
+      <tr>
+        <td><a href="<%= tariff_path(risk.tariff_id) %>"><%= risk.tariff_id %></a></td>
+        <td><%= risk.exposition %></td>
+        <td><%= risk.frequency %></td>
+        <td><%= risk.risk %></td>
+        <td><%= risk.cost %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

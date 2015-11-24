@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001000022) do
+ActiveRecord::Schema.define(version: 20151123102836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(version: 20151001000022) do
   end
 
   add_index "competitors", ["tariff_id"], name: "index_competitors_on_tariff_id", using: :btree
+
+  create_table "crawlers", force: :cascade do |t|
+    t.string   "name"
+    t.jsonb    "fields",     default: {}, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "tag"
+    t.string   "image_tag"
+  end
+
+  add_index "crawlers", ["fields"], name: "index_crawlers_on_fields", using: :gin
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
