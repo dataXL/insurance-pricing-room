@@ -1,9 +1,13 @@
 class Tariff < ActiveRecord::Base
   after_initialize :add_field_accessors
+  #after_save :fetch_cost
+  #after_save :fect_price
   # serialize :properties, HashWithIndifferentAccess
   store_accessor :properties
   attr_accessor :file
   belongs_to :insurer
+  has_one :risk, dependent: :destroy
+  has_many :competitors, dependent: :destroy
 
   def add_store_accessor field_name
       singleton_class.class_eval {store_accessor :properties, field_name}
@@ -46,4 +50,58 @@ class Tariff < ActiveRecord::Base
       end
     end
   end
+
+  def self.import(file, filters)
+
+    file = File.new("#{Rails.root}/tmp/files/#{file}", "r")
+
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.sheet(0).row(1)
+
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+
+      filtered = {}
+      filters.each { |f| filtered[f] = row[f] }
+
+      tariff = Tariff.create!(:properties => filtered, :insurer_id => 1)
+
+      tariff.build_risk.save
+      tariff.competitors.build(:name => "My Company").save
+    end
+  end
+
+  protected
+
+    def self.friendly
+      @friendly ||= columns.map { |column| column.name }
+      @friendly.except(["created_at","updated_at","insurer_id"])
+    end
+
+    def self.filters
+      @filters ||= columns.map { |column| column.name }
+      @filters.except(["id", "created_at","updated_at","insurer_id"])
+    end
+
+    def self.open_spreadsheet(file)
+      case File.extname(file.path)
+        when ".csv" then Roo::Csv.new(file.path)
+        when ".xls" then Roo::Excel.new(file.path)
+        when ".xlsx" then Roo::Excelx.new(file.path)
+        else raise "Unknown file type: #{file.path}"
+      end
+    end
+
+  private
+
+    def fetch_cost
+      #end_date = ...
+      #period = sales_period || build_sales_period
+      #period.end = end_date
+      #self.build_risk
+    end
+
+    def fetch_price
+      #self.build_risk
+    end
 end

@@ -15,8 +15,20 @@
 @import "partials/layout";
 
 /* sass */
-@import "partials/sass/tariffs";
-@import "partials/sass/risks";
+@import "sass/account_activations";
+@import "sass/brokers";
+@import "sass/codings";
+@import "sass/coefficients";
+@import "sass/competitors";
+@import "sass/crawlers";
+@import "sass/insurers";
+@import "sass/password_resets";
+@import "sass/product_templates";
+@import "sass/quotes";
+@import "sass/risks";
+@import "sass/surveys";
+@import "sass/tariffs";
+@import "sass/utilities";
 
 /* pages */
 @import "partials/pages/index";

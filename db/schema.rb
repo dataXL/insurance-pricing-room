@@ -117,9 +117,9 @@ ActiveRecord::Schema.define(version: 20151123102836) do
 
   create_table "risks", force: :cascade do |t|
     t.integer  "tariff_id"
-    t.integer  "exposition"
-    t.integer  "frequency"
-    t.integer  "risk"
+    t.float  "exposition"
+    t.float  "frequency"
+    t.float  "risk"
     t.float    "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

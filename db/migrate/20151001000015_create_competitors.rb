@@ -3,7 +3,7 @@ class CreateCompetitors < ActiveRecord::Migration
     create_table :competitors do |t|
 
       ## Foreign keys
-      t.integer :tariff_id
+      t.references :tariff_id
 
       ## Properties
       t.string :name

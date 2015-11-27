@@ -30,7 +30,7 @@
 //= require_directory ../../../vendor/assets/javascripts/.
 //= require turbolinks
 //= require bootstrap-slider
-//= require_directory .
+//= require_directory ./coffee/.
 
 //= require theme
 //= require_directory ./pages/.

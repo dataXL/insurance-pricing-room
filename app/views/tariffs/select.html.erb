@@ -10,8 +10,8 @@ $(document).ready ( function () {
 
   $plans.click(function () {
     if ( $(this).hasClass( "selected" ) ) {
-      var property = $(this).text();
-      var $hiddenInput = $('<input/>',{type:'hidden',name:"properties[]",id:"properties_", value:$.trim(property)});
+      var filter = $(this).text();
+      var $hiddenInput = $('<input/>',{type:'hidden',name:"filters[]",id:"filters_", value:$.trim(filter)});
       $(this).find(".select").prepend($hiddenInput);
       $(this).removeClass("selected");
     } else {
@@ -41,7 +41,7 @@ $(document).ready ( function () {
                 <%= header %>
               </div>
               <div class="select">
-                <%= hidden_field_tag "properties[]", @header[i] %>
+                <%= hidden_field_tag "filters[]", @header[i] %>
                 <i class="fa fa-check"></i>
               </div>
             </div>

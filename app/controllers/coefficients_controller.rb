@@ -5,19 +5,22 @@ class CoefficientsController < ApplicationController
   # GET /coefficients.json
   def index
     @coefficients = Coefficient.all
-    @keys = @coefficients.first.coefficients.keys
 
-    bars = []
-    products = []
+    unless Coefficient.all.empty?
+      @keys = @coefficients.first.coefficients.keys
 
-    @keys.each_with_index do |k, index|
-      results = Coefficient.select("SUM((coefficients->>'"+ k +"')::float)").group(:id)
-      bars << [k, results.first.sum]
-      products <<  [index, k]
+      bars = []
+      products = []
+
+      @keys.each_with_index do |k, index|
+        results = Coefficient.select("SUM((coefficients->>'"+ k +"')::float)").group(:id)
+        bars << [k, results.first.sum]
+        products <<  [index, k]
+      end
+
+      gon.bars = bars
+      gon.products = products
     end
-
-    gon.bars = bars
-    gon.products = products
   end
 
   # GET /coefficients/1

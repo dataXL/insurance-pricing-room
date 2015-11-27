@@ -10,7 +10,7 @@ class FeaturesController < ApplicationController
 	end
 
 	def api
-		render layout: "empty"
+		render layout: "devise"
 	end
 
 	def signup

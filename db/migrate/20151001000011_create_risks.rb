@@ -3,12 +3,12 @@ class CreateRisks < ActiveRecord::Migration
     create_table :risks do |t|
 
       ## Foreign keys
-      t.integer :tariff_id
+      t.references :tariff
 
       ## Properties
-      t.integer :exposition
-      t.integer :frequency
-      t.integer :risk # Product of exposition and frequency
+      t.float :exposition
+      t.float :frequency
+      t.float :risk # Product of exposition and frequency
       t.float :cost
 
       ## Timestamps

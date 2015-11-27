@@ -1,6 +1,23 @@
-<h1>Editing Crawler</h1>
+Clicks: <%= @crawler.clicks_performed_by_user %> <br>
+Purchases: <%= @crawler.purchases_performed_by_user %>
 
-<%= render 'form' %>
+<p><p>
 
-<%= link_to 'Show', @crawler %> |
-<%= link_to 'Back', crawlers_path %>
+<%= form_for @crawler do |f| %>
+  <%= f.hidden_field :clicks_performed_by_user, :value => @crawler.clicks_performed_by_user.to_i + 1 %>
+  <%= f.submit "Click" %>
+<% end %>
+
+Ajax
+
+<p>
+
+<%= link_to "Add as friend", user_friend_path(current_user, @friend), :method=> :put %>
+
+<p>
+
+<%= form_for @crawler do |f| %>
+  <%= f.hidden_field :purchases_performed_by_user, :value => @crawler.purchases_performed_by_user + 1 %>
+  <%= f.submit "Purchase" %>
+<% end %>
+

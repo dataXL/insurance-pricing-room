@@ -9,6 +9,22 @@ class CompetitorsController < ApplicationController
   # GET /competitors.json
   def index
     @competitors = Competitor.all
+
+    bars = []
+    insurers = []
+
+    @competitors.each_with_index do |k, index|
+      bars << [k, k.premium]
+      insurers <<  [index, k.name]
+    end
+
+    gon.bars = bars
+    gon.insurers = insurers
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
 
@@ -29,6 +45,11 @@ class CompetitorsController < ApplicationController
     end
 
     @pivot = g.build
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /competitors/1
@@ -57,12 +78,6 @@ class CompetitorsController < ApplicationController
     end
   end
 
-  def complete
-    @test = params[:task_ids]
-    puts @test.inspect
-    render :new
-  end
-
   # GET /competitors/new
   def new
     @product = Competitor.new
@@ -70,28 +85,26 @@ class CompetitorsController < ApplicationController
 
   # GET /competitors/select
   def select
-    spreadsheet = open_spreadsheet(params[:file])
+
+    ## Save file to tmp/files/
+    @name = "#{Time.now.strftime("%Y%m%d%H%M%S")}_#{params[:file].original_filename}"
+    directory = "tmp/files"
+    path = File.join(directory, @name)
+    File.open(path, "wb") { |f| f.write(params[:file].read) }
+
+    file = File.open(path, 'r')
+
+    spreadsheet = Risk.open_spreadsheet(file)
     @header = spreadsheet.sheet(0).row(1)
-
-    Competitor.truncate_me!
-
-    #spreadsheet.last_row
-    (2..spreadsheet.last_row).each do |i|
-      spreadsheet.row(i)
-      row2 = Hash[[@header, spreadsheet.row(i)].transpose]
-      premium = row2["Premio comercial"].to_f
-      name = row2["Companhia"].to_s
-
-      row = row2.except!("Premio comercial","Companhia")
-      tariff = Tariff.where(:properties => row.to_json).first.id
-
-      p = Competitor.create!(:premium => premium, :tariff_id => tariff, :name => name)
-    end
   end
 
   # GET /tariffs/import
   def import
 
+    file    = params[:file]
+    filters = params[:filters]
+
+    Competitor.import(file, filters)
   end
 
   # PATCH/PUT /competitors/1
@@ -134,12 +147,4 @@ class CompetitorsController < ApplicationController
       params.require(:product).permit(:product, :file)
     end
 
-    def open_spreadsheet(file)
-      case File.extname(file.original_filename)
-      when ".csv" then Roo::CSV.new(file.path)
-      when ".xls" then Roo::Excel.new(file.path)
-      when ".xlsx" then Roo::Excelx.new(file.path)
-      else raise "Unknown file type: #{file.original_filename}"
-    end
-  end
 end

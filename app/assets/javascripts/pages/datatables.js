@@ -45,7 +45,7 @@
         }
     });
 
-    var $table = $("#tariffs-datatable");
+    var $table = $("#other-datatable");
 
     $table.dataTable({
         bSort : false,
@@ -55,8 +55,8 @@
         bDestroy: true
     });
 
-    $("#tariffs-datatable_filter").detach().appendTo("#topbar");
-    $("#tariffs-datatable_paginate").detach().appendTo("#bottombar");
+    $("#other-datatable_filter").detach().appendTo("#topbar");
+    $("#other-datatable_paginate").detach().appendTo("#bottombar");
   };
 
   $(document).on("ready page:load", page_scripts);

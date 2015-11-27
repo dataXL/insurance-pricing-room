@@ -35,7 +35,7 @@ class TariffsController < ApplicationController
 
     file = File.open(path, 'r')
 
-    spreadsheet = open_spreadsheet(file)
+    spreadsheet = Tariff.open_spreadsheet(file)
     @header = spreadsheet.sheet(0).row(1)
   end
 
@@ -47,28 +47,10 @@ class TariffsController < ApplicationController
   # GET /tariffs/import
   def import
 
-    @filters = params[:properties]
-    @name = params[:file]
+    file    = params[:file]
+    filters = params[:filters]
 
-    directory = "tmp/files"
-    path = File.join(directory, @name)
-
-    file = File.new(path, "r")
-
-    spreadsheet = open_spreadsheet(file)
-    @header = spreadsheet.sheet(0).row(1)
-
-    (2..spreadsheet.last_row).each do |i|
-      row = Hash[[@header, spreadsheet.row(i)].transpose]
-
-      hash = {}
-      @filters.each { |f| hash[f] = row[f] }
-
-      tariff = Tariff.create!(:properties => hash, :insurer_id => 1)
-    end
-
-    # Risk.find_or_create_by(tariff_id: tariff.id) substituir por callback
-    # Competitor.create_with(name: "My Company", premium: rows["Premio comercial"].to_f).find_or_create_by(tariff_id: t.id, name: "My Company") substituir por callback
+    Tariff.import(file, filters)
   end
 
   # GET /tariffs/1/edit
@@ -135,16 +117,6 @@ class TariffsController < ApplicationController
       end
 
       params.require(:tariff).permit(whitelist)
-    end
-
-    ## Open imported spreadsheet
-    def open_spreadsheet(file)
-      case File.extname(file.path)
-        when ".csv" then Roo::Csv.new(file.path)
-        when ".xls" then Roo::Excel.new(file.path)
-        when ".xlsx" then Roo::Excelx.new(file.path)
-        else raise "Unknown file type: #{file.path}"
-      end
     end
 
     ## Test if string is number

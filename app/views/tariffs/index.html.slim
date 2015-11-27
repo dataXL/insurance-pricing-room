@@ -1,9 +1,6 @@
   - provide(:title, "Tariff Analysis")
   = content_for :body_id, "tariffs"
 
-  span class="test"
-  | Hello
-
   div class="menubar"
     div class="sidebar-toggler visible-xs"
       i class="ion-navicon"
@@ -18,18 +15,19 @@
   div class="content-wrapper clearfix"
 
     == render "shared/filters_toggler"
-    == render "shared/filter_table"
+    == render "shared/datatable_filters", model: Tariff
 
     div class="results"
 
       div class="top-bar"
+        == render "filter"
 
       div class="middle-bar"
         table id="tariffs-datatable" class="table"
           thead
             tr
             - unless Tariff.all.empty?
-              - Tariff.column_names.except(["created_at","updated_at","insurer_id"]).each do |header|
+              - Tariff.friendly.each do |header|
                 - if header == "properties"
                   - Tariff.first.properties.keys.each do |property|
                     th
@@ -45,10 +43,14 @@
                   td
                     = tariff.id
                   - unless tariff.properties.blank?
-                    - tariff.properties.each do |k,v|
+                    - tariff.properties.keys.each do |property|
                       td
-                        = best_in_place tariff, k
+                        = best_in_place tariff, property
                     td
                       = best_in_place tariff, :segment
+                    /!td style="display:none"
+                      /= best_in_place tariff, tariff.risk.cost
+                    /!td style="display:none"
+                      /= best_in_place tariff, tariff.competitor.premium
 
-      div class="bottombar"
+      div class="bottom-bar"

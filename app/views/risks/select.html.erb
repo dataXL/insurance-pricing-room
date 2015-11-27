@@ -1,3 +1,4 @@
+<% provide(:title, "Risk Analysis") %>
 <%= content_for :body_id, "wizard" %>
 <%= render :partial => "shared/wizard_steps" %>
 
@@ -9,10 +10,12 @@ $(document).ready ( function () {
 
   $plans.click(function () {
     if ( $(this).hasClass( "selected" ) ) {
-      $(this).find("input:hidden").val("false");
+      var filter = $(this).text();
+      var $hiddenInput = $('<input/>',{type:'hidden',name:"filters[]",id:"filters_", value:$.trim(filter)});
+      $(this).find(".select").prepend($hiddenInput);
       $(this).removeClass("selected");
     } else {
-      $(this).find("input:hidden").val("true");
+      $(this).find("input:hidden").remove();
       $(this).addClass("selected");
     }
   });
@@ -26,32 +29,28 @@ $(document).ready ( function () {
   </div>
 
   <div class="step active animated fadeInRightStep">
-  <%= form_tag filter_risks_path do %>
+  <%= form_tag import_risks_path do %>
+    <%= hidden_field_tag "file", @file %>
     <div class="plans">
-      <% unless @header.blank? %>
-        <% for i in 0..(@header.size - 1) %>
+    <% unless @header.blank? %>
+      <% @header.each_with_index do |header, i| %>
+        <% unless header == "Premio comercial" %>
           <div class="plan clearfix selected">
             <div class="info">
               <div class="name">
-                <%= I18n.transliterate(@header[i]).gsub(/\s/, '_').gsub(/[^0-9A-Za-z](_)/, '').downcase %>
-              </div>
-              <div class="details" style="margin-top:10px">
-                <%= radio_button_tag("radio#{i}", "string", { :checked => "checked" }) %>
-                <%= label_tag(hash, "Text", :style => "margin: 0px 10px 0px 5px;") %>
-                <%= radio_button_tag("radio#{i}", "int") %>
-                <%= label_tag(hash, "Integer", :style => "margin: 0px 10px 0px 5px;") %>
-                <%= radio_button_tag("radio#{i}", "double") %>
-                <%= label_tag(hash, "Float", :style => "margin-left:5px;") %>
+                <%= header %>
               </div>
               <div class="select">
-                <%= hidden_field "option#{i}", "", value: "true" %>
+                <%= hidden_field_tag "filters[]", @header[i] %>
                 <i class="fa fa-check"></i>
               </div>
             </div>
           </div>
         <% end %>
       <% end %>
-      </div>
+    <% end %>
+    </div>
+      <%= hidden_field_tag :file, @name %>
     <%= render :partial => "shared/buttons_footer" %>
   <% end %>
   </div>

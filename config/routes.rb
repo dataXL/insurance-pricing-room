@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :crawlers do
     collection do
       get 'report'
+      post 'click'
+      post 'purchase'
     end
   end
 
@@ -86,8 +88,6 @@ Rails.application.routes.draw do
       match 'select', via: [:get, :post]
       match 'map', via: [:get, :post]
       match 'import', via: [:get, :post]
-
-      put  'complete'
     end
   end
 
@@ -97,7 +97,6 @@ Rails.application.routes.draw do
       match 'map', via: [:get, :post]
       match 'import', via: [:get, :post]
 
-      put  'complete'
       get 'grid'
     end
   end

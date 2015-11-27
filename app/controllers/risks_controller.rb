@@ -5,7 +5,6 @@ class RisksController < ApplicationController
   # GET /risks
   # GET /risks.json
   def index
-    @header = Risk.column_names
     @risks = Risk.all
   end
 
@@ -21,14 +20,18 @@ class RisksController < ApplicationController
 
   # GET /risks/select
   def select
-    spreadsheet = open_spreadsheet(params[:file])
+
+    ## Save file to tmp/files/
+    @name = "#{Time.now.strftime("%Y%m%d%H%M%S")}_#{params[:file].original_filename}"
+    directory = "tmp/files"
+    path = File.join(directory, @name)
+    File.open(path, "wb") { |f| f.write(params[:file].read) }
+
+    file = File.open(path, 'r')
+
+    spreadsheet = Risk.open_spreadsheet(file)
     @header = spreadsheet.sheet(0).row(1)
-    puts @header.inspect
 
-    @options = Hash.new
-    #@test = transliterate('JÃ¼rgen')
-
-    #Product.import(params[:file])
   end
 
   # GET /risks/filter
@@ -44,6 +47,10 @@ class RisksController < ApplicationController
   # GET /risks/import
   def import
 
+    file    = params[:file]
+    filters = params[:filters]
+
+    Risk.import(file, filters)
   end
 
   # GET /risks/1/edit
