@@ -1,0 +1,15 @@
+  - provide(:title, "Risk Analysis")
+  = content_for :body_id, "wizard"
+
+  == render "shared/wizard_steps"
+
+  section class="form-wizard"
+
+    div class="step active animated fadeInRightStep" style="text-align:center; margin-top: 10% !important"
+      div class="success"
+        i class="ion-checkmark-circled"
+        h3
+          | Risk table was uploaded successfully!
+
+        a href=risks_path class="button"
+          span View risk table

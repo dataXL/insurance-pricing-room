@@ -1,0 +1,47 @@
+  - provide(:title, "Risk Analysis")
+  = content_for :body_id, "risks"
+
+  div class="menubar"
+    div class="sidebar-toggler visible-xs"
+      i class="ion-navicon"
+
+    div class="page-title"
+      | Risk table
+    div class="options pull-right hidden-xs"
+      = link_to(risks_path(format: :csv)) do
+        i class="fa fa-download"
+        span Download CSV
+
+  div class="content-wrapper"
+
+    == render "shared/filters_toggler"
+    == render "shared/datatable_filters", model: Risk
+
+    div class="results"
+
+      div class="top-bar"
+
+      div class="middle-bar"
+        table id="risks-datatable"
+          thead
+            tr
+              - Risk.friendly.each do |c|
+                th
+                  = c.camelize
+
+          tbody
+            - @risks.each do |risk|
+              tr
+                td
+                  a href= tariff_path(risk.tariff_id)
+                    = risk.tariff_id
+                td
+                  = best_in_place risk, :exposition
+                td
+                  = best_in_place risk, :frequency
+                td
+                  = best_in_place risk, :risk
+                td
+                  = best_in_place risk, :cost
+
+      div class="bottom-bar"

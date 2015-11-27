@@ -1,0 +1,44 @@
+  - provide :title, "Experimental Design"
+  = content_for :body_id, "coefficients"
+
+  div class="menubar"
+    div class="sidebar-toggler visible-xs"
+      i class="ion-navicon"
+
+    div class="page-title"
+      | Beta coefficients
+    div class="options pull-right hidden-xs"
+      a href="#"
+        i class="fa fa-download"
+        | Download CSV
+
+  div class="content-wrapper"
+
+    div class="results"
+
+      div class="top-bar"
+        /== render "filter"
+
+      div class="middle-bar"
+        table id="coefficients-datatable" class="table"
+          thead
+              tr
+                th ID
+                th Intercept
+                - unless @keys.nil?
+                  - @keys.each do |k|
+                    th
+                      = k
+
+          - @coefficients.each do |c|
+            tr
+              td
+                = c.id
+              td
+                a href="#"
+                  = c.intercept
+              - c.coefficients.each do |k,v|
+                td
+                  = v
+
+      div class="bottom-bar"

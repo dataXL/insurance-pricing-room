@@ -1,0 +1,18 @@
+table id="competitors-datatable"
+  thead
+    tr
+      th tabindex="0" rowspan="1" colspan="1" Tariff ID
+      th tabindex="0" rowspan="1" colspan="1" Insurer
+      th tabindex="0" rowspan="1" colspan="1" Premium
+
+  tbody
+    - unless @competitors.empty?
+      - @competitors.each do |competitor|
+        tr
+          td
+            a href=tariff_path(competitor.tariff)
+              = competitor.tariff_id
+          td
+            = best_in_place competitor, :name
+          td
+            = best_in_place competitor, :premium

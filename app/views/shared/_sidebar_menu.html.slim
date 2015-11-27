@@ -1,0 +1,146 @@
+  div id="sidebar-flat-dark" class="main-sidebar fix-scroll"
+    div class="current-user"
+      a href="#" class="name"
+        = image_tag "fallback/missing.jpg", class: "avatar"
+        span
+          | Jorge Pereira
+          i class="fa fa-chevron-down"
+
+      ul class="menu"
+        li
+          a href=edit_user_path(1) Account settings
+        li
+          a href=signin_features_path Sign out
+
+    div class="menu-section"
+      h3 General
+      ul
+        li class="option"
+          a href=dashboard_path
+            i class="ion-earth"
+            span Dashboard
+
+        li class="option"
+          a href="#" data-toggle="sidebar"
+            i class="ion-navicon-round"
+            span Tariff Analysis
+            i class="fa fa-chevron-down"
+
+          ul class="submenu"
+            li
+              a href=tariffs_path View tariff table
+            li
+              a href=new_tariff_path Upload tariff table
+
+        li class="option"
+          a href="#" data-toggle="sidebar"
+            i class="ion-alert-circled"
+            span Risk Analysis
+            i class="fa fa-chevron-down"
+
+          ul class="submenu"
+            li
+              a href=risks_path View risk table
+            li
+              a href=new_risk_path Upload risk table
+
+        li class="option"
+          a href="#" data-toggle="sidebar"
+            i class="ion-pie-graph"
+            span Market Analysis
+            i class="fa fa-chevron-down"
+
+          ul class="submenu"
+            li
+              a href=competitors_path View competitive set
+            li
+              a href=new_competitor_path Upload competitive set
+
+        li class="option"
+          a href="#" data-toggle="sidebar"
+            i class="ion-cube"
+            span Product Bundler
+            i class="fa fa-chevron-down"
+
+          ul class="submenu"
+            li
+              a href=product_templates_path View product templates
+            li
+              a href=new_product_template_path Create product template
+
+        li class="option"
+          a href="#" data-toggle="sidebar"
+            i class="ion-person-stalker"
+            span Customer Analysis
+            i class="fa fa-chevron-down"
+
+          ul class="submenu"
+            li
+              a href=surveys_path View survey results
+            li
+              a href=new_survey_path Upload survey results
+
+        li class="option"
+          a href="#" data-toggle="sidebar"
+            i class="ion-erlenmeyer-flask"
+            span Experimental Design
+            i class="fa fa-chevron-down"
+
+          ul class="submenu"
+            li
+              a href=coefficients_path View beta coefficients
+            li
+              a href=new_coefficient_path Upload beta coefficients
+
+    /!<div class="menu-section">
+      h3 Brokers
+      ul
+        li class="option">
+          a href=report_crawlers_path
+            i class="ion-load-a"
+            span Progress Report
+
+        li class="option"
+          a href=crawlers_path
+            i class="ion-bug"
+            span Manage Crawlers
+
+    div class="menu-section"
+      h3 Admin
+      ul
+        li class="option"
+          a href="#" data-toggle="sidebar"
+            i class="ion-person"
+            span My Account
+            i class="fa fa-chevron-down"
+
+          ul class="submenu"
+            li
+              a href=user_path(1) Personal Info
+            li
+              /a href=notifications_users_path Notifications
+
+        li class="option"
+            a href=users_path
+              i class="ion-person-stalker"
+              span Users & Roles
+
+    div class="bottom-menu hidden-sm"
+      ul
+        li
+          a href="#color-palette"
+            i class="ion-paintbucket"
+
+        li
+          a href="<%= api_features_path %>"
+            i class="ion-information-circled"
+            /! span class="flag"
+
+          /!<ul class="menu">
+            li a href="#" 5 unread messages
+            li a href="#" 12 tasks completed
+            li a href="#" 3 features added
+
+        li
+          a href="#"
+            i class="ion-log-out"

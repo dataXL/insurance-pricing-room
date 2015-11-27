@@ -1,0 +1,16 @@
+$(".middle-bar").html("<%= escape_javascript(render(:partial => 'grid')).html_safe %>").promise().done(function(){
+  $("#competitors-datatable_filter").detach();
+  $("#competitors-datatable_paginate").detach()
+
+  var $table = $("#competitors-datatable");
+
+  $table.dataTable({
+    paging: "full_numbers",
+    iDisplayLength: 20,
+    aLengthMenu: [ [ 20, 50, 100, -1 ], [ 20, 50, 100, "All" ] ],
+    bDestroy: true
+  });
+
+  $("#competitors-datatable_filter").detach().appendTo(".top-bar");
+  $("#competitors-datatable_paginate").detach().appendTo(".bottom-bar");
+});

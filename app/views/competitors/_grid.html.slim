@@ -1,0 +1,18 @@
+table id="competitors-datatable"
+  thead
+    tr
+      th Tariff ID
+      - @pivot.column_headers.each do |column|
+        th
+          = column
+
+  tbody
+    - unless @competitors.empty?
+      - @pivot.rows.each do |row|
+        tr
+          td
+            a href=tariff_path(row.header)
+              = row.header
+          - row.data.each do |d|
+            td
+              = d

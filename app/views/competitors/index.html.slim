@@ -1,0 +1,28 @@
+  - provide :title, "Market Analysis"
+  = content_for :body_id, "competitors"
+
+  div class="menubar"
+    div class="sidebar-toggler visible-xs"
+      i class="ion-navicon"
+
+    div class="page-title"
+      | Competitive set
+
+    div class="options pull-right" style="margin-top:5px !important"
+      = link_to(:action => "index", :remote => true) do
+        i class="fa fa-th-list" style="font-size:20px !important;"
+      = link_to(:action => "grid", :remote => true) do
+        i class="fa fa-th" style="font-size:20px !important; margin-left:-15px !important; margin-right:30px !important"
+
+  div class="content-wrapper"
+
+    = render "chart"
+
+    div class="results"
+
+      div class="top-bar"
+
+      div class="middle-bar"
+          = render "pile"
+
+      div class="bottom-bar"

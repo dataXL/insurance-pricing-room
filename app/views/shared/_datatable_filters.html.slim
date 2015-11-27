@@ -1,0 +1,40 @@
+div class="filters"
+  h3 class="hidden-xs"
+    | Filters
+
+  form
+    - unless model.all.empty?
+      - model.filters.each do |filter|
+        - if filter == "properties"
+          - model.first.properties.keys.each do |key|
+            div class="filter"
+              label
+                input type="checkbox"
+                  = key
+
+              div class="filter-option"
+                select
+                  /! option equals
+                  option contains
+                  /! option starts with
+                  /! option ends with
+                  /! option does not contain
+
+                div class="field"
+                  input id="#{key}" type="text" class="form-control"
+        - else
+          div class="filter"
+            label
+              input type="checkbox"
+                = filter.camelize
+
+            div class="filter-option"
+              select
+                /! option equals
+                option contains
+                /! option starts with
+                /! option ends with
+                /! option does not contain
+
+              div class="field"
+                input id="#{filter}" type="text" class="form-control"
