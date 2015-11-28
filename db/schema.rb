@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 20151123102836) do
   add_index "risks", ["tariff_id"], name: "index_risks_on_tariff_id", using: :btree
 
   create_table "surveys", force: :cascade do |t|
-    t.string   "product_name"
+    t.string   "product"
     t.integer  "answer"
     t.integer  "product_id"
     t.datetime "created_at",   null: false

@@ -1,5 +1,6 @@
 class TariffsController < ApplicationController
   before_action :set_tariff, only: [:show, :edit, :update, :destroy]
+  layout "application"
 
   # GET /tariffs
   # GET /tariffs.json

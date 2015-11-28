@@ -1,7 +1,19 @@
 #form {
 
 	#content {
-		
+
+		.bootstrap-tagsinput {
+		    width: 100%;
+		}
+
+		.bootstrap-tagsinput span {
+		    background-color: #607493;
+		}
+
+		.label {
+		    line-height: 2 !important;
+		}
+
 		form {
 			margin-top: 35px;
 

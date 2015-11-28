@@ -5,22 +5,6 @@ class CoefficientsController < ApplicationController
   # GET /coefficients.json
   def index
     @coefficients = Coefficient.all
-
-    unless Coefficient.all.empty?
-      @keys = @coefficients.first.coefficients.keys
-
-      bars = []
-      products = []
-
-      @keys.each_with_index do |k, index|
-        results = Coefficient.select("SUM((coefficients->>'"+ k +"')::float)").group(:id)
-        bars << [k, results.first.sum]
-        products <<  [index, k]
-      end
-
-      gon.bars = bars
-      gon.products = products
-    end
   end
 
   # GET /coefficients/1
@@ -33,33 +17,28 @@ class CoefficientsController < ApplicationController
     @coefficient = Coefficient.new
   end
 
-  # GET /tariffs/select
+  # GET /coefficients/select
   def select
-    spreadsheet = open_spreadsheet(params[:file])
+
+    ## Save file to tmp/files/
+    @name = "#{Time.now.strftime("%Y%m%d%H%M%S")}_#{params[:file].original_filename}"
+    directory = "tmp/files"
+    path = File.join(directory, @name)
+    File.open(path, "wb") { |f| f.write(params[:file].read) }
+
+    file = File.open(path, 'r')
+
+    spreadsheet = Coefficient.open_spreadsheet(file)
     @header = spreadsheet.sheet(0).row(1)
-
-    Coefficient.truncate_me!
-
-    #header = spreadsheet.row(1)
-    (2..spreadsheet.last_row).each do |i|
-      coefficients = Hash[[@header, spreadsheet.row(i)].transpose]
-      coefficients.update(coefficients){ |k,v| v.to_f }
-      Coefficient.create!(:intercept => coefficients["Intercept"], :coefficients => coefficients.except("Intercept"), :product_template_id => 1)
-    end
   end
 
-  # GET /tariffs/import
+  # GET /coefficients/import
   def import
-    @filters = params[:properties]
-    unless @filters.nil?
-      @filters.each do |filter|
 
-        @results = Tariff.where('properties ?| array[:keys]', keys: [filter])
-        @results.each do |result|
-          result.update_attribute :properties, result[:properties].except(filter)
-        end
-      end
-    end
+    file    = params[:file]
+    filters = params[:filters]
+
+    Coefficient.import(file, filters)
   end
 
   def update_async

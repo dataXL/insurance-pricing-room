@@ -8,14 +8,18 @@ class CompetitorsController < ApplicationController
   # GET /competitors
   # GET /competitors.json
   def index
-    @competitors = Competitor.all
+    @competitors = Competitor.all.order(:tariff_id)
 
     bars = []
     insurers = []
 
-    @competitors.each_with_index do |k, index|
-      bars << [k, k.premium]
-      insurers <<  [index, k.name]
+    #focus = Competitor.select(:id, :tariff_id, :name, :premium).group(:id, :tariff_id)
+    @fc_id = Competitor.all.group_by{|c| c[:tariff_id]}.keys.first
+    focus = Competitor.all.group_by{|c| c[:tariff_id]}.values.first
+
+    for i in 0...focus.length
+       bars << [focus[i].name, focus[i].premium]
+       insurers <<  [i, focus[i].name]
     end
 
     gon.bars = bars
@@ -46,9 +50,26 @@ class CompetitorsController < ApplicationController
 
     @pivot = g.build
 
+    @fc_id = Competitor.all.group_by{|c| c[:tariff_id]}.keys.first
+    focus = Competitor.all.group_by{|c| c[:tariff_id]}.values.first
+
     respond_to do |format|
       format.html
       format.js
+    end
+  end
+
+  def update_graph
+
+    @bars = []
+    @insurers = []
+
+    @fc_id = params[:tariff_id].to_i
+    focus = Competitor.all.group_by{|c| c[:tariff_id]}[@fc_id]
+
+    for i in 0...focus.length
+       @bars << [focus[i].name, focus[i].premium]
+       @insurers <<  [i, focus[i].name]
     end
   end
 
@@ -134,17 +155,17 @@ class CompetitorsController < ApplicationController
   private
 
     def all_competitors
-      @competitors = Product.all
+      @competitors = Competitor.all
     end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @competitor = Competitor.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:product, :file)
+      params.require(:competitor).permit(:tariff_id)
     end
 
 end

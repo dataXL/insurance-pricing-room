@@ -6,15 +6,18 @@ class SurveysController < ApplicationController
   def index
     @surveys = Survey.all
 
-    bars = []
-    products = []
-    results = Survey.select(:product_name, "SUM(answer)").group(:product_name).order(:product_name)
+    survey_bars = []
+    surveys = []
+
+    results = Survey.select(:product, "SUM(answer)").group(:product).order(:product)
+
     results.each_with_index do |r, index|
-      bars << [r.product_name, r.sum]
-      products <<  [index, r.product_name]
+      survey_bars << [r.product, r.sum]
+      surveys <<  [index, r.product]
     end
-    gon.bars = bars
-    gon.products = products
+
+    gon.survey_bars = survey_bars
+    gon.surveys = surveys
   end
 
   # GET /surveys/1
@@ -27,35 +30,28 @@ class SurveysController < ApplicationController
     @survey = Survey.new
   end
 
-  # GET /tariffs/select
+  # GET /surveys/select
   def select
-    spreadsheet = open_spreadsheet(params[:file])
+
+    ## Save file to tmp/files/
+    @name = "#{Time.now.strftime("%Y%m%d%H%M%S")}_#{params[:file].original_filename}"
+    directory = "tmp/files"
+    path = File.join(directory, @name)
+    File.open(path, "wb") { |f| f.write(params[:file].read) }
+
+    file = File.open(path, 'r')
+
+    spreadsheet = Survey.open_spreadsheet(file)
     @header = spreadsheet.sheet(0).row(1)
-
-    Survey.truncate_me!
-
-    for i in 1..@header.length
-      temp = spreadsheet.sheet(0).column(i)
-      temp.tap do |head, *body|
-        body.each do |b|
-          Survey.create!(:product_name => head, :answer => b.to_i)
-        end
-      end
-    end
   end
 
   # GET /tariffs/import
   def import
-    @filters = params[:properties]
-    unless @filters.nil?
-      @filters.each do |filter|
 
-        @results = Tariff.where('properties ?| array[:keys]', keys: [filter])
-        @results.each do |result|
-          result.update_attribute :properties, result[:properties].except(filter)
-        end
-      end
-    end
+    file    = params[:file]
+    filters = params[:filters]
+
+    Survey.import(file, filters)
   end
 
   # GET /surveys/1/edit

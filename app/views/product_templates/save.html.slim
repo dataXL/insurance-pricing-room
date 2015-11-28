@@ -1,0 +1,13 @@
+  - provide :title, "Product Bundler"
+  = content_for :body_id, "wizard-third"
+  == render "shared/wizard_steps"
+
+  section class="form-wizard"
+    div class="step active animated fadeInRightStep"
+      div class="success"
+        i class="ion-checkmark-circled"
+        h3
+          | Product template was created successfully!
+
+        a href= product_templates_path class="button"
+          span Add products

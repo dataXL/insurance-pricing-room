@@ -2,10 +2,12 @@ class CreateSurveys < ActiveRecord::Migration
   def change
     create_table :surveys do |t|
 
+      ## Foreign keys
+      t.references :product_id
+
       ## Properties
-      t.string :product_name
+      t.string :product
       t.integer :answer
-      t.integer :product_id
 
       ## Timestamps
       t.timestamps null: false

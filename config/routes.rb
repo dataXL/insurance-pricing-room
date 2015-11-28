@@ -98,6 +98,7 @@ Rails.application.routes.draw do
       match 'import', via: [:get, :post]
 
       get 'grid'
+      post 'update_graph'
     end
   end
 

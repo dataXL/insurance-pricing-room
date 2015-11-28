@@ -5,12 +5,28 @@
 $(document).ready ->
   return  unless $("#competitors").length
 
+  $(document).on "click", "tr", ->
+    $("tr.selected").removeClass("selected")
+
+    tariffID = $(this).find("a:first").text()
+    $("tr > td.sorting_1:contains('" + tariffID + "')").parent().addClass("selected")
+
+    $.ajax({
+     type: "POST",
+     url: "competitors/update_graph",
+     data: {
+       tariff_id: tariffID
+     },
+     dataType: "script"
+    });
+
+  ## Bar Chart
   $chrt_border_color = "#efefef";
   $chrt_second = "#d3d3d3";
 
-  data = [[0, 11],[1, 15]]
   dBar = gon.bars
   insurers = gon.insurers
+
   options =
     yaxes:
       min: 0
@@ -46,17 +62,13 @@ $(document).ready ->
 
     colors: [ $chrt_second ]
 
-  plot = $.plot($("#bar-chart"), [data], options)
+  plot = $.plot($("#bar-chart"), [dBar], options)
 
-  $filters = $(".filters .filter input:checkbox")
-  $filters.change ->
-    $option = $(this).closest(".filter").find(".filter-option")
-    if $(this).is(":checked")
-      $option.slideDown 150, ->
-        $option.find("input:text:eq(0)").focus()
-
-    else
-      $option.slideUp 150
+  $("#bar-chart").bind "plothover", (event, pos, item) ->
+      if item
+        $("#bar-chart").css "cursor", "pointer", "important"
+      else
+        $("#bar-chart").css "cursor", "default", "important"
 
   $table = $("#competitors-datatable")
   $table.dataTable

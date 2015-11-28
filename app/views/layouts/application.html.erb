@@ -11,13 +11,13 @@
 
     <%= csrf_meta_tags %>
 
-    <%= Gon::Base.render_data %>
-
   	<!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
 <body id="<%= yield :body_id %>">
+
+<%= Gon::Base.render_data %>
 
 	<div id="wrapper">
 

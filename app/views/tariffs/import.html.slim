@@ -1,0 +1,13 @@
+  - provide :title, "Tariff Analysis"
+  = content_for :body_id, "wizard-third"
+  == render :partial => "shared/wizard_steps"
+
+  section class="form-wizard"
+    div class="step active animated fadeInRightStep"
+      div class="success"
+        i class="ion-checkmark-circled"
+        h3
+          | Tariff table was uploaded successfully!
+
+        a href= tariffs_path class="button"
+          span View tariff table

@@ -1,58 +1,27 @@
-<% provide(:title, "Risk Analysis") %>
-<%= content_for :body_id, "wizard" %>
-<%= render :partial => "shared/wizard_steps" %>
+- provide :title, "Risk Analysis"
+= content_for :body_id, "wizard-second"
+== render "shared/wizard_steps"
 
-<script>
-$(document).ready ( function () {
-  $(".header .steps .step").removeClass("active").filter(":lt(2)").addClass("active");
+section class="form-wizard"
 
-  var $plans = $(".form-wizard .plans .plan");
+  div class="instructions"
+    strong
+      | Please choose below &nbsp;
+    | which properties do you want to include:
 
-  $plans.click(function () {
-    if ( $(this).hasClass( "selected" ) ) {
-      var filter = $(this).text();
-      var $hiddenInput = $('<input/>',{type:'hidden',name:"filters[]",id:"filters_", value:$.trim(filter)});
-      $(this).find(".select").prepend($hiddenInput);
-      $(this).removeClass("selected");
-    } else {
-      $(this).find("input:hidden").remove();
-      $(this).addClass("selected");
-    }
-  });
-});
-</script>
+  div class="step active animated fadeInRightStep"
+  = form_tag import_risks_path do
+    = hidden_field_tag "file", @name
+    div class="plans"
+      - unless @header.blank?
+        - @header.each_with_index do |header, i|
+          - unless header == "Premio comercial"
+            div class="plan clearfix selected"
+              div class="info"
+                div class="name"
+                  = header
+                div class="select"
+                  = hidden_field_tag "filters[]", @header[i]
+                  i class="fa fa-check"
 
-<section class="form-wizard">
-
-  <div class="instructions" style="width:715px !important; margin: 0 auto !important; text-align: center !important; margin-bottom: 20px !important">
-    <strong>Please choose below</strong> which properties do you want to include:
-  </div>
-
-  <div class="step active animated fadeInRightStep">
-  <%= form_tag import_risks_path do %>
-    <%= hidden_field_tag "file", @file %>
-    <div class="plans">
-    <% unless @header.blank? %>
-      <% @header.each_with_index do |header, i| %>
-        <% unless header == "Premio comercial" %>
-          <div class="plan clearfix selected">
-            <div class="info">
-              <div class="name">
-                <%= header %>
-              </div>
-              <div class="select">
-                <%= hidden_field_tag "filters[]", @header[i] %>
-                <i class="fa fa-check"></i>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
-    </div>
-      <%= hidden_field_tag :file, @name %>
-    <%= render :partial => "shared/buttons_footer" %>
-  <% end %>
-  </div>
-</section>
-
+    == render "shared/buttons_footer"

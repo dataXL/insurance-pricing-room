@@ -3,7 +3,7 @@ class CreateTariffs < ActiveRecord::Migration
     create_table :tariffs do |t|
 
       ## Foreign keys
-      t.integer :insurer_id
+      t.references :insurer_id
 
       ## Properties
       t.jsonb   :properties, null: false, default: '{}'

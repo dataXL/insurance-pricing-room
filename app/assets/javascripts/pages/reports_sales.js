@@ -18,14 +18,14 @@
 
 
 		// Datatable
-        var $table = $("#datatable-example");
+    var $table = $("#datatable-example");
 
-        $table.dataTable({
-            "sPaginationType": "full_numbers",
-            "iDisplayLength": 20,
-			"aLengthMenu": [[20, 50, 100, -1], [20, 50, 100, "All"]],
-			bDestroy: true
-        });
+    $table.dataTable({
+        "sPaginationType": "full_numbers",
+        "iDisplayLength": 20,
+	"aLengthMenu": [[20, 50, 100, -1], [20, 50, 100, "All"]],
+	bDestroy: true
+    });
 
 
 

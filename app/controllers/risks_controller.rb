@@ -31,17 +31,6 @@ class RisksController < ApplicationController
 
     spreadsheet = Risk.open_spreadsheet(file)
     @header = spreadsheet.sheet(0).row(1)
-
-  end
-
-  # GET /risks/filter
-  def filter
-    unless @header.blank?
-      #for i in 0..(@header.size - 1)
-        @test = { params[:option0] => "test" }
-        puts @test.inspect
-      #end
-    end
   end
 
   # GET /risks/import
@@ -110,7 +99,7 @@ class RisksController < ApplicationController
 
     def open_spreadsheet(file)
       case File.extname(file.original_filename)
-      when ".csv" then Roo::Csv.new(file.path)
+      when ".csv" then Roo::CSV.new(file.path)
       when ".xls" then Roo::Excel.new(file.path)
       when ".xlsx" then Roo::Excelx.new(file.path)
       else raise "Unknown file type: #{file.original_filename}"

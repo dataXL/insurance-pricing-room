@@ -1,5 +1,5 @@
-  - provide(:title, "Customer Analysis")
-  = content_for :body_id, "reports-alt"
+  - provide :title, "Customer Analysis"
+  = content_for :body_id, "surveys"
 
   div class="menubar"
     div class="sidebar-toggler visible-xs"
@@ -8,57 +8,30 @@
     div class="page-title"
       | Survey results
 
-    div class="options pull-right"
-      a href="#"
-        i class="fa fa-print"
-        | Print
-      a href="#"
-        i class="fa fa-download"
-        | Download
-
-    div class="date-range pull-right"
-      div class="input-group input-group-sm"
-        span class="input-group-addon"
-          i class="fa fa-calendar-o"
-        input type="text" name="daterange" class="form-control" placeholder="05/01/2014 - 05/31/2014"
-
   div class="content-wrapper"
-    div class="chart"
-      div class="bar-chart-wrapper"
-         div id="bar-chart"
 
-    div class="filters"
-      div class="btn-group"
-        button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-          | Edit properties
-          span class="caret"
+    div class="results"
 
-        ul class="dropdown-menu" role="menu"
-          li
-            a href="#" Action
-          li
-            a href="#" Another action
-          li
-            a href="#" Something else here
-          li class="divider"
-          li
-            a href="#" Separated link
+      == render "surveys/chart"
 
-    div class="data"
-      table id="datatable-example"
-        thead
-          tr
-            th ID
-            th Product
-            th Answer
+      div class="top-bar"
 
-        tbody
-        - @surveys.each do |s|
-          tr
-            td
-              = s.id
-            td
-              a href="#"
-                = s.product_name
-            td
-              = s.answer
+      div class="middle-bar"
+        table id="surveys-datatable" class="table"
+          thead
+            tr
+              - Survey.friendly.each do |c|
+                th
+                  = c.camelize
+
+          tbody
+            - @surveys.each do |survey|
+              tr
+                td
+                  = survey.id
+                td
+                  = best_in_place survey, :product
+                td
+                  = best_in_place survey, :answer
+
+      div class="bottom-bar"

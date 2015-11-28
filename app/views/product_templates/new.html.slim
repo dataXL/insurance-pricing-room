@@ -1,0 +1,17 @@
+  - provide :title, "Product Bundler"
+  = content_for :body_id, "wizard-first"
+  == render "shared/wizard_steps"
+
+  section class="form-wizard"
+
+    div class="step active animated fadeInRightStep"
+
+      = label_tag :file do
+        i class="ion-cube" style="font-size:90px"
+
+      = form_tag build_product_templates_path do
+        div class="form-group"
+          label for="template" Name of this product template:
+          = text_field_tag "template", nil, :class => "form-control", :style => "margin-left:23%; width:400px"
+
+        == render "shared/buttons_footer"

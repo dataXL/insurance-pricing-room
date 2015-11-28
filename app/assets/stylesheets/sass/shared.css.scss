@@ -1,0 +1,39 @@
+// Place all the styles related to the Shared controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.step.active.animated.fadeInRightStep {
+  text-align:center;
+  margin-top: 10% !important;
+}
+
+button[data-step="2"] {
+  margin-left: 42%;
+  margin-top: 5% !important;
+}
+
+img[alt="File upload"]{
+  cursor: pointer;
+  width: 45% !important;
+}
+
+.form-group {
+  height:60px !important;
+}
+
+label.form-control {
+  width:500px;
+  margin: 25px auto !important;
+}
+
+input[type="file"] {
+  margin: 0 auto !important;
+  display:none;
+}
+
+.instructions {
+  width:715px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  margin-bottom: 20px !important;
+}

@@ -132,6 +132,16 @@
         vertical-align: middle;
       }
 
+      .odd.selected > td {
+        background-color: #dbf0f6;
+        font-weight: bold;
+      }
+
+      .even.selected > td {
+        background-color: #dbf0f6;
+        font-weight: bold;
+      }
+
       .odd:hover > td {
         background-color: #fff5c3;
         cursor: pointer;

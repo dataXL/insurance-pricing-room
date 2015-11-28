@@ -17,28 +17,29 @@
     div class="results"
 
       div class="top-bar"
-        /== render "filter"
 
       div class="middle-bar"
         table id="coefficients-datatable" class="table"
           thead
-              tr
+            tr
+              - unless Coefficient.all.empty?
                 th ID
                 th Intercept
-                - unless @keys.nil?
-                  - @keys.each do |k|
-                    th
-                      = k
+                - Coefficient.first.coefficients.keys.each do |coefficient|
+                  th
+                    = coefficient
 
-          - @coefficients.each do |c|
-            tr
-              td
-                = c.id
-              td
-                a href="#"
-                  = c.intercept
-              - c.coefficients.each do |k,v|
-                td
-                  = v
+          tbody
+            - unless Coefficient.all.empty?
+              - @coefficients.each do |coefficient|
+                tr
+                  td
+                    = coefficient.id
+                  td
+                    = best_in_place coefficient, :intercept
+                  - unless coefficient.coefficients.blank?
+                    - coefficient.coefficients.keys.each do |key|
+                      td
+                        = best_in_place coefficient, key
 
       div class="bottom-bar"

@@ -16,31 +16,3 @@ $(document).ready ->
   $("#coefficients-datatable_paginate").detach().appendTo ".bottom-bar"
 
   jQuery(".best_in_place").best_in_place()
-
-  $("#show-columns").on "hide.bs.dropdown", (e) ->
-    target = $(e.target)
-    if target.hasClass("keepopen") or target.parents(".keepopen").length
-      false # returning false should stop the dropdown from hiding.
-    #else
-      true
-
-  $(".dropdown-menu input[type='checkbox']").click ->
-    column = $(this).val()
-    checked = this.checked
-
-    if column == "All"
-      $(".dropdown-menu input[type='checkbox']").prop "checked", true
-    else
-      if checked
-        $td = $("span[data-bip-attribute = '" + column + "']").parent()
-        $th = $td.closest('table').find('th').eq($td.index())
-
-        $th.show()
-        $td.show()
-
-      else
-        $td = $("span[data-bip-attribute = '" + column + "']").parent()
-        $th = $td.closest('table').find('th').eq($td.index())
-
-        $th.hide()
-        $td.hide()

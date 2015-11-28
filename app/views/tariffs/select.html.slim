@@ -1,0 +1,28 @@
+  - provide :title, "Tariff Analysis"
+  = content_for :body_id, "wizard-second"
+  == render "shared/wizard_steps"
+
+  section class="form-wizard"
+
+    div class="instructions"
+      strong
+        | Please choose below &nbsp;
+      | which properties do you want to include:
+
+    div class="step active animated fadeInRightStep"
+    = form_tag import_tariffs_path do
+      = hidden_field_tag "file", @name
+      div class="plans"
+        - unless @header.blank?
+          - @header.each_with_index do |header, i|
+            - unless header == "Premio comercial"
+              div class="plan clearfix selected"
+                div class="info"
+                  div class="name"
+                    = header
+                  div class="select"
+                    = hidden_field_tag "filters[]", @header[i]
+                    i class="fa fa-check"
+
+      == render "shared/buttons_footer"
+

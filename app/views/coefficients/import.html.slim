@@ -1,0 +1,13 @@
+  - provide :title, "Experimental Design"
+  = content_for :body_id, "wizard-third"
+  == render :partial => "shared/wizard_steps"
+
+  section class="form-wizard"
+    div class="step active animated fadeInRightStep"
+      div class="success"
+        i class="ion-checkmark-circled"
+        h3
+          | Beta coefficients were uploaded successfully!
+
+        a href= coefficients_path class="button"
+          span View beta coefficients

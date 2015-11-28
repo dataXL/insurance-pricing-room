@@ -9,7 +9,7 @@ table id="competitors-datatable"
   tbody
     - unless @competitors.empty?
       - @pivot.rows.each do |row|
-        tr
+        tr class=("selected" if row.header == @fc_id)
           td
             a href=tariff_path(row.header)
               = row.header
