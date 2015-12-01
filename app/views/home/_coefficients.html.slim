@@ -1,0 +1,10 @@
+  - unless Coefficient.all.nil?
+    - Coefficient.first.coefficients.keys.each do |ck|
+      div class="referral"
+        span style="margin-bottom:30px !important"
+          = ck
+      p
+        b 0
+        input class="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="2" data-slider-step="0.1" data-slider-value="1"
+        b
+          | 2

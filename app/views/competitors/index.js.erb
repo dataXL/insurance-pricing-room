@@ -1,6 +1,6 @@
 $(".middle-bar").html("<%= escape_javascript(render(:partial => 'pile')).html_safe %>").promise().done(function(){
   $("#competitors-datatable_filter").detach();
-  $("#competitors-datatable_paginate").detach()
+  $("#competitors-datatable_paginate").detach();
 
   var $table = $("#competitors-datatable");
 

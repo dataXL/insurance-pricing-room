@@ -25,15 +25,13 @@ class Tariff < ActiveRecord::Base
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       header = []
-      Tariff.column_names.each do |c|
-        unless c == "created_at" || c == "updated_at"
-          if c == "properties"
-            Tariff.first.properties.each do |k,v|
-              header << v
-            end
-          else
-            header << c
+      Tariff.friendly.each do |c|
+        if c == "properties"
+          Tariff.first.properties.each do |k,v|
+            header << v
           end
+        else
+          header << c
         end
       end
       csv << header
@@ -64,23 +62,26 @@ class Tariff < ActiveRecord::Base
       filtered = {}
       filters.each { |f| filtered[f] = row[f] }
 
-      tariff = Tariff.create!(:properties => filtered, :insurer_id => 1)
+      tariff = Tariff.create!(:properties => filtered)
 
       tariff.build_risk.save
-      tariff.competitors.build(:name => "My Company").save
+      tariff.competitors.build(:insurer => "My Company").save
     end
+
+    ## Add product template
+    ProductTemplate.create!(:name => "default", :tag => "insurance", :properties => {'Price':1,'Brand':1})
   end
 
   protected
 
     def self.friendly
       @friendly ||= columns.map { |column| column.name }
-      @friendly.except(["created_at","updated_at","insurer_id"])
+      @friendly.except(["created_at","updated_at"])
     end
 
     def self.filters
       @filters ||= columns.map { |column| column.name }
-      @filters.except(["id", "created_at","updated_at","insurer_id"])
+      @filters.except(["id", "created_at","updated_at"])
     end
 
     def self.open_spreadsheet(file)
@@ -91,18 +92,5 @@ class Tariff < ActiveRecord::Base
         else
           raise "Unknown file type: #{file.path}"
       end
-    end
-
-  private
-
-    def fetch_cost
-      #end_date = ...
-      #period = sales_period || build_sales_period
-      #period.end = end_date
-      #self.build_risk
-    end
-
-    def fetch_price
-      #self.build_risk
     end
 end

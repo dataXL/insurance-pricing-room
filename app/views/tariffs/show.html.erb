@@ -1,7 +1,4 @@
-<% if Tariff.all.empty? %>
-  <%= render :partial => '/tariffs/steps' %>
-<% else %>
-  <% provide(:title, "Risk Analysis") %>
+  <% provide(:title, "Tariff Analysis") %>
   <%= content_for :body_id, "datatables" %>
 
   <div class="menubar">
@@ -16,7 +13,7 @@
 
   <div class="content-wrapper" style="overflow:auto !important">
 
-    <table id="orders-datatable-2">
+    <table id="tariff-detail-datatable">
       <thead>
         <tr>
         <% @header.each do |header| %>
@@ -41,7 +38,7 @@
             <% @tariff.properties.each do |k,v| %>
               <td><%= v %></td>
             <% end %>
-            <td><%= @tariff.premium %></td>
+            <td><%= Competitor.find_by(:tariff_id => @tariff, :name => "My Company").premium  %></td>
           <% end %>
         </tr>
       </tbody>
@@ -52,4 +49,3 @@
     <span><i class="fa fa-angle-double-left"></i> Back</span>
   <% end %>
 </div>
-<% end %>

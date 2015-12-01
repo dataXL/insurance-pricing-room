@@ -1,0 +1,42 @@
+  thead
+    tr
+      th Scenario
+      th Price
+      th Share of Pref (%)
+      th Elasticity
+  tbody
+    tr
+      td High Price
+      td
+        = @mycompany.scenario(1.2)
+      td
+        /= @product.logit_e / Product.sum("logit_e")
+      td
+    tr
+      td Medium High Price
+      td
+        = @mycompany.scenario(1.1)
+      td
+        /= @product.logit_e / Product.sum("logit_e")
+      td
+    tr
+      td Medium Price
+      td
+        = @mycompany.scenario(1)
+      td
+        /= @product.logit_e / Product.sum("logit_e")
+      td
+    tr
+      td Medium Low Price</td>
+      td
+        = @mycompany.scenario(0.9)
+      td
+        /= @product.logit_e / Product.sum("logit_e")
+      td
+    tr
+      td Low Price
+      td
+        = @mycompany.scenario(0.8)
+      td
+        /= @product.logit_e / Product.sum("logit_e")
+      td

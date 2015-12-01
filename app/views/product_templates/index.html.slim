@@ -29,13 +29,13 @@
             div class="last-update"
               = pt.updated_at.strftime('%c')
 
-          div class="members">
+          div class="members"
             = image_tag "fallback/missing.jpg"
 
             a href="#" class="add-more"
               i class="fa fa-plus"
 
             ul class="menu"
-              li a href="#" Invite a new user
-              li a href="#">Change name
-              li a href="#">Delete project
+              li: a href="#" Change name
+              li: a href="#" Change tag
+              li: a href="#" Delete template

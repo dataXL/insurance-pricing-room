@@ -11,16 +11,17 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require jquery.purr
 //= require best_in_place
 //= require best_in_place.purr
 //= require jquery.turbolinks
-//= require jquery_ujs
 //= require jquery.remotipart
 //= require bootstrap/bootstrap.min
 //= require bootstrap-tagsinput
 //= require bootstrap-table
 //= require ../../../vendor/assets/javascripts/jquery.flot/jquery.flot
+//= require ../../../vendor/assets/javascripts/jquery.flot/jquery.flot.pie
 //= require ../../../vendor/assets/javascripts/jquery.flot/jquery.flot.time
 //= require ../../../vendor/assets/javascripts/jquery.flot/jquery.flot.categories
 //= require ../../../vendor/assets/javascripts/jquery.flot/jquery.flot.tooltip

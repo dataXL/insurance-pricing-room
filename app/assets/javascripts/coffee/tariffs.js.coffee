@@ -15,7 +15,6 @@ $(document).ready ->
     else
       $option.slideUp 150
 
-
   # Filter dropdown options for Created date, show/hide datepicker or input text
   $dropdown_switcher = $(".field-switch")
   $dropdown_switcher.change ->

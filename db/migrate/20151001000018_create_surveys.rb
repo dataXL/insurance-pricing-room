@@ -2,8 +2,8 @@ class CreateSurveys < ActiveRecord::Migration
   def change
     create_table :surveys do |t|
 
-      ## Foreign keys
-      t.references :product_id
+      ## References
+      t.references :product, index: true
 
       ## Properties
       t.string :product
@@ -13,7 +13,7 @@ class CreateSurveys < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    ## Indexes
-    add_index  :surveys, :product_id
+    ## Foreign Keys
+    add_foreign_key :surveys, :products
   end
 end

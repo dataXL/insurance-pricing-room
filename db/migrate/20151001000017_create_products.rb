@@ -2,26 +2,22 @@ class CreateProducts < ActiveRecord::Migration
   def change
     create_table :products do |t|
 
-      ## Foreign keys
-      t.integer :product_template_id
-      t.integer :tariff_id
+      ## References
+      t.references :competitor, index: true
+      t.references :product_template, index: true
 
       ## Properties
-      t.string :name
-      t.string :brand
-      t.jsonb :properties, null: false, default: '{}'
+      t.string :name,                    default: 'default'
+      t.string :properties, array: true, default: []
+      t.float :utility,                  default: '0.00'
+      t.float :logit_e,                  default: '0.00'
 
       ## Timestamps
       t.timestamps null: false
     end
 
-    ## Indexes
-    add_index :products, :properties, using: :gin
-    add_index :products, :product_template_id
-    add_index :products, :tariff_id
-
-    ## Restrictions
+    ## Foreign Keys
+    add_foreign_key :products, :competitors
     add_foreign_key :products, :product_templates
-    # add_foreign_key :products, :tariffs
   end
 end

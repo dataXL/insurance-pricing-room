@@ -38,8 +38,9 @@
                   td
                     = best_in_place coefficient, :intercept
                   - unless coefficient.coefficients.blank?
-                    - coefficient.coefficients.keys.each do |key|
+                    - coefficient.coefficients.each do |key,value|
                       td
-                        = best_in_place coefficient, key
+                        = value
+                        /best_in_place coefficient, key > corrigir para permitir best_in_place mas também SELECT queries
 
       div class="bottom-bar"

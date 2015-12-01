@@ -1,6 +1,6 @@
 class CompetitorsController < ApplicationController
   before_action :all_competitors, only: :index
-  before_action :set_competitors, only: [:show, :edit, :update, :destroy]
+  before_action :set_competitor, only: [:show, :edit, :update, :destroy]
   respond_to :html, :js
 
   require 'roo'
@@ -18,8 +18,8 @@ class CompetitorsController < ApplicationController
     focus = Competitor.all.group_by{|c| c[:tariff_id]}.values.first
 
     for i in 0...focus.length
-       bars << [focus[i].name, focus[i].premium]
-       insurers <<  [i, focus[i].name]
+       bars << [focus[i].insurer, focus[i].premium]
+       insurers <<  [i, focus[i].insurer]
     end
 
     gon.bars = bars
@@ -37,13 +37,13 @@ class CompetitorsController < ApplicationController
 
     data = []
     @competitors.each do |p|
-      temp = Competitor.new(name: p[:name],   premium: p[:premium], tariff_id: p[:tariff_id])
+      temp = Competitor.new(insurer: p[:insurer],   premium: p[:premium], tariff_id: p[:tariff_id])
       data << temp
     end
 
     g = PivotTable::Grid.new do |g|
       g.source_data  = data
-      g.column_name  = :name
+      g.column_name  = :insurer
       g.row_name     = :tariff_id
       g.field_name   = :premium
     end
@@ -68,8 +68,13 @@ class CompetitorsController < ApplicationController
     focus = Competitor.all.group_by{|c| c[:tariff_id]}[@fc_id]
 
     for i in 0...focus.length
-       @bars << [focus[i].name, focus[i].premium]
-       @insurers <<  [i, focus[i].name]
+       @bars << [focus[i].insurer, focus[i].premium]
+       @insurers <<  [i, focus[i].insurer]
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
@@ -159,7 +164,7 @@ class CompetitorsController < ApplicationController
     end
 
     # Use callbacks to share common setup or constraints between actions.
-    def set_product
+    def set_competitor
       @competitor = Competitor.find(params[:id])
     end
 

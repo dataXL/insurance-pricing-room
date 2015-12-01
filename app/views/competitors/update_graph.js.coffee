@@ -1,6 +1,6 @@
 ## Bar Chart
-$chrt_border_color = "#efefef";
-$chrt_second = "#d3d3d3";
+$chrt_border_color = "#efefef"
+$chrt_second = "#d3d3d3"
 
 dBar = <%= raw @bars %>
 insurers = <%= raw @insurers %>

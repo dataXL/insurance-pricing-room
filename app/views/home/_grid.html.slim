@@ -1,0 +1,15 @@
+table id="products-datatable"
+  thead
+    tr
+      th Property
+      - @pivot.column_headers.each do |column|
+        th
+          = column
+
+  tbody
+    - unless @product.empty?
+      - @pivot.rows.each do |row|
+        tr
+          - row.data.each do |d|
+            td
+              = d

@@ -2,18 +2,18 @@ class CreateCompetitors < ActiveRecord::Migration
   def change
     create_table :competitors do |t|
 
-      ## Foreign keys
-      t.references :tariff_id
+      ## References
+      t.references :tariff, index: true
 
       ## Properties
-      t.string :name
+      t.string :insurer
       t.float :premium
 
       ## Timestamps
       t.timestamps null: false
     end
 
-    ## Indexes
-    add_index  :competitors, :tariff_id
+    ## Foreign Keys
+    add_foreign_key :competitors, :tariffs
   end
 end

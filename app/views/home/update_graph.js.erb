@@ -1,0 +1,15 @@
+$("#tariffs-datatable_wrapper").html("<%= escape_javascript(render(:partial => 'home/tariffs')).html_safe %>").promise().done(function(){
+
+  $("#tariffs-datatable").dataTable({
+    paging: "full_numbers",
+    iDisplayLength: 20,
+    aLengthMenu: [ [ 20, 50, 100, -1 ], [ 20, 50, 100, "All" ] ],
+    bDestroy: true
+  });
+
+  $("#tariffs-datatable_length").detach();
+  $("#tariffs-datatable_filter").detach();
+  $("#tariffs-datatable_paginate").detach();
+  $("#tariffs-datatable_info").detach();
+
+});

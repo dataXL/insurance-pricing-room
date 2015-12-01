@@ -45,18 +45,17 @@
         }
     });
 
-    var $table = $("#other-datatable");
+    var $table = $("#tariff-detail-datatable");
 
     $table.dataTable({
-        bSort : false,
         sPaginationType: "full_numbers",
         iDisplayLength: 20,
         aLengthMenu: [[20, 50, 100, -1], [20, 50, 100, "All"]],
         bDestroy: true
     });
 
-    $("#other-datatable_filter").detach().appendTo("#topbar");
-    $("#other-datatable_paginate").detach().appendTo("#bottombar");
+    //$("#other-datatable_filter").detach().appendTo("#topbar");
+    //$("#other-datatable_paginate").detach().appendTo("#bottombar");
   };
 
   $(document).on("ready page:load", page_scripts);

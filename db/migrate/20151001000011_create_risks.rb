@@ -3,7 +3,7 @@ class CreateRisks < ActiveRecord::Migration
     create_table :risks do |t|
 
       ## Foreign keys
-      t.references :tariff
+      t.references :tariff, index: true
 
       ## Properties
       t.float :exposition
@@ -15,7 +15,7 @@ class CreateRisks < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    ## Indexes
-    add_index  :risks, :tariff_id
+    ## Foreign Keys
+    add_foreign_key :risks, :tariffs
   end
 end

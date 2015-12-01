@@ -1,0 +1,20 @@
+table id="tariffs-datatable"
+  thead
+    tr
+      th ID
+      th Cost
+      th Profit-max price
+      th Rev-max price
+
+  tbody
+    - unless Tariff.all.empty?
+      - Tariff.all.each do |tariff|
+        tr class=("selected" if tariff.id == @ctariff)
+          td
+            a href= tariff_path(tariff)
+              = tariff.id
+          td
+            = tariff.risk.cost
+          td
+          td
+            = number_with_precision(Competitor.find_by(:tariff_id => tariff.id, :insurer => "My Company").premium * 0.9, :precision => 2)

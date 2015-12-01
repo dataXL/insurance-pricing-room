@@ -5,6 +5,10 @@ class Competitor < ActiveRecord::Base
     Competitor.connection.execute("TRUNCATE TABLE competitors RESTART IDENTITY")
   end
 
+  def scenario(factor)
+    sprintf("%.2f", self.premium * factor)
+  end
+
   def self.import(file, filters)
 
     file = File.new("#{Rails.root}/tmp/files/#{file}", "r")
@@ -22,6 +26,7 @@ class Competitor < ActiveRecord::Base
       tariff = Tariff.where(:properties => row.to_json).first.id
 
       p = Competitor.create!(:premium => premium, :tariff_id => tariff, :name => name)
+      Product.create!(:product_template_id => 4, :tariff_id => 1, :name => "default", :brand => name, :properties => {'Price_L':1})
     end
   end
 

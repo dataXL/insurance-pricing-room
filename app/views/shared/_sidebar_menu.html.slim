@@ -7,10 +7,9 @@
           i class="fa fa-chevron-down"
 
       ul class="menu"
+        li: a href=edit_user_path(1) Account settings
         li
-          a href=edit_user_path(1) Account settings
-        li
-          a href=signin_features_path Sign out
+          = link_to('Sign out', destroy_user_session_path, :method => :delete)
 
     div class="menu-section"
       h3 General
@@ -115,10 +114,8 @@
             i class="fa fa-chevron-down"
 
           ul class="submenu"
-            li
-              a href=user_path(1) Personal Info
-            li
-              /a href=notifications_users_path Notifications
+            li: a href=user_path(1) Personal Info
+            li: a href="#" Notifications
 
         li class="option"
             a href=users_path
@@ -133,14 +130,14 @@
 
         li
           a href="<%= api_features_path %>"
-            i class="ion-information-circled"
-            /! span class="flag"
+            i class="ion-ios-filing-outline"
+             span class="flag"
 
-          /!<ul class="menu">
-            li a href="#" 5 unread messages
-            li a href="#" 12 tasks completed
-            li a href="#" 3 features added
+          ul class="menu"
+            li: a href="#" 5 unread messages
+            li: a href="#" 12 tasks completed
+            li: a href="#" 3 features added
 
         li
-          a href="#"
+          = link_to(destroy_user_session_path, :method => :delete) do
             i class="ion-log-out"

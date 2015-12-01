@@ -10,8 +10,64 @@
             /*padding: 5px 50px;*/
         }
 
+        .odd:hover > td {
+          background-color: #fff5c3;
+          cursor: pointer;
+        }
+
+        .even:hover > td {
+          background-color: #fff5c3;
+          cursor: pointer;
+        }
+
+        .referral b {
+          margin: 0 10px;
+        }
+
+        .referral p {
+          padding-top: 10px;
+        }
+
+        #ex1Slider {
+          width: 80%;
+        }
+
+        #ex1Slider .slider-selection {
+          background: #BABABA;
+        }
+
+        #ex1Slider .slider-handle {
+          background: black;
+        }
+
+        table th:first-child {
+            text-align: left !important;
+        }​
+
         td {
             /*padding: 5px 50px;*/
+        }
+
+        #previous {
+            cursor: pointer;
+            font-size:28px;
+            margin-right:10px;
+            color: gray;
+        }
+
+        #next {
+            cursor: pointer;
+            font-size:28px;
+            color: gray;
+        }
+
+        #previous:hover, #next:hover {
+            color:black;
+        }
+
+        .pointers {
+            float: right;
+            margin: -50px 20px 0px 0px;
         }
 
         .stats {
@@ -76,6 +132,30 @@
 
 
     .menubar {
+        .options {
+          a {
+            position: relative;
+            top: 2px;
+            margin-left: 20px;
+            color: #96AEC4;
+            text-decoration: none;
+
+            @include transition(all .2s linear);
+
+            @media (max-width: $maxSmall) {
+              margin-left: 10px;
+            }
+
+            &:hover {
+              color: #344D63;
+            }
+
+            i {
+              margin-right: 3px;
+            }
+          }
+        }
+
         .period-select {
             float: right;
             min-width: 350px;
@@ -163,7 +243,7 @@
     }
 
     .chart {
-        margin: 40px 0 70px;
+        margin: 40px 0 30px;
         background: #fff;
 
         border: 1px solid #DFE3EB;
@@ -245,9 +325,39 @@
             }
 
             #signups-chart {
-                height: 200px;
+                height: 310px;
                 position: relative;
             }
+
+            &.pull-left {
+                height:350px;
+                overflow-y:scroll;
+            }
+
+            &.pull-right {
+                height:350px;
+                overflow-y:scroll;
+            }
+        }
+
+        .odd.selected > td {
+          background-color: #dbf0f6;
+          font-weight: bold;
+        }
+
+        .even.selected > td {
+          background-color: #dbf0f6;
+          font-weight: bold;
+        }
+
+        .odd:hover > td {
+          background-color: #fff5c3;
+          cursor: pointer;
+        }
+
+        .even:hover > td {
+          background-color: #fff5c3;
+          cursor: pointer;
         }
     }
 

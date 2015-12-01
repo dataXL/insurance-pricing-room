@@ -1,6 +1,6 @@
 class Coefficient < ActiveRecord::Base
   store_accessor :intercept
-  after_initialize :add_field_accessors
+  #after_initialize :add_field_accessors
   #serialize :coefficients, HashSerializer
   store_accessor :coefficients
 
@@ -36,6 +36,17 @@ class Coefficient < ActiveRecord::Base
 
       Coefficient.create!(:intercept => intercept, :coefficients => row, :product_template_id => 1)
     end
+
+    avg_intercept = sprintf("%.5f", Coefficient.average(:intercept))
+    avg_price = sprintf("%.5f", Coefficient.connection.execute("SELECT round(AVG((coefficients->>'Price_L')::numeric),5) FROM coefficients").first["round"])
+
+    competitors = Competitor.select(:id, :premium).group(:id, :insurer)
+
+    # Procurar por competitor id para encontrar
+    #Product.all.each do |product|
+    #  utility = avg_intercept + avg_price * competitor.premium
+    #  product.update_attributes(:utility => utility, :logit_e => Math.exp(utility.to_f))
+    #end
   end
 
   protected

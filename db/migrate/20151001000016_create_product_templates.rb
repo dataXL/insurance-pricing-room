@@ -4,7 +4,7 @@ class CreateProductTemplates < ActiveRecord::Migration
 
       ## Properties
       t.string :name
-      t.string :tag
+      t.string :tag,                    default: 'insurance'
       t.jsonb :properties, null: false, default: '{}'
 
       ## Timestamps

@@ -6,6 +6,52 @@ class HomeController < ApplicationController
 	end
 
   def dashboard
+    @ctariff = Tariff.first.id
+
+    @mycompany = Competitor.find_by(:tariff_id => @ctariff, :insurer => "My Company")
+    #@product = Product.find_by(:brand => "My Company")
+
+    xs, ys = [1.2,4.5], [5.6,8.7]
+
+    linear_model = SimpleLinearRegression.new(xs, ys)
+    puts "Model generated with"
+    puts "Slope: #{linear_model.slope}"
+    puts "Y-Intercept: #{linear_model.y_intercept}"
+    puts "\n"
+    puts "Estimated Linear Model:"
+    puts "Y = #{linear_model.y_intercept} + (#{linear_model.slope} * X)"
+  end
+
+  def grid
+    @ctariff = Tariff.first.id
+    @competitors = Competitor.all
+    @products = Product.all
+
+    data = []
+    @products.each do |p|
+      temp = Competitor.new(name: p[:name],   brand: p[:brand], premium: Competitor.find_by(:tariff_id => @ctariff, :name => p.brand).premium)
+      data << temp
+    end
+
+    g = PivotTable::Grid.new do |g|
+      g.source_data  = data
+      g.column_name  = :name
+      g.row_name     = :brand
+      g.field_name   = :premium
+    end
+
+    @pivot = g.build
+  end
+
+  def update_graph
+
+    if params[:ctariff].to_i < Tariff.first.id
+      @ctariff = Tariff.first.id
+    elsif params[:ctariff].to_i > Tariff.last.id
+      @ctariff = Tariff.last.id
+    else
+      @ctariff = params[:ctariff].to_i
+    end
   end
 
   def dashboard2

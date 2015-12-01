@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123102836) do
+ActiveRecord::Schema.define(version: 20151001000022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,18 +25,10 @@ ActiveRecord::Schema.define(version: 20151123102836) do
 
   add_index "brokers", ["fields"], name: "index_brokers_on_fields", using: :gin
 
-  create_table "codings", force: :cascade do |t|
-    t.jsonb    "properties", default: {}, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  add_index "codings", ["properties"], name: "index_codings_on_properties", using: :gin
-
   create_table "coefficients", force: :cascade do |t|
+    t.integer  "product_template_id"
     t.float    "intercept"
     t.jsonb    "coefficients",        default: {}, null: false
-    t.integer  "product_template_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end
@@ -46,24 +38,13 @@ ActiveRecord::Schema.define(version: 20151123102836) do
 
   create_table "competitors", force: :cascade do |t|
     t.integer  "tariff_id"
-    t.string   "name"
+    t.string   "insurer"
     t.float    "premium"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "competitors", ["tariff_id"], name: "index_competitors_on_tariff_id", using: :btree
-
-  create_table "crawlers", force: :cascade do |t|
-    t.string   "name"
-    t.jsonb    "fields",     default: {}, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "tag"
-    t.string   "image_tag"
-  end
-
-  add_index "crawlers", ["fields"], name: "index_crawlers_on_fields", using: :gin
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -93,33 +74,33 @@ ActiveRecord::Schema.define(version: 20151123102836) do
 
   create_table "product_templates", force: :cascade do |t|
     t.string   "name"
-    t.string   "tag"
-    t.jsonb    "properties", default: {}, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "tag",        default: "insurance"
+    t.jsonb    "properties", default: {},          null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "product_templates", ["properties"], name: "index_product_templates_on_properties", using: :gin
 
   create_table "products", force: :cascade do |t|
+    t.integer  "competitor_id"
     t.integer  "product_template_id"
-    t.integer  "tariff_id"
-    t.string   "name"
-    t.string   "brand"
-    t.jsonb    "properties",          default: {}, null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string   "name",                default: "default"
+    t.string   "properties",          default: [],                     array: true
+    t.float    "utility",             default: 0.0
+    t.float    "logit_e",             default: 0.0
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
+  add_index "products", ["competitor_id"], name: "index_products_on_competitor_id", using: :btree
   add_index "products", ["product_template_id"], name: "index_products_on_product_template_id", using: :btree
-  add_index "products", ["properties"], name: "index_products_on_properties", using: :gin
-  add_index "products", ["tariff_id"], name: "index_products_on_tariff_id", using: :btree
 
   create_table "risks", force: :cascade do |t|
     t.integer  "tariff_id"
-    t.float  "exposition"
-    t.float  "frequency"
-    t.float  "risk"
+    t.float    "exposition"
+    t.float    "frequency"
+    t.float    "risk"
     t.float    "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -128,24 +109,22 @@ ActiveRecord::Schema.define(version: 20151123102836) do
   add_index "risks", ["tariff_id"], name: "index_risks_on_tariff_id", using: :btree
 
   create_table "surveys", force: :cascade do |t|
+    t.integer  "product_id"
     t.string   "product"
     t.integer  "answer"
-    t.integer  "product_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "surveys", ["product_id"], name: "index_surveys_on_product_id", using: :btree
 
   create_table "tariffs", force: :cascade do |t|
-    t.integer  "insurer_id"
     t.jsonb    "properties", default: {}, null: false
     t.integer  "segment",    default: 1,  null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
-  add_index "tariffs", ["insurer_id"], name: "index_tariffs_on_insurer_id", using: :btree
   add_index "tariffs", ["properties"], name: "index_tariffs_on_properties", using: :gin
 
   create_table "users", force: :cascade do |t|
@@ -177,10 +156,10 @@ ActiveRecord::Schema.define(version: 20151123102836) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
-  create_table "utilities", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "coefficients", "product_templates"
+  add_foreign_key "competitors", "tariffs"
+  add_foreign_key "products", "competitors"
   add_foreign_key "products", "product_templates"
+  add_foreign_key "risks", "tariffs"
+  add_foreign_key "surveys", "products"
 end

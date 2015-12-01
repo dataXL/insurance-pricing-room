@@ -143,7 +143,7 @@ var Sidebar = {
 			$account_menu.toggleClass("active");
 		});
 
-		$account_menu.click(function (e) { e.stopPropagation() });
+		//$account_menu.click(function (e) { e.stopPropagation() });
 		$("body").click(function () { $account_menu.removeClass("active") });
 
 

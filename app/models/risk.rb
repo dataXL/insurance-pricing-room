@@ -24,7 +24,14 @@ class Risk < ActiveRecord::Base
       Risk.find(tariff).update_attributes(:cost => cost)
 
       Competitor.find(tariff).update_attributes({:premium => cost}.reject{|k,v| v.blank?})
+      Competitor.find(tariff).update_attributes(:insurer => "My Company")
+
     end
+
+    pt_id = ProductTemplate.first.id
+    ## Add product
+    Product.create!(:product_template_id => pt_id, :name => "default", :competitor_id => 1, :properties => {'Price_L':1})
+
   end
 
   protected

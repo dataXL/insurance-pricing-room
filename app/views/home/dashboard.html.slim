@@ -1,0 +1,52 @@
+  - provide :title, "Dashboard"
+  = content_for :body_id, "dashboard"
+
+  div class="menubar"
+    div class="sidebar-toggler visible-xs"
+      i class="ion-navicon"
+
+    div class="page-title" Dashboard
+
+    div class="options pull-right" style="margin-top:5px !important"
+      = link_to(:action => "dashboard", :remote => true) do
+        i class="fa fa-th-list" style="font-size:20px !important;"
+      = link_to(:action => "grid", :remote => true) do
+        i class="fa fa-th" style="font-size:20px !important; margin-left:-15px !important; margin-right:30px !important"
+
+  div class="content-wrapper"
+
+    div class="chart"
+      h3
+        i
+          | f
+        small
+          | (Preference Share)
+        span
+          | = Price
+      div class="pointers"
+        i id="previous" class="ion-android-arrow-dropleft-circle"
+        i id="next" class="ion-android-arrow-dropright-circle"
+
+      div id="visitors-chart" style="width:1078px; height:230px"
+
+    div
+      == render "products"
+
+    div class="charts-half clearfix" style="margin-top:50px !important"
+      div class="chart pull-left"
+        h3 Tariffs
+
+        == render "tariffs"
+
+      div class="chart pull-right"
+        h3 Price Scenarios
+        table id="scenarios-datatable"
+          == render "scenarios"
+
+      /!div class="chart pull-left" style="height:380px !important"
+        /!h3 Beta Coefficients
+        /!div id="beta-coefficients"
+
+      /!div class="chart pull-right" style="height:380px !important"
+        /!h3 Product Utilities
+        /!div id="pie-chart" style="width:400px;height:300px"

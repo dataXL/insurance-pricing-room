@@ -1,0 +1,17 @@
+table id="products-datatable"
+  thead
+    tr
+      th Product
+      - unless ProductTemplate.all.nil?
+        - ProductTemplate.first.properties.keys.each do |key|
+          th = key
+
+  tbody
+    - unless Product.all.nil?
+      - Product.all.each do |product|
+        tr
+          td = best_in_place product, :name
+          td
+            /= best_in_place product, :brand
+          td
+            /= Competitor.find_by(:tariff_id => @ctariff, :name => product.brand).premium
