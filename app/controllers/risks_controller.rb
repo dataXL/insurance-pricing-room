@@ -23,7 +23,11 @@ class RisksController < ApplicationController
 
     ## Save file to tmp/files/
     @name = "#{Time.now.strftime("%Y%m%d%H%M%S")}_#{params[:file].original_filename}"
-    directory = "tmp/files"
+
+    directory = "#{Rails.root}/tmp/files"
+
+    Dir.mkdir(directory) unless File.exists?(directory)
+
     path = File.join(directory, @name)
     File.open(path, "wb") { |f| f.write(params[:file].read) }
 
